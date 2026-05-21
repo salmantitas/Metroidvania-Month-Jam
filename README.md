@@ -1,2 +1,2 @@
-# Metroidvania-Month-Jam
+# Metroidvania Month Jam
 
