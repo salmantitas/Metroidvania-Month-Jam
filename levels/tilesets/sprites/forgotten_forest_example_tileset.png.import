@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://otl8chc5kr72"
-path="res://.godot/imported/mmj.png-4887bb2b2d78beb77a5845b38425291b.ctex"
+uid="uid://1tatd065ihn5"
+path="res://.godot/imported/forgotten_forest_example_tileset.png-3277205aa86decc8e0a67df9ac2fbd81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mmj.png"
-dest_files=["res://.godot/imported/mmj.png-4887bb2b2d78beb77a5845b38425291b.ctex"]
+source_file="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png"
+dest_files=["res://.godot/imported/forgotten_forest_example_tileset.png-3277205aa86decc8e0a67df9ac2fbd81.ctex"]
 
 [params]
 

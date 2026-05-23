@@ -10,15 +10,17 @@ config_version=5
 
 [application]
 
-config/name="Metroidvania Month Jam"
-run/main_scene="uid://b64xostupctnq"
+config/name="Metroidvania Month Jam 2026"
+config/version="0.08"
+run/main_scene="uid://tv46cj7vcfkf"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://otl8chc5kr72"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=3
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"

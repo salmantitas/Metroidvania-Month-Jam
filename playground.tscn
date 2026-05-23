@@ -37,8 +37,8 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_edjgo")
 
 [node name="Sprite2D8" type="Sprite2D" parent="." unique_id=980997014]
-position = Vector2(51.00001, 227.50002)
-scale = Vector2(3.3750007, 1.3437508)
+position = Vector2(204, 221.00002)
+scale = Vector2(3.3750007, 2.9375002)
 texture = SubResource("GradientTexture2D_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D8" unique_id=156073223]
@@ -77,17 +77,6 @@ texture = SubResource("GradientTexture2D_rupst")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D" unique_id=200068729]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=354322789]
-position = Vector2(489, 138)
-rotation = 1.5707964
-scale = Vector2(16.3125, 1)
-texture = SubResource("GradientTexture2D_rupst")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D10" unique_id=311881417]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D10/StaticBody2D" unique_id=1079585616]
-shape = SubResource("RectangleShape2D_edjgo")
-
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1299979031]
 position = Vector2(1266, 730.86584)
 rotation = 1.5707964
@@ -122,9 +111,9 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_edjgo")
 
 [node name="Sprite2D9" type="Sprite2D" parent="." unique_id=507427609]
-position = Vector2(174.00002, 256.00006)
-rotation = 3.3763733
-scale = Vector2(4.943001, 2.0275185)
+position = Vector2(39, 240.99998)
+rotation = 0.629548
+scale = Vector2(4.7433505, 1.987358)
 texture = SubResource("GradientTexture2D_rupst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D9" unique_id=407929470]
