@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Metroidvania Month Jam 2026"
-config/version="0.08"
+config/version="0.12"
 run/main_scene="uid://tv46cj7vcfkf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://otl8chc5kr72"
+
+[autoload]
+
+SceneManager="*uid://dv3vmgirr1k3l"
 
 [display]
 
@@ -24,6 +28,10 @@ window/size/mode=3
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -82,6 +90,7 @@ action={
 
 2d_physics/layer_1="ground"
 2d_physics/layer_2="one way platform"
+2d_physics/layer_5="player"
 
 [physics]
 
