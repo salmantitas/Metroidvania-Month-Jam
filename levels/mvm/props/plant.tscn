@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://mr7cyq54kym4"]
+
+[ext_resource type="Texture2D" uid="uid://jikt5oi22bdv" path="res://levels/tilesets/sprites/mvm-2026-grass.png" id="1_bto4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdfgy"]
+atlas = ExtResource("1_bto4w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqalk"]
+atlas = ExtResource("1_bto4w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfhue"]
+atlas = ExtResource("1_bto4w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ayr"]
+atlas = ExtResource("1_bto4w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df2w1"]
+atlas = ExtResource("1_bto4w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08onm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdfgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqalk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfhue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ayr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df2w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ayr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfhue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqalk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Plant" type="AnimatedSprite2D" unique_id=1392916047]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_08onm")
+autoplay = "default"
+frame_progress = 0.7616259

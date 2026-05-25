@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bkjbair0atc65"]
+
+[ext_resource type="Texture2D" uid="uid://cbx5cr72wj8nv" path="res://levels/tilesets/sprites/mvm-2026-tileset.png" id="1_nsdud"]
+[ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="2_iptdg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iptdg"]
+atlas = ExtResource("1_nsdud")
+region = Rect2(208, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl4he"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iptdg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_cxyc4"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dnf12"]
+gradient = SubResource("Gradient_cxyc4")
+width = 128
+height = 128
+
+[sub_resource type="Gradient" id="Gradient_boad6"]
+offsets = PackedFloat32Array(0, 0.25625, 0.63125, 0.9875)
+colors = PackedColorArray(1, 1, 1, 1, 0.083333254, 1, 0, 1, 0, 0.83333325, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cxyc4"]
+gradient = SubResource("Gradient_boad6")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.50390625, 0.48046875)
+fill_to = Vector2(1, 0.5)
+
+[node name="GlowPlant" type="AnimatedSprite2D" unique_id=1910336948]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_cl4he")
+autoplay = "default"
+frame_progress = 0.45638132
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=280128860]
+visible = false
+z_index = -1
+texture = SubResource("GradientTexture2D_dnf12")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=258328222]
+position = Vector2(0, -2)
+color = Color(0.81, 0.81, 0.81, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_cxyc4")
+script = ExtResource("2_iptdg")
+flicker_intensity = 0.2
+flicker_frequency = 0.1

@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Metroidvania Month Jam 2026"
-config/version="0.12"
-run/main_scene="uid://tv46cj7vcfkf"
+config/version="0.1"
+run/main_scene="uid://b2so5wjsaqq0x"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://otl8chc5kr72"
 
