@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cbx5cr72wj8nv" path="res://levels/tilesets/sprites/mvm-2026-tileset.png" id="1_nsdud"]
 [ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="2_iptdg"]
+[ext_resource type="Script" uid="uid://cxlmkq7qppk1g" path="res://general/save_point/save_point.gd" id="2_ww43l"]
+[ext_resource type="FontFile" uid="uid://c25cinp3huvci" path="res://general/fonts/alagard.ttf" id="4_h6rrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iptdg"]
 atlas = ExtResource("1_nsdud")
@@ -27,22 +29,111 @@ width = 128
 height = 128
 
 [sub_resource type="Gradient" id="Gradient_boad6"]
-offsets = PackedFloat32Array(0, 0.25625, 0.63125, 0.9875)
-colors = PackedColorArray(1, 1, 1, 1, 0.083333254, 1, 0, 1, 0, 0.83333325, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.9875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cxyc4"]
 gradient = SubResource("Gradient_boad6")
-width = 128
-height = 128
+width = 256
+height = 256
 fill = 1
 fill_from = Vector2(0.50390625, 0.48046875)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6r75"]
+size = Vector2(60, 50)
+
+[sub_resource type="Animation" id="Animation_f82ql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-44, -63)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5y7y7"]
+resource_name = "game_saved"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 2.5, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-44, -43), Vector2(-44, -53), Vector2(-44, -48), Vector2(-44, -48), Vector2(-44, -43)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xkp8w"]
+_data = {
+&"RESET": SubResource("Animation_f82ql"),
+&"game_saved": SubResource("Animation_5y7y7")
+}
+
 [node name="GlowPlant" type="AnimatedSprite2D" unique_id=1910336948]
-position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_cl4he")
 autoplay = "default"
 frame_progress = 0.45638132
+script = ExtResource("2_ww43l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=280128860]
 visible = false
@@ -51,9 +142,39 @@ texture = SubResource("GradientTexture2D_dnf12")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=258328222]
 position = Vector2(0, -2)
-color = Color(0.81, 0.81, 0.81, 1)
-energy = 0.5
+color = Color(0.49411765, 1, 0.61960787, 1)
 texture = SubResource("GradientTexture2D_cxyc4")
 script = ExtResource("2_iptdg")
 flicker_intensity = 0.2
 flicker_frequency = 0.1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1654667036]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1185263432]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_y6r75")
+debug_color = Color(0.8235294, 0, 0.9607843, 0)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1822139933]
+
+[node name="Label" type="Label" parent="Node2D" unique_id=517845931]
+visible = false
+offset_left = -44.0
+offset_top = -63.0
+offset_right = 47.0
+offset_bottom = -48.0
+theme_override_colors/font_color = Color(0.15727401, 0.15727395, 0.15727383, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_h6rrp")
+theme_override_font_sizes/font_size = 8
+text = "Game Saved"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=106713517]
+libraries/ = SubResource("AnimationLibrary_xkp8w")

@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://b2so5wjsaqq0x"]
 
 [ext_resource type="TileSet" uid="uid://ofck8ym3y2fl" path="res://levels/tilesets/forgotten_forest.tres" id="1_fvrtv"]
-[ext_resource type="PackedScene" uid="uid://bcs4en0icq7vm" path="res://player/player.tscn" id="2_pu3y4"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="3_1pu88"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="4_vhcel"]
 [ext_resource type="PackedScene" uid="uid://drxlp0sb0ptr0" path="res://levels/props/plant.tscn" id="5_qmxb0"]
 [ext_resource type="Texture2D" uid="uid://cxvqjrf38q1nd" path="res://levels/tilesets/light_stream.jpg" id="6_chwhs"]
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
+[ext_resource type="PackedScene" uid="uid://cm83u0ym4quvm" path="res://general/player_spawn/player_spawn.tscn" id="7_vdj2u"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -114,6 +114,7 @@ collision_enabled = false
 
 [node name="Parallax2D3" type="Parallax2D" parent="BGParallaxLayers" unique_id=331347555]
 scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(76, 11)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="BGParallaxLayers/Parallax2D3" unique_id=433568169]
 modulate = Color(0.20784314, 0.25882354, 0.3764706, 1)
@@ -134,27 +135,27 @@ tile_map_data = PackedByteArray("AAABAPv/AQALAAYAAAACAPv/AQAMAAYAAAADAPv/AQANAAY
 tile_set = ExtResource("1_fvrtv")
 collision_enabled = false
 
-[node name="Props2" type="Node2D" parent="BGParallaxLayers" unique_id=1726183617]
+[node name="Props2" type="Node2D" parent="BGParallaxLayers/Parallax2D" unique_id=1726183617]
 modulate = Color(0.35686275, 0.62352943, 1, 1)
 position = Vector2(214, 11)
 
-[node name="Plant" parent="BGParallaxLayers/Props2" unique_id=453032133 instance=ExtResource("5_qmxb0")]
+[node name="Plant" parent="BGParallaxLayers/Parallax2D/Props2" unique_id=453032133 instance=ExtResource("5_qmxb0")]
 position = Vector2(112, 32)
 
-[node name="Plant2" parent="BGParallaxLayers/Props2" unique_id=1928076875 instance=ExtResource("5_qmxb0")]
+[node name="Plant2" parent="BGParallaxLayers/Parallax2D/Props2" unique_id=1928076875 instance=ExtResource("5_qmxb0")]
 position = Vector2(-50, 32)
 speed_scale = 1.5
 flip_h = true
 
-[node name="Plant3" parent="BGParallaxLayers/Props2" unique_id=414337884 instance=ExtResource("5_qmxb0")]
+[node name="Plant3" parent="BGParallaxLayers/Parallax2D/Props2" unique_id=414337884 instance=ExtResource("5_qmxb0")]
 position = Vector2(535, 91)
 speed_scale = 1.2
 
-[node name="Plant4" parent="BGParallaxLayers/Props2" unique_id=1495687639 instance=ExtResource("5_qmxb0")]
+[node name="Plant4" parent="BGParallaxLayers/Parallax2D/Props2" unique_id=1495687639 instance=ExtResource("5_qmxb0")]
 position = Vector2(338, 117)
 speed_scale = 1.3
 
-[node name="Plant5" parent="BGParallaxLayers/Props2" unique_id=1459698036 instance=ExtResource("5_qmxb0")]
+[node name="Plant5" parent="BGParallaxLayers/Parallax2D/Props2" unique_id=1459698036 instance=ExtResource("5_qmxb0")]
 position = Vector2(226, 155)
 speed_scale = 1.4
 
@@ -195,9 +196,6 @@ speed_scale = 1.3
 [node name="Plant5" parent="LevelTileMaps/Props" unique_id=1925864431 instance=ExtResource("5_qmxb0")]
 position = Vector2(1064, 144)
 speed_scale = 1.4
-
-[node name="Player" parent="." unique_id=1765724504 instance=ExtResource("2_pu3y4")]
-position = Vector2(733, 159)
 
 [node name="ForegroundElements" type="Node2D" parent="." unique_id=2019898445]
 
@@ -285,3 +283,6 @@ texture = SubResource("GradientTexture2D_8sv46")
 lifetime = 5.0
 randomness = 0.73
 process_material = SubResource("ParticleProcessMaterial_72pnk")
+
+[node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("7_vdj2u")]
+position = Vector2(983, 144)

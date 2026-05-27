@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bt1ocuftjf8gi" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://y0mcqnb4r6n8" path="res://player/states/crouch.gd" id="6_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://c2ps2vvq0sh5k" path="res://player/sprites/hero.png" id="7_boad6"]
+[ext_resource type="Script" uid="uid://d05avm2afubar" path="res://player/scripts/input_hints.gd" id="8_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://dc4c7mk3uf47v" path="res://player/input_icons.png" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 radius = 8.0
@@ -122,7 +124,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1765724504 groups=["Player"]]
-z_index = 1
+z_index = 2
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_oul6g")
@@ -167,6 +169,7 @@ disabled = true
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
 
 [node name="Label" type="Label" parent="." unique_id=1503990344]
+visible = false
 offset_left = -18.0
 offset_top = -69.0
 offset_right = 22.0
@@ -193,3 +196,11 @@ position = Vector2(0, -29)
 color = Color(0.8852009, 0.64607096, 0.3716775, 1)
 energy = 0.5
 texture = SubResource("GradientTexture2D_rgyib")
+
+[node name="InputHints" type="Node2D" parent="." unique_id=1071120282]
+script = ExtResource("8_hg6s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=782976749]
+position = Vector2(0, -65)
+texture = ExtResource("8_rgyib")
+hframes = 16

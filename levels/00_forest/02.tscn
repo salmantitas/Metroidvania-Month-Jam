@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="3_s2tn3"]
 [ext_resource type="PackedScene" uid="uid://crq5m6ftxlif8" path="res://levels/props/torch.tscn" id="4_s2tn3"]
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="5_o5ap7"]
+[ext_resource type="PackedScene" uid="uid://cm83u0ym4quvm" path="res://general/player_spawn/player_spawn.tscn" id="6_tfgdr"]
+[ext_resource type="PackedScene" uid="uid://dlnooflu8wld2" path="res://general/save_point/save_point.tscn" id="7_152a0"]
 
 [sub_resource type="Gradient" id="Gradient_chwhs"]
 colors = PackedColorArray(0.8, 1, 1, 0.4117647, 1, 1, 1, 1)
@@ -69,6 +71,12 @@ modulate = Color(0.3137255, 0.3137255, 0.3137255, 1)
 material = ExtResource("5_o5ap7")
 position = Vector2(568, 220)
 texture = SubResource("NoiseTexture2D_o5ap7")
+
+[node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("6_tfgdr")]
+position = Vector2(47, 224)
+
+[node name="SavePoint" parent="." unique_id=1742413698 instance=ExtResource("7_152a0")]
+position = Vector2(246, 224)
 
 [node name="FogParallax2D2" type="Parallax2D" parent="." unique_id=1047857399]
 scroll_scale = Vector2(1.4, 1)

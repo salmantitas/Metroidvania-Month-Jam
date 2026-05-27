@@ -24,6 +24,15 @@ var previous_state : PlayerState :
 	get : return states[1]
 #endregion
 
+#region /// Player Stack
+var hp : float = 20
+var max_hp : float = 20
+var dash : bool = false
+var double_jump : bool = false
+var ground_slam : bool = false
+var morph_roll : bool = false
+#endregion
+
 #region /// Standard Variables
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980
@@ -35,8 +44,11 @@ func _ready() -> void:
 		self.queue_free()
 	initialize_states()
 	self.call_deferred( "reparent", get_tree().root)
+	Messages.player_healed.connect( _on_player_healed 	)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed( "action"):
+		Messages.player_interacted.emit(self)
 	change_state( current_state.handle_input(event))
 
 # Called every frame
@@ -116,3 +128,10 @@ func add_debug_indicator( color : Color = Color.RED ) -> void:
 	await get_tree().create_timer( 3.0 ).timeout
 	
 	pass
+
+func _on_player_healed( amount : float) -> void:
+	hp += amount
+	hp = clampf(hp, 0, max_hp)
+	
+	print("Player healed for: " + str(amount))
+	print("HP: " + str(hp))
