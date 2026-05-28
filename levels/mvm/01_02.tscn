@@ -27,6 +27,16 @@ height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Gradient" id="Gradient_boad6"]
+offsets = PackedFloat32Array(0, 0.9875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia6je"]
+gradient = SubResource("Gradient_boad6")
+fill = 1
+fill_from = Vector2(0.50390625, 0.48046875)
+fill_to = Vector2(1, 0.5)
+
 [node name="02" type="Node2D" unique_id=1411465302]
 
 [node name="BGParallaxLayers" type="Node2D" parent="." unique_id=895188431]
@@ -137,6 +147,11 @@ tile_set = ExtResource("1_c0bfd")
 [node name="Plant" parent="LevelTiles" unique_id=1392916047 instance=ExtResource("5_ofqga")]
 position = Vector2(41, 93.333336)
 
+[node name="PointLight2D" type="PointLight2D" parent="LevelTiles" unique_id=866372922]
+position = Vector2(236, 80)
+color = Color(0.49411765, 1, 0.61960787, 1)
+texture = SubResource("GradientTexture2D_ia6je")
+
 [node name="LevelBounds" type="Node2D" parent="." unique_id=1483850271]
 z_index = 256
 position = Vector2(-320, 1)
@@ -149,6 +164,7 @@ metadata/_custom_type_script = "uid://bs17osqaujnog"
 position = Vector2(-320, 232)
 size = 5
 target_level = "uid://tv46cj7vcfkf"
+target_area_name = "LevelTransition2"
 
 [node name="LevelTransition2" parent="." unique_id=2062890910 instance=ExtResource("4_7w7yb")]
 position = Vector2(768, 289)

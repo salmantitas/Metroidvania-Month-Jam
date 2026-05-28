@@ -3,8 +3,8 @@
 class_name LevelBounds
 extends Node2D
 
-@export_range(480, 2048, 32, "suffic:px") var width : int = 480 : set = _on_width_changed
-@export_range(270, 2048, 32, "suffic:px") var height : int = 270 : set = _on_height_changed
+@export_range(480, 2304, 32, "suffic:px") var width : int = 480 : set = _on_width_changed
+@export_range(270, 2304, 32, "suffic:px") var height : int = 270 : set = _on_height_changed
 
 func _ready() -> void:
 	#Set Z-Index so that level bound is on top of  everything else

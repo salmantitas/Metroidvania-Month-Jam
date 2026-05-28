@@ -143,7 +143,7 @@ position = Vector2(237, 218)
 scale = Vector2(1.5, 1.5)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="TileMapContainer/Level" unique_id=977127439]
-energy = 0.33
+energy = 0.5
 blend_mode = 1
 
 [node name="Foreground" type="Parallax2D" parent="TileMapContainer" unique_id=698517105]
@@ -159,13 +159,6 @@ tile_set = ExtResource("2_oqrgu")
 
 [node name="MenuContainer" type="CanvasLayer" parent="." unique_id=1284655582]
 script = ExtResource("5_fh6ay")
-
-[node name="Control" type="Control" parent="MenuContainer" unique_id=315684299]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainer" unique_id=1670142145]
 unique_name_in_owner = true

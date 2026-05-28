@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://buvxhd51y1ucm" path="res://player/sprites/player_spritesheet.png" id="7_7hbv7"]
 [ext_resource type="Script" uid="uid://d05avm2afubar" path="res://player/scripts/input_hints.gd" id="8_giqxb"]
 [ext_resource type="Texture2D" uid="uid://dc4c7mk3uf47v" path="res://player/input_icons.png" id="9_3fsdd"]
-[ext_resource type="FontFile" uid="uid://c25cinp3huvci" path="res://general/fonts/alagard.ttf" id="10_3fsdd"]
 [ext_resource type="Script" uid="uid://c7ilxcybs2ua2" path="res://player/tutorial_hints.gd" id="10_ik82o"]
+[ext_resource type="FontFile" uid="uid://0dmwp65n8wek" path="res://general/fonts/prstartk.ttf" id="11_ik82o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 radius = 8.0
@@ -189,7 +189,8 @@ zoom = Vector2(0.9, 0.9)
 script = ExtResource("8_giqxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=1392081789]
-position = Vector2(0, -60)
+position = Vector2(-1, -65)
+scale = Vector2(2, 2)
 texture = ExtResource("9_3fsdd")
 hframes = 21
 
@@ -198,13 +199,13 @@ script = ExtResource("10_ik82o")
 
 [node name="Label" type="Label" parent="TutorialHints" unique_id=1724432836]
 offset_left = -52.0
-offset_top = -75.0
+offset_top = -95.0
 offset_right = 52.0
-offset_bottom = -67.0
-theme_override_colors/font_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+offset_bottom = -87.0
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
 theme_override_colors/font_outline_color = Color(0.07382504, 0.07382504, 0.07382503, 1)
 theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("10_3fsdd")
+theme_override_fonts/font = ExtResource("11_ik82o")
 theme_override_font_sizes/font_size = 8
 text = "MOVE"
 horizontal_alignment = 1

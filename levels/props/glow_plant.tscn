@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cbx5cr72wj8nv" path="res://levels/tilesets/sprites/mvm-2026-tileset.png" id="1_nsdud"]
 [ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="2_iptdg"]
 [ext_resource type="Script" uid="uid://cxlmkq7qppk1g" path="res://general/save_point/save_point.gd" id="2_ww43l"]
-[ext_resource type="FontFile" uid="uid://c25cinp3huvci" path="res://general/fonts/alagard.ttf" id="4_h6rrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iptdg"]
 atlas = ExtResource("1_nsdud")
@@ -166,12 +165,9 @@ offset_left = -44.0
 offset_top = -63.0
 offset_right = 47.0
 offset_bottom = -48.0
-theme_override_colors/font_color = Color(0.15727401, 0.15727395, 0.15727383, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
-theme_override_fonts/font = ExtResource("4_h6rrp")
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 8
 text = "Game Saved"
 horizontal_alignment = 1
