@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dyorvij0jxtcs"]
+
+[ext_resource type="Texture2D" uid="uid://cksakkaa42lj1" path="res://general/icons/level_bounds.svg" id="1_2adjl"]
+[ext_resource type="Texture2D" uid="uid://dc4c7mk3uf47v" path="res://player/input_icons.png" id="1_a5gi1"]
+
+[node name="MobileControls" type="CanvasLayer" unique_id=1878506752]
+
+[node name="Buttons" type="Control" parent="." unique_id=419989375]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+
+[node name="MoveLeft" type="TouchScreenButton" parent="Buttons" unique_id=1126499262]
+position = Vector2(5.666666, 69)
+texture_normal = ExtResource("1_2adjl")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/MoveLeft" unique_id=1900316571]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 16
+
+[node name="MoveRight" type="TouchScreenButton" parent="Buttons" unique_id=495083938]
+position = Vector2(36, 76.999985)
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/MoveRight" unique_id=1092621600]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 16
+
+[node name="Crouch" type="TouchScreenButton" parent="Buttons" unique_id=1703730440]
+position = Vector2(26, 85)
+passby_press = true
+action = "down"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/Crouch" unique_id=2027817235]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 17
+
+[node name="Jump" type="TouchScreenButton" parent="Buttons" unique_id=1478043031]
+position = Vector2(124.66667, 77)
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/Jump" unique_id=880633812]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 9
+
+[node name="Attack" type="TouchScreenButton" parent="Buttons" unique_id=579177837]
+position = Vector2(132.66667, 83.666664)
+passby_press = true
+action = "attack"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/Attack" unique_id=753683127]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 10
+
+[node name="Action" type="TouchScreenButton" parent="Buttons" unique_id=262471171]
+position = Vector2(132.66667, 69)
+passby_press = true
+action = "action"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/Action" unique_id=2105451926]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 12
+
+[node name="Dash" type="TouchScreenButton" parent="Buttons" unique_id=1539766620]
+position = Vector2(140.66667, 77)
+passby_press = true
+action = "dash"
+visibility_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/Dash" unique_id=343763855]
+texture = ExtResource("1_a5gi1")
+hframes = 21
+frame = 11

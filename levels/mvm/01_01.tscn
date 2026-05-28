@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="4_cnimr"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="6_y6e3a"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="7_3cdww"]
-[ext_resource type="PackedScene" uid="uid://bn6jb8hlusbuk" path="res://general/tutorial_box.tscn" id="7_rnxmg"]
+[ext_resource type="PackedScene" uid="uid://bn6jb8hlusbuk" path="res://general/tutorial_box/tutorial_box.tscn" id="7_rnxmg"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="8_60nsc"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
@@ -372,7 +372,7 @@ position = Vector2(185, 0)
 hint = "jump"
 
 [node name="TutorialJump2" parent="Tutorials" unique_id=1514966099 instance=ExtResource("7_rnxmg")]
-position = Vector2(500, -43)
+position = Vector2(500, -41)
 hint = "long jump"
 
 [node name="TutorialCrouch" parent="Tutorials" unique_id=938700412 instance=ExtResource("7_rnxmg")]

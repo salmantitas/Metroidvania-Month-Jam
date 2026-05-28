@@ -182,7 +182,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Logo" type="Control" parent="MenuContainer/MainMenu" unique_id=2091952759]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -197,10 +197,16 @@ autoplay = &"start"
 
 [node name="NewGameButton" type="Button" parent="MenuContainer/MainMenu" unique_id=1857801662]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "New Game"
 
 [node name="LoadGameButton" type="Button" parent="MenuContainer/MainMenu" unique_id=524733051]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Load Game"
 
 [node name="Exit" type="Button" parent="MenuContainer/MainMenu" unique_id=913279968]
@@ -239,16 +245,25 @@ layout_mode = 2
 [node name="NewSlot1" type="Button" parent="MenuContainer/NewGameMenu" unique_id=1493173451]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 1"
 
 [node name="NewSlot2" type="Button" parent="MenuContainer/NewGameMenu" unique_id=86583699]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 2"
 
 [node name="NewSlot3" type="Button" parent="MenuContainer/NewGameMenu" unique_id=872815216]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 3"
 
 [node name="Control2" type="Control" parent="MenuContainer/NewGameMenu" unique_id=1263640232]
@@ -257,6 +272,9 @@ layout_mode = 2
 [node name="NewBack" type="Button" parent="MenuContainer/NewGameMenu" unique_id=471271250]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Back"
 
 [node name="LoadGameMenu2" type="VBoxContainer" parent="MenuContainer" unique_id=445625745]
@@ -290,16 +308,25 @@ layout_mode = 2
 [node name="LoadSlot1" type="Button" parent="MenuContainer/LoadGameMenu2" unique_id=862555086]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 1"
 
 [node name="LoadSlot2" type="Button" parent="MenuContainer/LoadGameMenu2" unique_id=2106430750]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 2"
 
 [node name="LoadSlot3" type="Button" parent="MenuContainer/LoadGameMenu2" unique_id=509018359]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Begin Slot 3"
 
 [node name="Control2" type="Control" parent="MenuContainer/LoadGameMenu2" unique_id=1367325207]
@@ -308,4 +335,7 @@ layout_mode = 2
 [node name="LoadBack" type="Button" parent="MenuContainer/LoadGameMenu2" unique_id=682620163]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_constants/outline_size = 5
 text = "Back"

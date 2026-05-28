@@ -189,18 +189,18 @@ zoom = Vector2(0.9, 0.9)
 script = ExtResource("8_giqxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=1392081789]
-position = Vector2(0, -65)
+position = Vector2(0, -60)
 texture = ExtResource("9_3fsdd")
-hframes = 20
+hframes = 21
 
 [node name="TutorialHints" type="Node2D" parent="." unique_id=2023185835]
 script = ExtResource("10_ik82o")
 
 [node name="Label" type="Label" parent="TutorialHints" unique_id=1724432836]
 offset_left = -52.0
-offset_top = -79.0
+offset_top = -75.0
 offset_right = 52.0
-offset_bottom = -58.0
+offset_bottom = -67.0
 theme_override_colors/font_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
 theme_override_colors/font_outline_color = Color(0.07382504, 0.07382504, 0.07382503, 1)
 theme_override_constants/outline_size = 2

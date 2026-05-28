@@ -4,9 +4,9 @@ extends Node2D
 const HINT_MAP : Dictionary = {
 	"movement" : "Move",
 	"jump" : "Jump",
-	"long jump" : "Long Jump: Hold",
-	"crouch" : "Crouch: Down Arrow",
-	"drop down" : "Drop Down: Down Arrow + Z",
+	"long jump" : "Long Jump",
+	"crouch" : "Crouch",
+	"drop down" : "Drop Down",
 	"attack" : "Attack",
 	"save" : "Save your progress at the flower"
 }

@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Metroidvania Month Jam 2026"
-config/version="0.16"
+config/name="Forsaken - MVM 2026"
+config/version="0.20"
 run/main_scene="uid://c2iu2rqjvhsko"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://otl8chc5kr72"
@@ -97,6 +97,10 @@ action={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 

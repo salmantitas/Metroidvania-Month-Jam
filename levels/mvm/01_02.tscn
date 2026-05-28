@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="2_qhp7f"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="4_7w7yb"]
 [ext_resource type="PackedScene" uid="uid://mr7cyq54kym4" path="res://levels/mvm/props/plant.tscn" id="5_ofqga"]
-[ext_resource type="PackedScene" uid="uid://bn6jb8hlusbuk" path="res://general/tutorial_box.tscn" id="6_hkqdi"]
+[ext_resource type="PackedScene" uid="uid://bn6jb8hlusbuk" path="res://general/tutorial_box/tutorial_box.tscn" id="6_hkqdi"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="6_ofqga"]
 
 [sub_resource type="Gradient" id="Gradient_hxn5c"]

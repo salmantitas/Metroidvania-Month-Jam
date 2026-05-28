@@ -9,13 +9,13 @@ const HINT_MAP : Dictionary = {
 		"interact" : 12,
 		"attack" : 10,
 		"jump" : 9,
-		"long jump" : 9,
+		"long jump" : 18,
 		"crouch" : 17,
-		"drop down" : 18,
+		"drop down" : 19,
 		"dash" : 11,
 		"up" : 13,
 		"movement": 16,
-		"save" : 19
+		"save" : 20
 	},
 	"playstation" : {
 		"interact" : 0,

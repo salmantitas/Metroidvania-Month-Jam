@@ -38,8 +38,8 @@ z_index = -10
 scroll_scale = Vector2(0.1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/BackgroundSky" unique_id=482671085]
-position = Vector2(385.5, 263.00003)
-scale = Vector2(0.53680557, 0.6493827)
+position = Vector2(366, 263.00003)
+scale = Vector2(0.5638889, 0.6493827)
 texture = SubResource("GradientTexture2D_vvumv")
 
 [node name="Parallax2D" type="Parallax2D" parent="BackgroundLayers" unique_id=652750372]
@@ -125,6 +125,7 @@ texture = SubResource("GradientTexture2D_yy2ue")
 
 [node name="Lights" type="Parallax2D" parent="." unique_id=2066130429]
 scroll_scale = Vector2(1.05, 1)
+scroll_offset = Vector2(-69, -1)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Lights" unique_id=1353693303]
 modulate = Color(1.1638972, 0.679102, 0, 0.14901961)

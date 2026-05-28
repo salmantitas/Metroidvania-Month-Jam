@@ -9,12 +9,16 @@ signal scene_entered (uid : String)
 
 var current_scene_uid : String = ""
 
+const MOBILE_CONTROLS_UID = preload("uid://byqtogtyhm8qq")
+var mobile_controls : CanvasLayer = null
+
 func _ready() -> void:
 	fade.visible = false
 	await get_tree().process_frame
 	load_scene_finished.emit()
 	var current_scene : String = get_tree().current_scene.scene_file_path
-	current_scene_uid = ResourceUID.path_to_uid(current_scene) 
+	current_scene_uid = ResourceUID.path_to_uid(current_scene)
+	
 
 func transition_scene( new_scene : String, target_area : String, player_offset : Vector2, dir : String) -> void:
 	
@@ -37,6 +41,12 @@ func transition_scene( new_scene : String, target_area : String, player_offset :
 	await get_tree().scene_changed
 	
 	new_scene_ready.emit(target_area, player_offset)
+	
+	# Check if it's running on a computer, else create mobile control layout
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		if mobile_controls == null:
+			mobile_controls = MOBILE_CONTROLS_UID.instantiate()
+			get_tree().root.add_child(mobile_controls)
 	
 	# fade new scene in
 	await fade_screen(Vector2.ZERO, -fade_pos)

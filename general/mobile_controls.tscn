@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://byqtogtyhm8qq"]
+
+[ext_resource type="Texture2D" uid="uid://c6ictysyd7bmy" path="res://general/mobile/mvm-mobile-move.png" id="1_sbaxv"]
+[ext_resource type="Texture2D" uid="uid://bcpxe0tamin7t" path="res://general/mobile/mvm-mobile-jump.png" id="2_l1q32"]
+[ext_resource type="Texture2D" uid="uid://5bqrai6uedry" path="res://general/mobile/mvm-mobile-attack.png" id="3_d15qd"]
+[ext_resource type="Texture2D" uid="uid://w58o2fi2pkll" path="res://general/mobile/mvm-mobile-action.png" id="4_jygcr"]
+[ext_resource type="Texture2D" uid="uid://bhtjib3hho6nr" path="res://general/mobile/mvm-mobile-dash.png" id="5_118om"]
+
+[node name="MobileControls" type="CanvasLayer" unique_id=1878506752]
+
+[node name="ButtonsLeft" type="Control" parent="." unique_id=419989375]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 52.0
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MoveLeft" type="TouchScreenButton" parent="ButtonsLeft" unique_id=1126499262]
+position = Vector2(9.536743e-07, 17.666668)
+rotation = -1.5707964
+texture_normal = ExtResource("1_sbaxv")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="MoveRight" type="TouchScreenButton" parent="ButtonsLeft" unique_id=495083938]
+position = Vector2(40.000004, 1.666666)
+rotation = 1.5707964
+texture_normal = ExtResource("1_sbaxv")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="Crouch" type="TouchScreenButton" parent="ButtonsLeft" unique_id=1703730440]
+position = Vector2(27.667, 34)
+rotation = -3.1415925
+texture_normal = ExtResource("1_sbaxv")
+passby_press = true
+action = "down"
+visibility_mode = 1
+
+[node name="ButtonsLeft2" type="Control" parent="." unique_id=461411681]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 334.0
+offset_top = 147.0
+offset_right = 382.66666
+offset_bottom = 181.33334
+scale = Vector2(3, 3)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Jump" type="TouchScreenButton" parent="ButtonsLeft2" unique_id=420763524]
+position = Vector2(0, 9.999996)
+texture_normal = ExtResource("2_l1q32")
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="Attack" type="TouchScreenButton" parent="ButtonsLeft2" unique_id=1853342083]
+position = Vector2(16.333334, 18.333344)
+texture_normal = ExtResource("3_d15qd")
+passby_press = true
+action = "attack"
+visibility_mode = 1
+
+[node name="Action" type="TouchScreenButton" parent="ButtonsLeft2" unique_id=398539438]
+position = Vector2(16.333334, 2)
+texture_normal = ExtResource("4_jygcr")
+passby_press = true
+action = "action"
+visibility_mode = 1
+
+[node name="Dash" type="TouchScreenButton" parent="ButtonsLeft2" unique_id=293260435]
+position = Vector2(32.66667, 10)
+texture_normal = ExtResource("5_118om")
+passby_press = true
+action = "dash"
+visibility_mode = 1

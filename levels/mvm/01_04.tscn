@@ -39,8 +39,8 @@ z_index = -10
 scroll_scale = Vector2(0.1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/BackgroundSky" unique_id=536737073]
-position = Vector2(647.5, 412.5)
-scale = Vector2(0.90069443, 1.0185184)
+position = Vector2(617.99994, 412)
+scale = Vector2(0.9416667, 1.0172839)
 texture = SubResource("GradientTexture2D_mm4un")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=109800831]
