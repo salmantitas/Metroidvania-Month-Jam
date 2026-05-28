@@ -25,8 +25,15 @@ var previous_state : PlayerState :
 #endregion
 
 #region /// Player Stack
-var hp : float = 20
-var max_hp : float = 20
+var hp : float = 20 :
+	set ( value ):
+		hp = clamp(value, 0, max_hp)
+		Messages.player_health_changed.emit(hp, max_hp)
+var max_hp : float = 20 :
+	set ( value ):
+		max_hp = value
+		hp = max_hp
+		Messages.player_health_changed.emit(hp, max_hp)
 var dash : bool = false
 var double_jump : bool = false
 var ground_slam : bool = false
@@ -50,6 +57,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "action"):
 		Messages.player_interacted.emit(self)
 	change_state( current_state.handle_input(event))
+	
+	if event is InputEventKey and event.is_pressed():
+		if event.keycode == KEY_MINUS:
+			hp -= 2
+		elif event.keycode == KEY_EQUAL:
+			hp += 2
+		elif event.keycode == KEY_BACKSPACE:
+			max_hp += 2
 
 # Called every frame
 func _process(_delta: float) -> void:
@@ -131,7 +146,6 @@ func add_debug_indicator( color : Color = Color.RED ) -> void:
 
 func _on_player_healed( amount : float) -> void:
 	hp += amount
-	hp = clampf(hp, 0, max_hp)
 	
 	print("Player healed for: " + str(amount))
 	print("HP: " + str(hp))

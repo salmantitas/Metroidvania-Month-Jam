@@ -47,6 +47,11 @@ func transition_scene( new_scene : String, target_area : String, player_offset :
 		if mobile_controls == null:
 			mobile_controls = MOBILE_CONTROLS_UID.instantiate()
 			get_tree().root.add_child(mobile_controls)
+
+	if PlayerHud.visible:
+		pass
+	else:
+		PlayerHud.visible = true
 	
 	# fade new scene in
 	await fade_screen(Vector2.ZERO, -fade_pos)

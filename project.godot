@@ -21,6 +21,7 @@ config/icon="uid://otl8chc5kr72"
 SceneManager="*uid://dv3vmgirr1k3l"
 SaveManager="*uid://t3lcx7tl7ftr"
 Messages="*uid://xl72orsihgqg"
+PlayerHud="*uid://7ryjauoupcxc"
 
 [display]
 
