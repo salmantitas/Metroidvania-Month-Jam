@@ -16,6 +16,17 @@ width = 1440
 height = 810
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_vhcel"]
+offsets = PackedFloat32Array(0.47142857, 1)
+colors = PackedColorArray(0.3764706, 0.654902, 0.7058824, 0.39215687, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l5w8k"]
+gradient = SubResource("Gradient_vhcel")
+width = 256
+height = 256
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
 [node name="02" type="Node2D" unique_id=1411465302]
 
 [node name="BGParallaxLayers" type="Node2D" parent="." unique_id=895188431]
@@ -88,11 +99,11 @@ tile_set = ExtResource("1_t5vos")
 collision_enabled = false
 
 [node name="Parallax7" type="Parallax2D" parent="BGParallaxLayers" unique_id=1451477514]
+modulate = Color(0.12962228, 0.27017826, 0.47653937, 1)
 scroll_scale = Vector2(0.7, 1)
-scroll_offset = Vector2(-1078, 0)
+scroll_offset = Vector2(0, 111)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayers/Parallax7" unique_id=1636746961]
-modulate = Color(0.32156864, 0.5254902, 0.827451, 1)
 position = Vector2(144, -99)
 scale = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAA=")
@@ -100,11 +111,11 @@ tile_set = ExtResource("1_t5vos")
 collision_enabled = false
 
 [node name="Parallax8" type="Parallax2D" parent="BGParallaxLayers" unique_id=2067739614]
+modulate = Color(0.18733856, 0.19223297, 0.41872865, 1)
 scroll_scale = Vector2(0.8, 1)
 scroll_offset = Vector2(-69, 120)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayers/Parallax8" unique_id=2105549848]
-modulate = Color(0.22604811, 0.3593722, 0.7046979, 1)
 position = Vector2(-81, -169)
 scale = Vector2(18, 18)
 tile_map_data = PackedByteArray("AAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAACAAAAAAAOAAcAAAABAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
@@ -112,16 +123,21 @@ tile_set = ExtResource("1_t5vos")
 collision_enabled = false
 
 [node name="Parallax9" type="Parallax2D" parent="BGParallaxLayers" unique_id=59644815]
+modulate = Color(0.12631908, 0.1165734, 0.35781175, 1)
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(-161, 74)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayers/Parallax9" unique_id=752245265]
-modulate = Color(0.27450982, 0.2627451, 0.6784314, 1)
 position = Vector2(76.999985, -150)
 scale = Vector2(20, 20)
 tile_map_data = PackedByteArray("AAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
 tile_set = ExtResource("1_t5vos")
 collision_enabled = false
+
+[node name="Fog" type="Sprite2D" parent="BGParallaxLayers/Parallax9" unique_id=1076700752]
+position = Vector2(399.27777, -56.500008)
+scale = Vector2(5.638455, 1.6445311)
+texture = SubResource("GradientTexture2D_l5w8k")
 
 [node name="LevelTiles" type="Node2D" parent="." unique_id=1629760487]
 position = Vector2(60, -15)
@@ -145,6 +161,7 @@ metadata/_custom_type_script = "uid://bs17osqaujnog"
 position = Vector2(-320, 199)
 size = 4
 target_level = "uid://crje8l7x6y5wq"
+target_area_name = "LevelTransition2"
 
 [node name="LevelTransition2" parent="." unique_id=2062890910 instance=ExtResource("3_t6ewc")]
 position = Vector2(768, 184)

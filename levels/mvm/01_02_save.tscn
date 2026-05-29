@@ -161,7 +161,7 @@ target_level = "uid://dj1sm1hfiujva"
 target_area_name = "LevelTransition2"
 
 [node name="LevelTransition2" parent="." unique_id=2062890910 instance=ExtResource("4_q5x57")]
-position = Vector2(702, 308)
+position = Vector2(702, 300)
 size = 4
 location = 1
 target_level = "uid://crje8l7x6y5wq"

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1tatd065ihn5" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="1_cxyc4"]
 [ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="2_dnf12"]
+[ext_resource type="Script" uid="uid://wb2wmcwir12j" path="res://levels/props/light_source.gd" id="2_hl1ks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnf12"]
 atlas = ExtResource("1_cxyc4")
@@ -91,6 +92,7 @@ turbulence_initial_displacement_max = 20.000002
 sprite_frames = SubResource("SpriteFrames_cl4he")
 autoplay = "default"
 frame_progress = 0.45638132
+script = ExtResource("2_hl1ks")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=280128860]
 visible = false

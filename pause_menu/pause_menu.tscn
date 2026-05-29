@@ -1,0 +1,510 @@
+[gd_scene format=3 uid="uid://bh3w6kqp5a75b"]
+
+[ext_resource type="Script" uid="uid://ckv7wcnyn18wk" path="res://pause_menu/scripts/pause_menu.gd" id="1_5hbt6"]
+[ext_resource type="PackedScene" uid="uid://dr0yuhxx0po6a" path="res://pause_menu/map_node.tscn" id="2_rd7dy"]
+
+[sub_resource type="FontVariation" id="FontVariation_5hbt6"]
+spacing_glyph = 6
+
+[sub_resource type="Gradient" id="Gradient_rd7dy"]
+offsets = PackedFloat32Array(0, 0.46875, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.99999994, 0.22390795, 0.7692786, 1, 0.47722346, 0.00016739876, 0.47989547, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwtdo"]
+gradient = SubResource("Gradient_rd7dy")
+width = 4
+height = 6
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_uwtdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rd7dy"]
+resource_name = "default"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9406867, 0.37903425, 1, 0.4745098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwtdo"]
+_data = {
+&"RESET": SubResource("Animation_uwtdo"),
+&"default": SubResource("Animation_rd7dy")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1217504070]
+process_mode = 3
+script = ExtResource("1_5hbt6")
+
+[node name="Control" type="Control" parent="." unique_id=772829695]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=589690855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.12, 0.12, 0.78431374)
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=645024313]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="Control/ColorRect2" unique_id=25547312]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -8.0
+offset_right = -32.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.49019608, 1, 0.6117647, 1)
+theme_override_fonts/font = SubResource("FontVariation_5hbt6")
+text = "PAUSED"
+horizontal_alignment = 2
+
+[node name="MapMenuButton" type="Button" parent="Control/ColorRect2" unique_id=896229296]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 2.0
+offset_right = -50.0
+offset_bottom = 29.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Map"
+
+[node name="SystemMenuButton" type="Button" parent="Control/ColorRect2" unique_id=125567571]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+text = "System"
+
+[node name="ControlsMenuButton" type="Button" parent="Control/ColorRect2" unique_id=1384217015]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 64.0
+offset_top = 2.0
+offset_right = 176.0
+offset_bottom = 29.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Controls"
+
+[node name="PauseScreen" type="Control" parent="Control" unique_id=1643386501]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=1387706397]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 156.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 12
+text = "Abilities"
+
+[node name="Map" type="Control" parent="Control/PauseScreen" unique_id=184373552]
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 8.0
+offset_right = 472.0
+offset_bottom = 204.0
+
+[node name="BG" type="ColorRect" parent="Control/PauseScreen/Map" unique_id=1211637812]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -4.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="Label2" type="Label" parent="Control/PauseScreen/Map" unique_id=390162170]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 12
+text = "Map"
+
+[node name="MapNode01_01" parent="Control/PauseScreen/Map" unique_id=1305438195 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_top = 30.0
+offset_right = 34.0
+offset_bottom = 44.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://tv46cj7vcfkf"
+entrances_right = Array[float]([9.0])
+
+[node name="MapNode01_02" parent="Control/PauseScreen/Map" unique_id=527689647 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = 36.0
+offset_right = 61.0
+offset_bottom = 46.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://dj1sm1hfiujva"
+entrances_right = Array[float]([4.2])
+entrances_left = Array[float]([2.775])
+
+[node name="MapNode01_02_save" parent="Control/PauseScreen/Map" unique_id=458874678 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.2769, 0.71, 0.68112665, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 35.0
+offset_right = 78.0
+offset_bottom = 46.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://cv18tb8adlp5c"
+entrances_right = Array[float]([4.475])
+entrances_left = Array[float]([4.475])
+
+[node name="MapNode01_03" parent="Control/PauseScreen/Map" unique_id=66894061 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 78.0
+offset_top = 21.0
+offset_right = 135.0
+offset_bottom = 45.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://crje8l7x6y5wq"
+entrances_top = Array[float]([50.225])
+entrances_right = Array[float]([7.0249996])
+entrances_left = Array[float]([17.85])
+
+[node name="MapNode01_04" parent="Control/PauseScreen/Map" unique_id=1320618944 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 135.0
+offset_top = 26.0
+offset_right = 162.0
+offset_bottom = 33.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://dtpcetn4rvmik"
+entrances_right = Array[float]([2.0])
+entrances_left = Array[float]([2.0])
+
+[node name="MapNode01_05" parent="Control/PauseScreen/Map" unique_id=1201469323 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 162.0
+offset_top = 26.0
+offset_right = 194.0
+offset_bottom = 42.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://bnyv6fsxtgqem"
+entrances_top = Array[float]([12.875, 22.45])
+entrances_right = Array[float]([2.9499998])
+entrances_left = Array[float]([2.0])
+
+[node name="MapNode01_05_save" parent="Control/PauseScreen/Map" unique_id=1995068243 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.2769, 0.71, 0.68112665, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 172.0
+offset_top = 15.0
+offset_right = 190.0
+offset_bottom = 26.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://c4sx2wuuearbp"
+entrances_bottom = Array[float]([3.125, 11.625])
+
+[node name="MapNode01_06" parent="Control/PauseScreen/Map" unique_id=1907462095 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 194.0
+offset_top = 22.0
+offset_right = 212.0
+offset_bottom = 35.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://dqd50h0ns6tmd"
+entrances_right = Array[float]([6.7749996])
+entrances_left = Array[float]([6.7749996])
+
+[node name="MapNode02_01" parent="Control/PauseScreen/Map" unique_id=1332611133 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 17.0
+offset_right = 248.0
+offset_bottom = 34.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://ci4wcdj2mjayn"
+entrances_left = Array[float]([12.0])
+
+[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=608613520]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1001555570]
+layout_mode = 1
+offset_right = 6.0
+offset_bottom = 6.0
+texture = SubResource("GradientTexture2D_uwtdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=396404482]
+libraries/ = SubResource("AnimationLibrary_uwtdo")
+autoplay = &"default"
+
+[node name="Controls" type="Control" parent="Control/PauseScreen" unique_id=1529562940]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseScreen/Controls" unique_id=669029385]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 496.0
+offset_bottom = 68.0
+
+[node name="Label3" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer" unique_id=2144368244]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Controls"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseScreen/Controls/VBoxContainer" unique_id=519887953]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer" unique_id=1990894911]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=254914691]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=614543772]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Move: Left/Right Arrows"
+
+[node name="Label5" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1665015421]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Jump: Z"
+
+[node name="Label7" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2139593518]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Crouch: Down Arrow"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer" unique_id=1271449146]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=850412635]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Attack: X (TBD)"
+
+[node name="Label8" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1790692532]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Dash: C (TBD)"
+
+[node name="Label9" type="Label" parent="Control/PauseScreen/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1479038222]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Interact: S (TBD)"
+
+[node name="SystemScreen" type="Control" parent="Control" unique_id=1111583802]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SystemScreen" unique_id=2137350749]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 24.0
+offset_right = 202.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SystemScreen/VBoxContainer" unique_id=203145081]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SystemScreen/VBoxContainer" unique_id=533500888]
+layout_mode = 2
+text = "Audio Levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/SystemScreen/VBoxContainer" unique_id=859226714]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SystemScreen/VBoxContainer/HBoxContainer2" unique_id=1794398604]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/SystemScreen/VBoxContainer/HBoxContainer2" unique_id=1878072426]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/SystemScreen/VBoxContainer" unique_id=534478358]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SystemScreen/VBoxContainer/HBoxContainer3" unique_id=1124130360]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/SystemScreen/VBoxContainer/HBoxContainer3" unique_id=979557172]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/SystemScreen/VBoxContainer" unique_id=134311725]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SystemScreen/VBoxContainer/HBoxContainer4" unique_id=1479372905]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="Control/SystemScreen/VBoxContainer/HBoxContainer4" unique_id=1879304836]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="TitleMenuButton" type="Button" parent="Control/SystemScreen" unique_id=1849321523]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -40.0
+offset_right = 44.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Title"

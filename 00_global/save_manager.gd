@@ -15,7 +15,7 @@ const new_game_path_mvm : String = "uid://tv46cj7vcfkf"
 const new_game_scene_path : String = new_game_path_mvm
 
 func _ready() -> void:
-	pass
+	SceneManager.scene_entered.connect( _on_scene_entered )
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -116,3 +116,12 @@ func get_file_name( slot: int) -> String:
 
 func save_file_exists (slot : int) -> bool:
 	return FileAccess.file_exists( get_file_name(slot) )
+
+func is_area_discovered( scene_uid : String) -> bool:
+	return discovered_areas.has(scene_uid)
+
+func _on_scene_entered( scene_uid : String ) -> void:
+	if discovered_areas.has(scene_uid):
+		pass
+	else:
+		discovered_areas.append(scene_uid)

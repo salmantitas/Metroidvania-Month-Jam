@@ -6,7 +6,8 @@ extends PointLight2D
 var og_energy : float = 1.0
 
 func _ready() -> void:
-	energy = $"..".energy
+	if $"..".energy:
+		energy = $"..".energy
 	og_energy = energy
 	flicker()
 

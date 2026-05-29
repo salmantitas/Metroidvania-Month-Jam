@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://7ryjauoupcxc"]
 
-[ext_resource type="Texture2D" uid="uid://chbjifint8ch6" path="res://00_global/player_hud/health_bar_frame.png" id="1_hv14i"]
 [ext_resource type="Script" uid="uid://cl2ov85k3emwu" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
+[ext_resource type="Texture2D" uid="uid://ctv42qd47hq73" path="res://00_global/player_hud/mvm_health_bar.png" id="2_vb1bs"]
+[ext_resource type="Texture2D" uid="uid://bpahoxjgyltqm" path="res://general/mobile/mvm-mobile-pause.png" id="3_26715"]
 
 [sub_resource type="Gradient" id="Gradient_p3j8y"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -19,6 +20,7 @@ height = 16
 
 [node name="PlayerHud" type="CanvasLayer" unique_id=391663123]
 process_mode = 3
+layer = 2
 script = ExtResource("1_vb1bs")
 
 [node name="Control" type="Control" parent="." unique_id=1834418324]
@@ -35,16 +37,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 0
 offset_left = 16.0
-offset_top = 16.0
-offset_right = 56.0
-offset_bottom = 36.0
+offset_top = 12.0
+offset_right = 59.0
+offset_bottom = 32.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=1122304053]
 layout_mode = 2
-texture = ExtResource("1_hv14i")
-region_rect = Rect2(0, 0, 40, 20)
-patch_margin_left = 27
-patch_margin_right = 7
+texture = ExtResource("2_vb1bs")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 29
+patch_margin_right = 14
 axis_stretch_horizontal = 1
 
 [node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=1985445075]
@@ -54,10 +56,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 19.0
+offset_left = 18.0
 offset_top = 6.0
-offset_right = -3.0
-offset_bottom = -8.0
+offset_right = -2.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 50.0
@@ -65,3 +67,8 @@ rounded = true
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_hv14i")
 texture_progress = SubResource("GradientTexture2D_vb1bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1914386118]
+position = Vector2(455, 18)
+scale = Vector2(2, 2)
+texture = ExtResource("3_26715")

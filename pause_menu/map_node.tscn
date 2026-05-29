@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dr0yuhxx0po6a"]
+
+[ext_resource type="Script" uid="uid://dcjxyfm8y24wg" path="res://pause_menu/scripts/map_node.gd" id="1_j1ovi"]
+
+[node name="MapNode" type="Control" unique_id=527689647]
+custom_minimum_size = Vector2(12, 6)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -468.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1ovi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1873670347]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=426283435]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1180552616]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=606796108]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1269558019]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 161.0
+offset_bottom = 18.0
+scale = Vector2(0.06, 0.06)
+theme_override_colors/font_color = Color(1, 1, 1, 0.98039216)
+theme_override_font_sizes/font_size = 16
+text = "Level Name"
+
+[node name="TransitionBlocks" type="Control" parent="." unique_id=1243415605]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 0

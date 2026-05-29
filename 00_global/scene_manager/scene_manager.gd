@@ -18,7 +18,7 @@ func _ready() -> void:
 	load_scene_finished.emit()
 	var current_scene : String = get_tree().current_scene.scene_file_path
 	current_scene_uid = ResourceUID.path_to_uid(current_scene)
-	
+	scene_entered.emit(current_scene_uid)
 
 func transition_scene( new_scene : String, target_area : String, player_offset : Vector2, dir : String) -> void:
 	
@@ -42,11 +42,7 @@ func transition_scene( new_scene : String, target_area : String, player_offset :
 	
 	new_scene_ready.emit(target_area, player_offset)
 	
-	# Check if it's running on a computer, else create mobile control layout
-	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
-		if mobile_controls == null:
-			mobile_controls = MOBILE_CONTROLS_UID.instantiate()
-			get_tree().root.add_child(mobile_controls)
+	create_mobile_control_hud( new_scene )
 
 	if PlayerHud.visible:
 		pass
@@ -78,3 +74,16 @@ func get_fade_position(dir : String) -> Vector2:
 		"bottom":
 			pos *= Vector2(0, 1)
 	return pos
+
+func create_mobile_control_hud( new_scene : String) -> void:
+	# Check if it's running on a computer, else create mobile control layout
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		if mobile_controls == null:
+			mobile_controls = MOBILE_CONTROLS_UID.instantiate()
+			get_tree().root.add_child(mobile_controls)
+
+		if mobile_controls != null:
+			if new_scene == "res://title_screen/title_screen.tscn":
+				get_tree().root.remove_child(mobile_controls)
+				mobile_controls.queue_free()
+				mobile_controls = null

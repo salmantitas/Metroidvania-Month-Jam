@@ -51,11 +51,18 @@ func _ready() -> void:
 		self.queue_free()
 	initialize_states()
 	self.call_deferred( "reparent", get_tree().root)
+	Messages.back_to_title_screen.connect(queue_free)
 	Messages.player_healed.connect( _on_player_healed 	)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "action"):
 		Messages.player_interacted.emit(self)
+	elif event.is_action_pressed( "pause"):
+		get_tree().paused = true
+		var pause_menu : PauseMenu = load("res://pause_menu/pause_menu.tscn").instantiate()
+		add_child(pause_menu)
+		return
+		
 	change_state( current_state.handle_input(event))
 	
 	if event is InputEventKey and event.is_pressed():
