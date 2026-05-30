@@ -143,10 +143,11 @@ func load_configuration() -> void:
 	var err = config.load(CONFIG_FILE_PATH)
 	
 	if err != OK:
-		AudioServer.set_bus_volume_linear(2, 0.5)
-		AudioServer.set_bus_volume_linear(3, 0.8)
-		AudioServer.set_bus_volume_linear(4, 1.0)
+		AudioServer.set_bus_volume_linear(2, 0.6)
+		AudioServer.set_bus_volume_linear(3, 0.4)
+		AudioServer.set_bus_volume_linear(4, 0.2)
+		return
 	
-	AudioServer.set_bus_volume_linear(2, config.get_value("audio", "music", 0.4))
-	AudioServer.set_bus_volume_linear(3, config.get_value("audio", "music", 0.8))
-	AudioServer.set_bus_volume_linear(4, config.get_value("audio", "music", 0.8))
+	AudioServer.set_bus_volume_linear(2, config.get_value("audio", "music", 0.6))
+	AudioServer.set_bus_volume_linear(3, config.get_value("audio", "sfx", 0.4))
+	AudioServer.set_bus_volume_linear(4, config.get_value("audio", "ui", 0.2))
