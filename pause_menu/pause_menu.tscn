@@ -264,6 +264,7 @@ grow_vertical = 1
 linked_scene = "uid://crje8l7x6y5wq"
 entrances_top = Array[float]([50.225])
 entrances_right = Array[float]([7.0249996])
+entrances_bottom = Array[float]([51.175])
 entrances_left = Array[float]([17.85])
 
 [node name="MapNode01_04" parent="Control/PauseScreen/Map" unique_id=1320618944 instance=ExtResource("2_rd7dy")]
@@ -359,6 +360,21 @@ offset_bottom = 49.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://27wl7of1eaq3"
+entrances_top = Array[float]([4.725])
+
+[node name="MapNode02_03" parent="Control/PauseScreen/Map" unique_id=1250366569 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.29, 0.19212501, 0.055099998, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 124.0
+offset_top = 45.0
+offset_right = 136.0
+offset_bottom = 52.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://c0h8wwub11rtw"
 entrances_top = Array[float]([4.725])
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=608613520]

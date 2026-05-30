@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="5_wsrki"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="6_mwfp8"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="8_byox3"]
+[ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="9_s61td"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="9_uw0u7"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
@@ -282,4 +283,5 @@ target_area_name = "LevelTransition5"
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1197043162]
 script = ExtResource("9_uw0u7")
+track = ExtResource("9_s61td")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"

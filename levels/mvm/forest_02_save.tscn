@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="7_3e280"]
 [ext_resource type="PackedScene" uid="uid://bn6jb8hlusbuk" path="res://general/tutorial_box/tutorial_box.tscn" id="8_cjsac"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="9_jyxg4"]
-[ext_resource type="AudioStream" uid="uid://d2cgfqrmnwt3i" path="res://music/mvm-32-title.ogg" id="10_ohq8u"]
+[ext_resource type="AudioStream" uid="uid://bis7s342ht4mv" path="res://music/mvm-32-save.ogg" id="10_ohq8u"]
 
 [sub_resource type="Gradient" id="Gradient_7n1ya"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)

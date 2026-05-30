@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="6_5tpej"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="7_e8geh"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_h3hyr"]
-[ext_resource type="AudioStream" uid="uid://d2cgfqrmnwt3i" path="res://music/mvm-32-title.ogg" id="9_qey70"]
+[ext_resource type="AudioStream" uid="uid://bis7s342ht4mv" path="res://music/mvm-32-save.ogg" id="9_qey70"]
 
 [sub_resource type="Gradient" id="Gradient_hxn5c"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
