@@ -55,7 +55,6 @@ func update_node() -> void:
 						new_size = Vector2( c.width, c.height)
 						indicator_offset = c.position
 						lb = c
-						print (lb)
 					elif c is LevelTransition:
 						transitions.append(c)
 				instance.queue_free()
@@ -164,7 +163,6 @@ func get_indicator_offset() -> void:
 					if c is LevelBounds:
 						indicator_offset = c.position
 						lb = c
-						print (lb)
 				instance.queue_free()
 
 func display_player_location():

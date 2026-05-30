@@ -1,5 +1,6 @@
 extends Node
 
+const CONFIG_FILE_PATH = "user://settings.cfg"
 const SLOTS : Array[ String ] = [
 	"save_01", "save_02", "save_03"
 ]
@@ -16,20 +17,24 @@ const new_game_scene_path : String = new_game_path_mvm
 
 func _ready() -> void:
 	SceneManager.scene_entered.connect( _on_scene_entered )
+	load_configuration()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_F5:
-			save_game()
-		elif event.keycode == KEY_F6:
-			load_game( current_slot )
-		elif event.keycode == KEY_1:
-			current_slot = 0
-		elif event.keycode == KEY_2:
-			current_slot = 1
-		elif event.keycode == KEY_3:
-			current_slot = 2
-
+	# DEBUG
+	if OS.is_debug_build():
+		if event is InputEventKey and event.pressed:
+			if event.keycode == KEY_F5:
+				save_game()
+			elif event.keycode == KEY_F6:
+				load_game( current_slot )
+			elif event.keycode == KEY_1:
+				current_slot = 0
+			elif event.keycode == KEY_2:
+				current_slot = 1
+			elif event.keycode == KEY_3:
+				current_slot = 2
+	# END DEBUG
+	
 func create_new_game_save( slot : int) -> void:
 	current_slot = slot
 	discovered_areas.clear()
@@ -125,3 +130,23 @@ func _on_scene_entered( scene_uid : String ) -> void:
 		pass
 	else:
 		discovered_areas.append(scene_uid)
+
+func save_configuration() -> void:
+	var config := ConfigFile.new()
+	config.set_value("audio", "music", AudioServer.get_bus_volume_linear(2))
+	config.set_value("audio", "sfx", AudioServer.get_bus_volume_linear(3))
+	config.set_value("audio", "ui", AudioServer.get_bus_volume_linear(4))
+	config.save( CONFIG_FILE_PATH )
+
+func load_configuration() -> void:
+	var config := ConfigFile.new()
+	var err = config.load(CONFIG_FILE_PATH)
+	
+	if err != OK:
+		AudioServer.set_bus_volume_linear(2, 0.5)
+		AudioServer.set_bus_volume_linear(3, 0.8)
+		AudioServer.set_bus_volume_linear(4, 1.0)
+	
+	AudioServer.set_bus_volume_linear(2, config.get_value("audio", "music", 0.4))
+	AudioServer.set_bus_volume_linear(3, config.get_value("audio", "music", 0.8))
+	AudioServer.set_bus_volume_linear(4, config.get_value("audio", "music", 0.8))

@@ -65,14 +65,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	change_state( current_state.handle_input(event))
 	
-	if event is InputEventKey and event.is_pressed():
-		if event.keycode == KEY_MINUS:
-			hp -= 2
-		elif event.keycode == KEY_EQUAL:
-			hp += 2
-		elif event.keycode == KEY_BACKSPACE:
-			max_hp += 2
-
+	# DEBUG
+	if OS.is_debug_build():
+		if event is InputEventKey and event.is_pressed():
+			if event.keycode == KEY_MINUS:
+				hp -= 2
+			elif event.keycode == KEY_EQUAL:
+				hp += 2
+			elif event.keycode == KEY_BACKSPACE:
+				max_hp += 2
+	# END DEBUG
+	
 # Called every frame
 func _process(_delta: float) -> void:
 	update_direction()

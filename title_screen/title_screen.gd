@@ -34,7 +34,8 @@ func _ready() -> void:
 	new_back.pressed.connect( show_main_menu )
 	load_back.pressed.connect( show_main_menu )
 	
-	#add audio to buttons
+	Audio.setup_button_audio(self)
+	Audio.play_music(preload("res://music/title_01.ogg"))
 	show_main_menu()
 	animation_player.animation_finished.connect( _on_animation_finished )
 	pass	

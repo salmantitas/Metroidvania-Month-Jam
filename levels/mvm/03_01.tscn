@@ -1,0 +1,285 @@
+[gd_scene format=4 uid="uid://27wl7of1eaq3"]
+
+[ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="1_l24kx"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="2_tra2l"]
+[ext_resource type="PackedScene" uid="uid://mr7cyq54kym4" path="res://levels/mvm/props/plant.tscn" id="3_08o3k"]
+[ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="4_rj608"]
+[ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="5_wsrki"]
+[ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="6_mwfp8"]
+[ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="8_byox3"]
+[ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="9_uw0u7"]
+
+[sub_resource type="Gradient" id="Gradient_ekba3"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qux6w"]
+gradient = SubResource("Gradient_ekba3")
+width = 1440
+height = 810
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_sj86q"]
+offsets = PackedFloat32Array(0, 0.48125)
+colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ekba3"]
+gradient = SubResource("Gradient_sj86q")
+width = 256
+height = 256
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b6ckm"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xuk8y"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_5k5uq"]
+colors = PackedColorArray(0.20033002, 0.20033002, 0.20032999, 1, 0.6610811, 0.66108096, 0.66108096, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6ckm"]
+gradient = SubResource("Gradient_5k5uq")
+width = 512
+height = 288
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="01" type="Node2D" unique_id=1411465302]
+
+[node name="BGParallaxLayer" type="Node2D" parent="." unique_id=346571586]
+
+[node name="BackgroundSky" type="Parallax2D" parent="BGParallaxLayer" unique_id=619318063]
+z_index = -10
+scroll_scale = Vector2(0.1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayer/BackgroundSky" unique_id=421064149]
+position = Vector2(551, 180)
+texture = SubResource("GradientTexture2D_qux6w")
+
+[node name="Parallax1" type="Parallax2D" parent="BGParallaxLayer" unique_id=898531442]
+visible = false
+modulate = Color(0.95, 0.95, 0.95, 1)
+scale = Vector2(2.1, 2.1)
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(-146, -149)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax1" unique_id=2032024786]
+position = Vector2(152.85715, 10.952379)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="TheBigTree" type="Sprite2D" parent="BGParallaxLayer/Parallax1" unique_id=193985254]
+position = Vector2(434.7619, 170.4762)
+scale = Vector2(20, 20)
+texture = ExtResource("1_l24kx")
+
+[node name="Parallax2" type="Parallax2D" parent="BGParallaxLayer" unique_id=752671112]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 1)
+scale = Vector2(2.2, 2.2)
+scroll_scale = Vector2(0.2, 1)
+scroll_offset = Vector2(-146, -149)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax2" unique_id=275840097]
+position = Vector2(152.27272, -2.2727246)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax3" type="Parallax2D" parent="BGParallaxLayer" unique_id=154908073]
+visible = false
+modulate = Color(0.85, 0.85, 0.85, 1)
+scale = Vector2(2.3, 2.3)
+scroll_scale = Vector2(0.3, 1)
+scroll_offset = Vector2(-146, -149)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax3" unique_id=304114293]
+position = Vector2(189.13042, -11.304346)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax4" type="Parallax2D" parent="BGParallaxLayer" unique_id=956686690]
+visible = false
+modulate = Color(0.8, 0.8, 0.8, 1)
+scale = Vector2(2.4, 2.4)
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(-116, -186.99998)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax4" unique_id=2128462285]
+position = Vector2(188.33333, -7.5000043)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax5" type="Parallax2D" parent="BGParallaxLayer" unique_id=753244588]
+visible = false
+modulate = Color(0.75, 0.75, 0.75, 1)
+scale = Vector2(2.5, 2.5)
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-116, -186.99998)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax5" unique_id=648618582]
+position = Vector2(184.4, -20.000008)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax6" type="Parallax2D" parent="BGParallaxLayer" unique_id=1879864963]
+visible = false
+modulate = Color(0.7, 0.7, 0.7, 1)
+scale = Vector2(2.6, 2.6)
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(-116, -186.99998)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax6" unique_id=672532043]
+position = Vector2(185.00002, -28.46154)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax7" type="Parallax2D" parent="BGParallaxLayer" unique_id=748368540]
+visible = false
+modulate = Color(0.65, 0.65, 0.65, 1)
+scale = Vector2(2.7, 2.7)
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(-116, -186.99998)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax7" unique_id=736138588]
+position = Vector2(185.9259, -42.962955)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax8" type="Parallax2D" parent="BGParallaxLayer" unique_id=1715363644]
+visible = false
+modulate = Color(0.6, 0.6, 0.6, 1)
+scale = Vector2(2.8, 2.8)
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(-116, -187)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax8" unique_id=2004607075]
+position = Vector2(171.78572, -50.714287)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax9" type="Parallax2D" parent="BGParallaxLayer" unique_id=494262569]
+visible = false
+modulate = Color(0.55, 0.55, 0.55, 1)
+scale = Vector2(2.9, 2.9)
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(-116, -205.00002)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax9" unique_id=528832543]
+position = Vector2(168.27583, -52.06896)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAA=")
+tile_set = ExtResource("2_tra2l")
+collision_enabled = false
+
+[node name="Parallax95" type="Parallax2D" parent="BGParallaxLayer" unique_id=1107104071]
+modulate = Color(0.4, 0.4, 0.4, 1)
+scale = Vector2(0.95, 0.95)
+scroll_scale = Vector2(0.95, 1)
+scroll_offset = Vector2(-116, -205)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax95" unique_id=1311826218]
+position = Vector2(144.21054, 120.000015)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAIAAUAAAAUAAUAAAAJAAUAAAAVAAUAAAAAAAUAAAAWAAUAAAABAAUAAAAXAAUAAAAIAAAAAAAUAAYAAAAJAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAABAAAAAAAXAAYAAAAAAAEAAAAWAAIAAAAAAAIAAAAWAAIAAAAAAAMAAAAWAAIAAAAAAAQAAAAWAAIAAAAJAAEAAAAUAAIAAAAJAAIAAAAUAAIAAAAJAAMAAAAUAAIAAAAJAAQAAAAUAAIAAAACAAAAAAAVAAMAAAADAAAAAAAVAAMAAAACAAUAAAAVAAEAAAADAAUAAAAVAAEAAAAEAAUAAAAVAAEAAAAFAAUAAAAVAAEAAAAGAAUAAAAVAAEAAAAHAAUAAAAVAAEAAAAGAAAAAAAVAAMAAAAHAAAAAAAVAAMAAAAEAAAAAAAVAAIAAAAFAAAAAAAVAAIAAAA=")
+tile_set = ExtResource("2_tra2l")
+
+[node name="Fog" type="Sprite2D" parent="BGParallaxLayer" unique_id=1991997427]
+visible = false
+position = Vector2(639, 205.5)
+scale = Vector2(4.9921875, 2.386719)
+texture = SubResource("GradientTexture2D_ekba3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=240078024]
+visible = false
+modulate = Color(1.1638972, 0.679102, 0, 0.14901961)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b6ckm")
+position = Vector2(936.5, -100.99999)
+scale = Vector2(10.6875, 43.750004)
+texture = ExtResource("4_rj608")
+
+[node name="LevelTiles" type="Node2D" parent="." unique_id=1015903143]
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelTiles" unique_id=1898864992]
+visible = false
+material = SubResource("CanvasItemMaterial_xuk8y")
+position = Vector2(995, 347.5)
+scale = Vector2(1, 0.9826389)
+texture = SubResource("GradientTexture2D_b6ckm")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelTiles" unique_id=1297987974]
+position = Vector2(0, -100)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAIAAUAAAAUAAUAAAAJAAUAAAAVAAUAAAAAAAUAAAAWAAUAAAABAAUAAAAXAAUAAAAIAAAAAAAUAAYAAAAJAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAABAAAAAAAXAAYAAAAAAAEAAAAWAAIAAAAAAAIAAAAWAAIAAAAAAAMAAAAWAAIAAAAAAAQAAAAWAAIAAAAJAAEAAAAUAAIAAAAJAAIAAAAUAAIAAAAJAAMAAAAUAAIAAAAJAAQAAAAUAAIAAAACAAAAAAAVAAMAAAADAAAAAAAWAAMAAAACAAUAAAAVAAEAAAADAAUAAAAVAAEAAAAEAAUAAAAVAAEAAAAFAAUAAAAVAAEAAAAGAAUAAAAVAAEAAAAHAAUAAAAVAAEAAAAGAAAAAAAUAAMAAAAHAAAAAAAVAAMAAAABAAEAAAAMAAMAAAACAAEAAAANAAMAAAADAAEAAAANAAMAAAAEAAEAAAANAAMAAAAFAAEAAAANAAMAAAAGAAEAAAANAAMAAAAHAAEAAAANAAMAAAAIAAEAAAAOAAMAAAAFAAMAAAANAAMAAAAEAAMAAAANAAMAAAA=")
+tile_set = ExtResource("2_tra2l")
+
+[node name="Node2D" type="Node2D" parent="LevelTiles" unique_id=1345986129]
+visible = false
+
+[node name="Plant" parent="LevelTiles/Node2D" unique_id=168783282 instance=ExtResource("3_08o3k")]
+position = Vector2(291, 328)
+scale = Vector2(2, 2)
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=1483850271]
+z_index = 256
+position = Vector2(0, -100)
+script = ExtResource("5_wsrki")
+metadata/_custom_type_script = "uid://bs17osqaujnog"
+
+[node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("6_mwfp8")]
+position = Vector2(238, -43)
+
+[node name="Foreground" type="Parallax2D" parent="." unique_id=1817786885]
+visible = false
+modulate = Color(0.3, 0.3, 0.3, 1)
+z_index = 10
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.1, 1)
+scroll_offset = Vector2(544, -43)
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="Foreground" unique_id=1765981493]
+position = Vector2(-600, -96.36363)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAQAAoAAAAKAAIAAAAAAAoAAAAHAAIAAAABAAoAAAAIAAIAAAACAAoAAAAJAAIAAAADAAoAAAAHAAIAAAAEAAoAAAAIAAIAAAAFAAoAAAAJAAIAAAAGAAoAAAAHAAIAAAAHAAoAAAAIAAIAAAAIAAoAAAAJAAIAAAAJAAoAAAAHAAIAAAAKAAoAAAAIAAIAAAALAAoAAAAJAAIAAAAMAAoAAAAJAAIAAAANAAoAAAAHAAIAAAAOAAoAAAAIAAIAAAAPAAoAAAAJAAIAAAAQAAsAAAAKAAMAAAAOAAkAAAAMAAcAAAAQAAwAAAAKAAMAAAAPAAsAAAAIAAMAAAAPAAwAAAAIAAMAAAAOAAwAAAAHAAMAAAANAAwAAAAHAAMAAAAMAAwAAAAHAAMAAAALAAwAAAAHAAMAAAAKAAwAAAAHAAMAAAAJAAwAAAAHAAMAAAAIAAwAAAAHAAMAAAAHAAwAAAAHAAMAAAAGAAwAAAAHAAMAAAAFAAwAAAAHAAMAAAAEAAwAAAAHAAMAAAADAAwAAAAHAAMAAAACAAwAAAAHAAMAAAABAAwAAAAHAAMAAAAAAAwAAAAHAAMAAAAOAAsAAAAHAAMAAAANAAsAAAAHAAMAAAAMAAsAAAAHAAMAAAALAAsAAAAHAAMAAAAKAAsAAAAHAAMAAAAJAAsAAAAHAAMAAAAIAAsAAAAHAAMAAAAHAAsAAAAHAAMAAAAGAAsAAAAHAAMAAAAFAAsAAAAHAAMAAAAEAAsAAAAHAAMAAAADAAsAAAAHAAMAAAACAAsAAAAHAAMAAAABAAsAAAAHAAMAAAAAAAsAAAAHAAMAAAAXAAsAAAAMAAkAAAAYAAsAAAANAAkAAAAZAAsAAAAOAAkAAAAXAAwAAAAMAAoAAAAYAAwAAAANAAoAAAAZAAwAAAANAAoAAAA=")
+tile_set = ExtResource("2_tra2l")
+
+[node name="Tree2" type="Sprite2D" parent="Foreground" unique_id=143429416]
+position = Vector2(-46.3636, 417.2727)
+scale = Vector2(10, 10)
+texture = ExtResource("1_l24kx")
+
+[node name="Plant2" parent="Foreground" unique_id=2018596834 instance=ExtResource("3_08o3k")]
+position = Vector2(464.54544, 476.36365)
+scale = Vector2(2, 2)
+
+[node name="LevelTransition" parent="." unique_id=66526337 instance=ExtResource("8_byox3")]
+position = Vector2(189, -100)
+size = 3
+location = 2
+target_level = "uid://bnyv6fsxtgqem"
+target_area_name = "LevelTransition5"
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1197043162]
+script = ExtResource("9_uw0u7")
+metadata/_custom_type_script = "uid://cmetx1xg2tcil"

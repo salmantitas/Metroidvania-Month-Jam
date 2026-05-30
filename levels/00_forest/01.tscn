@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cxvqjrf38q1nd" path="res://levels/tilesets/light_stream.jpg" id="6_chwhs"]
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
 [ext_resource type="PackedScene" uid="uid://cm83u0ym4quvm" path="res://general/player_spawn/player_spawn.tscn" id="7_vdj2u"]
+[ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_8sv46"]
+[ext_resource type="AudioStream" uid="uid://dp5irt4ajmjxs" path="res://music/forest_01.ogg" id="9_08onm"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -43,11 +45,11 @@ seamless = true
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_vdj2u"]
+[sub_resource type="Gradient" id="Gradient_08onm"]
 colors = PackedColorArray(0.73333335, 1, 0.53333336, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8sv46"]
-gradient = SubResource("Gradient_vdj2u")
+gradient = SubResource("Gradient_08onm")
 width = 17
 height = 16
 fill = 1
@@ -58,7 +60,7 @@ fill_to = Vector2(0.5, 0)
 offsets = PackedFloat32Array(0, 0.39252338, 0.75233644, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.39252338, 0.39252338, 0.39252338, 1, 0.75233644, 0.75233644, 0.75233644, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_08onm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7jd6w"]
 gradient = SubResource("Gradient_8sv46")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_72pnk"]
@@ -69,7 +71,7 @@ initial_velocity_max = 300.0
 gravity = Vector3(0, 10, 0)
 scale_min = 0.75
 scale_max = 1.25
-color_ramp = SubResource("GradientTexture1D_08onm")
+color_ramp = SubResource("GradientTexture1D_7jd6w")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.09999997
 turbulence_enabled = true
@@ -286,3 +288,8 @@ process_material = SubResource("ParticleProcessMaterial_72pnk")
 
 [node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("7_vdj2u")]
 position = Vector2(983, 144)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=658584197]
+script = ExtResource("8_8sv46")
+track = ExtResource("9_08onm")
+metadata/_custom_type_script = "uid://cmetx1xg2tcil"

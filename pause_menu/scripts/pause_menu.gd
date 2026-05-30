@@ -8,13 +8,15 @@ var player : Player
 @onready var back_to_title_button: Button = %TitleMenuButton
 @onready var controls_menu_button: Button = %ControlsMenuButton
 
-
 @onready var pause_screen: Control = $Control/PauseScreen
 @onready var system_screen: Control = $Control/SystemScreen
+@onready var controls_screen: Control = $Control/ControlsScreen
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var ui_slider: HSlider = %UISlider
 #endregion
+
+var player_position : Vector2
 
 func _ready() -> void:
 	show_pause_screen()
@@ -22,7 +24,11 @@ func _ready() -> void:
 	back_to_map_button.pressed.connect ( _on_back_to_map_pressed )
 	back_to_title_button.pressed.connect ( _on_back_to_title_pressed )
 	controls_menu_button.pressed.connect ( _on_controls_menu_pressed )
+	Audio.setup_button_audio(self)
 	setup_system_menu()
+	var player : Player = get_tree().get_first_node_in_group("Player")
+	if player:
+		player_position = player.global_position
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -37,18 +43,26 @@ func _unhandled_input(event: InputEvent) -> void:
 func show_pause_screen() -> void:
 	pause_screen.visible = true
 	system_screen.visible = false
+	controls_screen.visible = false
 
 func show_system_menu() -> void:
 	pause_screen.visible = false
+	controls_screen.visible = false
 	system_screen.visible = true
 
 func setup_system_menu() -> void:
-	#setup sliders
-	pass
+	music_slider.value = AudioServer.get_bus_volume_linear(2)
+	sfx_slider.value = AudioServer.get_bus_volume_linear(3)
+	ui_slider.value = AudioServer.get_bus_volume_linear(4)
+
+	music_slider.value_changed.connect( _on_music_slider_changed )
+	sfx_slider.value_changed.connect( _on_sfx_slider_changed )
+	ui_slider.value_changed.connect( _on_ui_slider_changed )
 
 func _on_back_to_map_pressed():
 	pause_screen.visible = true
 	system_screen.visible = false
+	controls_screen.visible = false
 	back_to_map_button.grab_focus()
 
 func _on_back_to_title_pressed():
@@ -58,5 +72,20 @@ func _on_back_to_title_pressed():
 	queue_free()
 	
 func _on_controls_menu_pressed():
-	var controls: Control = $Control/PauseScreen/Controls
-	controls.visible = !controls.visible
+	controls_screen.visible = true
+	pause_screen.visible = false
+	system_screen.visible = false
+
+func _on_music_slider_changed(value : float) -> void:
+	AudioServer.set_bus_volume_linear(2, value)
+	SaveManager.save_configuration()
+
+func _on_sfx_slider_changed(value : float) -> void:
+	AudioServer.set_bus_volume_linear(3, value)
+	Audio.play_spatial_sound(Audio.ui_focus_audio, player_position)
+	SaveManager.save_configuration()
+
+func _on_ui_slider_changed(value : float) -> void:
+	AudioServer.set_bus_volume_linear(4, value)
+	Audio.ui_focus_change()
+	SaveManager.save_configuration()
