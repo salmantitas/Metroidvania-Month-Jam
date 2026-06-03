@@ -7,6 +7,7 @@ func init() -> void:
 	pass
 
 func enter() -> void:
+	VisualEffects.jump_dust( player.global_position )
 	player.animation_player.play("jump")
 	player.animation_player.pause()
 	player.velocity.y = -jump_velocity
@@ -23,8 +24,10 @@ func exit() -> void:
 
 # Takes an input and determines which state to change to
 func handle_input( event : InputEvent ) -> PlayerState:
+	if (event.is_action_pressed("attack")):
+		return attack
+		
 	if event.is_action_released("jump"):
-		player.velocity.y *= 0.5
 		return fall
 	return next_state
 

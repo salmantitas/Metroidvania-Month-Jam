@@ -77,7 +77,7 @@ func get_fade_position(dir : String) -> Vector2:
 
 func create_mobile_control_hud( new_scene : String) -> void:
 	# Check if it's running on a computer, else create mobile control layout
-	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+	if is_running_on_mobile():
 		if mobile_controls == null:
 			mobile_controls = MOBILE_CONTROLS_UID.instantiate()
 			get_tree().root.add_child(mobile_controls)
@@ -87,3 +87,6 @@ func create_mobile_control_hud( new_scene : String) -> void:
 				get_tree().root.remove_child(mobile_controls)
 				mobile_controls.queue_free()
 				mobile_controls = null
+
+func is_running_on_mobile() -> bool:
+	return OS.has_feature("web_android") or OS.has_feature("web_ios")

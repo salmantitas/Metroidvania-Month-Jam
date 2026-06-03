@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Forsaken - MVM 32"
-config/version="0.32"
+config/version="0.40"
 run/main_scene="uid://c2iu2rqjvhsko"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://otl8chc5kr72"
@@ -28,6 +28,7 @@ SaveManager="*uid://t3lcx7tl7ftr"
 Messages="*uid://xl72orsihgqg"
 PlayerHud="*uid://7ryjauoupcxc"
 Audio="*uid://c5ecvg50n0hjs"
+VisualEffects="*uid://dmwl1sbjfp2xp"
 
 [display]
 
@@ -129,6 +130,10 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="ground"
 2d_physics/layer_2="one way platform"
 2d_physics/layer_5="player"
+2d_physics/layer_6="enemy"
+2d_physics/layer_7="breakable"
+2d_physics/layer_8="slam breakable"
+2d_physics/layer_32="tutorial"
 
 [physics]
 

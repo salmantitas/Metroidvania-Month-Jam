@@ -27,6 +27,9 @@ func exit() -> void:
 
 # Takes an input and determines which state to change to
 func handle_input( event : InputEvent ) -> PlayerState:
+	if (event.is_action_pressed("attack")):
+		return attack
+		
 	if event.is_action_pressed("jump"):
 		if coyote_timer >  0:
 			return jump
@@ -42,10 +45,13 @@ func process(delta: float) -> PlayerState:
 
 func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
+		VisualEffects.land_dust(player.global_position)
 		#player.add_debug_indicator(Color.RED)
 		if buffer_timer > 0:
 			return jump
 		return idle
+	
+	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
 
 func set_jump_frame() -> void:

@@ -5,7 +5,9 @@ extends CanvasLayer
 
 func _ready() -> void:
 	Messages.player_health_changed.connect( update_health_bar )
-	visible = false
+	
+	if SceneManager.is_running_on_mobile():
+		$Control/Sprite2D.queue_free()
 
 func update_health_bar( hp : float, max_hp : float) -> void:
 	var value : float = (hp/max_hp) * 100

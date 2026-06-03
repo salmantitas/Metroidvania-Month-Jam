@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://bnyv6fsxtgqem"]
 
-[ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="1_5nc1y"]
+[ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="1_5nc1y"]
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_t5vos"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="2_6snt3"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="3_t6ewc"]
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="5_l5w8k"]
 [ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="6_dl3gj"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="7_q5x57"]
-[ext_resource type="AudioStream" uid="uid://wcfql8psu4ph" path="res://music/mvm-32-01.ogg" id="8_0bt2k"]
+[ext_resource type="AudioStream" uid="uid://bjcwgyefi3fb3" path="res://music/mvm-32-tree-base.ogg" id="8_101li"]
+[ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="9_101li"]
 
 [sub_resource type="Gradient" id="Gradient_7n1ya"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
@@ -224,11 +225,6 @@ tile_map_data = PackedByteArray("AAARAPj/AAANAAkAAAAQAPj/AAANAAkAAAAPAPj/AAANAAk
 tile_set = ExtResource("1_t5vos")
 collision_enabled = false
 
-[node name="BigTree" type="Sprite2D" parent="." unique_id=841887534]
-position = Vector2(768, 0)
-scale = Vector2(240, 150)
-texture = ExtResource("5_l5w8k")
-
 [node name="Fog" type="Sprite2D" parent="." unique_id=1281553018]
 position = Vector2(668, 503.8759)
 scale = Vector2(5.226563, 2.6396554)
@@ -363,13 +359,13 @@ target_level = "uid://dqd50h0ns6tmd"
 position = Vector2(515, 166)
 size = 4
 location = 2
-target_level = "uid://c4sx2wuuearbp"
+target_level = "uid://bqu1dj2ls5m6g"
 
 [node name="LevelTransition4" parent="." unique_id=1374761681 instance=ExtResource("3_t6ewc")]
 position = Vector2(898, 166)
 size = 4
 location = 2
-target_level = "uid://c4sx2wuuearbp"
+target_level = "uid://bqu1dj2ls5m6g"
 target_area_name = "LevelTransition2"
 
 [node name="LevelTransition5" parent="." unique_id=1426643241 instance=ExtResource("3_t6ewc")]
@@ -383,5 +379,8 @@ position = Vector2(956, 234)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1383641103]
 script = ExtResource("7_q5x57")
-track = ExtResource("8_0bt2k")
+track = ExtResource("8_101li")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
+
+[node name="Torch" parent="." unique_id=1910336948 instance=ExtResource("9_101li")]
+position = Vector2(1243, 314)

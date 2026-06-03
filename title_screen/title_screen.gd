@@ -35,8 +35,9 @@ func _ready() -> void:
 	load_back.pressed.connect( show_main_menu )
 	
 	Audio.setup_button_audio(self)
-	Audio.play_music(preload("res://music/mvm-32-title.ogg"))
+	Audio.play_music(preload("res://music/mvm-32-theme.ogg"))
 	show_main_menu()
+	PlayerHud.visible = false
 	animation_player.animation_finished.connect( _on_animation_finished )
 	pass	
 

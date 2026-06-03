@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ck165iotre055"]
+
+[ext_resource type="Texture2D" uid="uid://b5un147byf1f" path="res://levels/tilesets/sprites/Fire.png" id="1_aaw7g"]
+[ext_resource type="Script" uid="uid://wb2wmcwir12j" path="res://levels/props/light_source.gd" id="2_rm5oi"]
+[ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="3_tt88i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm5oi"]
+atlas = ExtResource("1_aaw7g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt88i"]
+atlas = ExtResource("1_aaw7g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m83aw"]
+atlas = ExtResource("1_aaw7g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btiqb"]
+atlas = ExtResource("1_aaw7g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fr8g"]
+atlas = ExtResource("1_aaw7g")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl4he"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_rm5oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt88i")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_m83aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btiqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fr8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_boad6"]
+offsets = PackedFloat32Array(0.13278009, 0.68049794, 0.8340249, 0.9875)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9166666, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cxyc4"]
+gradient = SubResource("Gradient_boad6")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.50390625, 0.48046875)
+fill_to = Vector2(1, 0.5)
+
+[node name="Torch" type="AnimatedSprite2D" unique_id=1910336948]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cl4he")
+autoplay = "default"
+frame_progress = 0.038999874
+script = ExtResource("2_rm5oi")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=258328222]
+position = Vector2(-0.33333397, 0.6666666)
+color = Color(0.81, 0.81, 0.81, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_cxyc4")
+script = ExtResource("3_tt88i")
+flicker_intensity = 0.2
+flicker_frequency = 0.1

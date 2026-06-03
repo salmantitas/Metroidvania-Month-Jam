@@ -15,28 +15,22 @@ func _ready() -> void:
 	if SaveManager.persistent_data.get_or_add( unique_name() , false) == true:
 		visited = true
 		queue_free()
-	else:	
-		area_2d.body_entered.connect(_on_player_entered)
-		area_2d.body_exited.connect(_on_player_exited)
+	else:
+		area_2d.area_entered.connect(_on_player_entered)
+		area_2d.area_exited.connect(_on_player_exited)
 
 func _on_player_entered( _n : Node2D):
-	#Messages.player_interacted.connect( _on_player_interacted)
-	#if visited:
-	#	return
+	print (_n.name)
 	Messages.tutorial_hint_changed.emit(hint)
 	Messages.input_hint_changed.emit(hint)
 	visited = true
 
 func _on_player_exited( _n : Node2D):
-	#Messages.player_interacted.disconnect( _on_player_interacted)	
+	print (_n.name)
 	Messages.tutorial_hint_changed.emit("")
 	Messages.input_hint_changed.emit("")
 	SaveManager.persistent_data[unique_name()] = visited
-	#area_2d.monitoring = false
 	queue_free()
-
-func _on_player_interacted( player : Player):
-	print("Player interacted")
 
 func apply_changes() -> void:
 	var width = 1

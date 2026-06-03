@@ -88,6 +88,7 @@ action = "dash"
 visibility_mode = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=662126887]
+process_mode = 3
 layer = 5
 
 [node name="Pause" type="Control" parent="CanvasLayer2" unique_id=119129666]

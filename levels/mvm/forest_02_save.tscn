@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cv18tb8adlp5c"]
 
-[ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_shojolita_spawn.tscn" id="1_6nmox"]
+[ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="1_6nmox"]
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="2_hr7ye"]
 [ext_resource type="PackedScene" uid="uid://mr7cyq54kym4" path="res://levels/mvm/props/plant.tscn" id="2_tpy3b"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="3_rtir5"]

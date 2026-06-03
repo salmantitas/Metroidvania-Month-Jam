@@ -24,6 +24,7 @@ func _on_player_interacted( _player : Player):
 	Messages.player_healed.emit( 999 )
 	
 	SaveManager.save_game()
+	SaveManager.save_configuration()
 	animation_player.play("game_saved")
 	animation_player.seek(0)
 	

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://0w4wc25244us"]
+[gd_scene format=3 uid="uid://dgh8aw62kgtxf"]
 
 [ext_resource type="Texture2D" uid="uid://cksakkaa42lj1" path="res://general/icons/level_bounds.svg" id="1_2adjl"]
 [ext_resource type="Texture2D" uid="uid://dc4c7mk3uf47v" path="res://player/input_icons.png" id="1_a5gi1"]
