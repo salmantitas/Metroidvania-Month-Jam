@@ -11,7 +11,7 @@ func _ready() -> void:
 	if get_tree().get_first_node_in_group("Player"):
 		return
 	# If not, instanstiate
-	var player : Player = load("res://player/player_shojolita.tscn").instantiate()
+	var player : Player = load("uid://0c3n1r0qfe6r").instantiate()
 	get_tree().root.add_child(player)
 	# Position player in the level
 	player.global_position = self.global_position

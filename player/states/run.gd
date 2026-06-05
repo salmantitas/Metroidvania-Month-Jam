@@ -12,12 +12,18 @@ func exit() -> void:
 	pass
 
 # Takes an input and determines which state to change to
-func handle_input( _event : InputEvent ) -> PlayerState:
-	if (_event.is_action_pressed("attack")):
+func handle_input( event : InputEvent ) -> PlayerState:
+	if (event.is_action_pressed("dash")) and player.can_dash():
+		return dash
+		
+	if (event.is_action_pressed("attack")):
 		return attack
 		
-	if (_event.is_action_pressed("jump")):
+	if (event.is_action_pressed("jump")):
 		return jump
+	
+	if (event.is_action_pressed("action")) and player.can_morph():
+		return morph
 	return next_state
 
 func process(_delta: float) -> PlayerState:

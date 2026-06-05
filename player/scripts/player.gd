@@ -3,15 +3,21 @@ extends CharacterBody2D
 
 const DEBUG_JUMP_INDICATOR = preload("uid://ypbd2v844p8k")
 
+#region /// signals
+signal damage_taken
+#endregion
+
 #region /// Onready Variables
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: PlayerSprite = $Sprite2D
 @onready var attack_sprite: Sprite2D = $Sprite2D/AttackSprite2D
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+@onready var da_stand: CollisionShape2D = %DAStand
+@onready var da_crouch: CollisionShape2D = %DACrouch
 @onready var one_way_platform_shape_cast: ShapeCast2D = $OneWayPlatformShapeCast
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_area: AttackArea = %AttackArea
-
+@onready var damage_area: DamageArea = %DamageArea
 #endregion
 
 #region /// Export Variables
@@ -37,10 +43,13 @@ var max_hp : float = 20 :
 		max_hp = value
 		hp = max_hp
 		Messages.player_health_changed.emit(hp, max_hp)
-var dash : bool = false
+var dash : bool = true
+var dash_count : int = 0
 var double_jump : bool = false
+var jump_count : int = 0
 var ground_slam : bool = false
-var morph_roll : bool = false
+var morph : bool = false
+var can_interact : bool = false
 #endregion
 
 #region /// Standard Variables
@@ -56,9 +65,12 @@ func _ready() -> void:
 	self.call_deferred( "reparent", get_tree().root)
 	Messages.back_to_title_screen.connect(queue_free)
 	Messages.player_healed.connect( _on_player_healed 	)
+	Messages.input_hint_changed.connect( _on_input_hint_changed )
+	damage_area.damage_taken.connect( _on_damage_taken )
+	hp = max_hp
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("jump"):
+	if event.is_action_released("jump") and velocity.y < 0:
 		velocity.y *= 0.5
 	
 	if event.is_action_pressed( "action"):
@@ -169,6 +181,21 @@ func add_debug_indicator( color : Color = Color.RED ) -> void:
 
 func _on_player_healed( amount : float) -> void:
 	hp += amount
+
+func _on_damage_taken( attack_area : AttackArea ) -> void:
+	hp -= attack_area.damage
+	damage_taken.emit()
 	
-	print("Player healed for: " + str(amount))
-	print("HP: " + str(hp))
+func _on_input_hint_changed( prompt : String):
+	if prompt == "interact":
+		can_interact = true
+	else:
+		can_interact = false
+
+func can_dash() -> bool:
+	return dash and dash_count == 0
+
+func can_morph() -> bool:
+	if morph == false or can_interact == true:
+		return false
+	return true

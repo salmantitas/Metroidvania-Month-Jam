@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkjbair0atc65"]
 
-[ext_resource type="Texture2D" uid="uid://cbx5cr72wj8nv" path="res://levels/tilesets/sprites/mvm-2026-tileset.png" id="1_nsdud"]
+[ext_resource type="Texture2D" uid="uid://cbx5cr72wj8nv" path="res://levels/tilesets/sprites/mvm-32-tileset.png" id="1_nsdud"]
 [ext_resource type="Script" uid="uid://c0a5g2ngdn20p" path="res://general/scripts/light_flicker.gd" id="2_iptdg"]
 [ext_resource type="Script" uid="uid://cxlmkq7qppk1g" path="res://general/save_point/save_point.gd" id="2_ww43l"]
 

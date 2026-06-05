@@ -13,4 +13,4 @@ position = Vector2(0, -24)
 scale = Vector2(3, 3)
 texture = ExtResource("2_348pq")
 hframes = 4
-vframes = 7
+vframes = 9

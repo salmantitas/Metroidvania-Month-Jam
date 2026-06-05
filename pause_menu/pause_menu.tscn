@@ -1,10 +1,29 @@
 [gd_scene format=3 uid="uid://bh3w6kqp5a75b"]
 
 [ext_resource type="Script" uid="uid://ckv7wcnyn18wk" path="res://pause_menu/scripts/pause_menu.gd" id="1_5hbt6"]
+[ext_resource type="Texture2D" uid="uid://clrtolo52yly7" path="res://player/sprites/abilities.png" id="2_b4s0c"]
 [ext_resource type="PackedScene" uid="uid://dr0yuhxx0po6a" path="res://pause_menu/map_node.tscn" id="2_rd7dy"]
+[ext_resource type="Script" uid="uid://debglhftskh0k" path="res://pause_menu/abilities_list.gd" id="2_s1glv"]
+[ext_resource type="FontFile" uid="uid://dq7qs8xss5cpk" path="res://general/fonts/Flowmery-Regular.ttf" id="2_uwtdo"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
 spacing_glyph = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwtdo"]
+atlas = ExtResource("2_b4s0c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4s0c"]
+atlas = ExtResource("2_b4s0c")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1glv"]
+atlas = ExtResource("2_b4s0c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn31l"]
+atlas = ExtResource("2_b4s0c")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="Gradient" id="Gradient_rd7dy"]
 offsets = PackedFloat32Array(0, 0.46875, 1)
@@ -167,7 +186,7 @@ offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=1387706397]
+[node name="AbilitiesLabel" type="Label" parent="Control/PauseScreen" unique_id=1387706397]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 8.0
@@ -176,6 +195,42 @@ offset_bottom = 24.0
 theme_override_font_sizes/font_size = 12
 text = "Abilities"
 
+[node name="AbilitiesList" type="VBoxContainer" parent="Control/PauseScreen" unique_id=1087127978]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 44.0
+offset_bottom = 58.0
+script = ExtResource("2_s1glv")
+
+[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=928879269]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_uwtdo")
+stretch_mode = 3
+
+[node name="AbilityMorph" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=756593299]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b4s0c")
+stretch_mode = 3
+
+[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1326973970]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1glv")
+stretch_mode = 3
+
+[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1215017883]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_wn31l")
+stretch_mode = 3
+
 [node name="Map" type="Control" parent="Control/PauseScreen" unique_id=184373552]
 anchors_preset = 0
 offset_left = 176.0
@@ -183,29 +238,79 @@ offset_top = 8.0
 offset_right = 472.0
 offset_bottom = 204.0
 
+[node name="LabelMap" type="Label" parent="Control/PauseScreen/Map" unique_id=390162170]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 12
+text = "Map"
+
 [node name="BG" type="ColorRect" parent="Control/PauseScreen/Map" unique_id=1211637812]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -4.0
-offset_bottom = -98.0
+offset_left = -2.0
+offset_top = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.19607843)
 
-[node name="Label2" type="Label" parent="Control/PauseScreen/Map" unique_id=390162170]
+[node name="LabelForest" type="Label" parent="Control/PauseScreen/Map" unique_id=1524070676]
 layout_mode = 0
-offset_right = 48.0
-offset_bottom = 16.0
-theme_override_font_sizes/font_size = 12
-text = "Map"
+offset_left = 3.0
+offset_top = 97.0
+offset_right = 97.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_uwtdo")
+theme_override_font_sizes/font_size = 10
+text = "Forsaken Woods"
+horizontal_alignment = 1
+
+[node name="LabelRoots" type="Label" parent="Control/PauseScreen/Map" unique_id=829036779]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 127.0
+offset_right = 200.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("2_uwtdo")
+theme_override_font_sizes/font_size = 10
+text = "Roots"
+horizontal_alignment = 1
+
+[node name="LabelCastle" type="Label" parent="Control/PauseScreen/Map" unique_id=1729839148]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 24.0
+offset_right = 316.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("2_uwtdo")
+theme_override_font_sizes/font_size = 10
+text = "Keep
+Of The
+Fallen"
+horizontal_alignment = 1
+
+[node name="LabelTree" type="Label" parent="Control/PauseScreen/Map" unique_id=495292420]
+layout_mode = 0
+offset_left = 117.0
+offset_top = -8.0
+offset_right = 211.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_uwtdo")
+theme_override_font_sizes/font_size = 10
+text = "Heathen's Tree"
+horizontal_alignment = 1
 
 [node name="MapNodes" type="Control" parent="Control/PauseScreen/Map" unique_id=1557877659]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MapNode01_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=1305438195 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
@@ -213,14 +318,15 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 33.0
-offset_bottom = 67.0
+offset_left = 9.0
+offset_top = 84.0
+offset_right = 39.0
+offset_bottom = 98.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://tv46cj7vcfkf"
 entrances_right = Array[float]([9.0])
+indicator_offset = Vector2(0, -100)
 
 [node name="MapNode01_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=527689647 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
@@ -228,16 +334,17 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 33.0
-offset_top = 59.0
-offset_right = 60.0
-offset_bottom = 69.0
+offset_left = 39.0
+offset_top = 90.0
+offset_right = 66.0
+offset_bottom = 100.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://dj1sm1hfiujva"
 entrances_top = Array[float]([20.275])
 entrances_right = Array[float]([4.2])
 entrances_left = Array[float]([2.775])
+indicator_offset = Vector2(-320, 1)
 
 [node name="MapNode01_02_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=458874678 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.2769, 0.71, 0.68112665, 1)
@@ -245,15 +352,16 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 60.0
-offset_top = 59.0
-offset_right = 78.0
-offset_bottom = 70.0
+offset_left = 66.0
+offset_top = 90.0
+offset_right = 84.0
+offset_bottom = 101.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://cv18tb8adlp5c"
 entrances_right = Array[float]([4.475])
 entrances_left = Array[float]([4.475])
+indicator_offset = Vector2(0, 1)
 
 [node name="MapNode01_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=66894061 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
@@ -261,265 +369,391 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 78.0
-offset_top = 46.0
-offset_right = 119.0
-offset_bottom = 70.0
+offset_left = 84.0
+offset_top = 77.0
+offset_right = 125.0
+offset_bottom = 101.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://crje8l7x6y5wq"
 entrances_top = Array[float]([36.0])
-entrances_right = Array[float]([13.0])
+entrances_right = Array[float]([13.225])
 entrances_bottom = Array[float]([36.0])
 entrances_left = Array[float]([16.975, 2.475])
+indicator_offset = Vector2(-220, -555)
 
-[node name="MapNode01_03_a" parent="Control/PauseScreen/Map/MapNodes" unique_id=176263919 instance=ExtResource("2_rd7dy")]
+[node name="MapNode01_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=176263919 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 50.0
-offset_top = 46.0
-offset_right = 78.0
-offset_bottom = 55.0
+offset_left = 56.0
+offset_top = 77.0
+offset_right = 84.0
+offset_bottom = 90.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://d4m2tbc2l3kkr"
 entrances_top = Array[float]([21.975])
 entrances_right = Array[float]([2.25])
-entrances_bottom = Array[float]([4.025])
+entrances_bottom = Array[float]([2.8])
+indicator_offset = Vector2(-1012, -639)
 
-[node name="MapNode01_03_b" parent="Control/PauseScreen/Map/MapNodes" unique_id=1062862634 instance=ExtResource("2_rd7dy")]
+[node name="MapNode01_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1062862634 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 70.0
-offset_top = 39.0
-offset_right = 120.0
-offset_bottom = 46.0
+offset_left = 76.0
+offset_top = 64.0
+offset_right = 126.0
+offset_bottom = 77.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c268e50qgyisv"
 entrances_bottom = Array[float]([44.0, 2.0])
+indicator_offset = Vector2(-775, -846)
 
-[node name="MapNode01_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=1320618944 instance=ExtResource("2_rd7dy")]
+[node name="MapNode01_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=1320618944 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 119.0
-offset_top = 57.0
-offset_right = 146.0
-offset_bottom = 64.0
+offset_left = 125.0
+offset_top = 88.0
+offset_right = 152.0
+offset_bottom = 95.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://dtpcetn4rvmik"
 entrances_right = Array[float]([2.0])
 entrances_left = Array[float]([2.0])
+indicator_offset = Vector2(-320, 1)
 
-[node name="MapNode01_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1201469323 instance=ExtResource("2_rd7dy")]
-modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+[node name="MapNode02_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=1201469323 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 146.0
-offset_top = 57.0
-offset_right = 178.0
-offset_bottom = 73.0
+offset_left = 152.0
+offset_top = 88.0
+offset_right = 184.0
+offset_bottom = 104.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://bnyv6fsxtgqem"
-entrances_top = Array[float]([12.875, 22.45])
+entrances_top = Array[float]([17.6])
 entrances_right = Array[float]([2.9499998])
 entrances_bottom = Array[float]([6.025])
 entrances_left = Array[float]([2.0])
+indicator_offset = Vector2(0, 166)
 
-[node name="MapNode01_05_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=1995068243 instance=ExtResource("2_rd7dy")]
+[node name="MapNode02_01_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=1995068243 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.2769, 0.71, 0.68112665, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 156.0
-offset_top = 46.0
-offset_right = 174.0
-offset_bottom = 57.0
+offset_left = 166.0
+offset_top = 77.0
+offset_right = 184.0
+offset_bottom = 88.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://bqu1dj2ls5m6g"
-entrances_bottom = Array[float]([3.125, 11.625])
+entrances_top = Array[float]([7.4])
+entrances_bottom = Array[float]([4.45])
+indicator_offset = Vector2(0, 1)
 
-[node name="MapNode01_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=1907462095 instance=ExtResource("2_rd7dy")]
-modulate = Color(0.38039216, 0.5882353, 0.23137255, 1)
+[node name="MapNode02_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=1907462095 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 178.0
-offset_top = 53.0
-offset_right = 196.0
-offset_bottom = 69.0
+offset_left = 184.0
+offset_top = 83.0
+offset_right = 202.0
+offset_bottom = 100.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://dqd50h0ns6tmd"
+entrances_top = Array[float]([4.375])
 entrances_right = Array[float]([6.7749996])
 entrances_left = Array[float]([6.7749996])
+indicator_offset = Vector2(0, 1)
 
-[node name="MapNode03_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=1332611133 instance=ExtResource("2_rd7dy")]
-modulate = Color(0.4, 0.4, 0.4, 1)
+[node name="MapNode02_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=254124729 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 196.0
-offset_top = 48.0
-offset_right = 232.0
-offset_bottom = 64.0
+offset_left = 162.0
+offset_top = 60.0
+offset_right = 180.0
+offset_bottom = 77.0
 grow_horizontal = 1
 grow_vertical = 1
-linked_scene = "uid://ci4wcdj2mjayn"
-entrances_right = Array[float]([8.425])
-entrances_left = Array[float]([12.0])
+linked_scene = "uid://c07di3v6skv87"
+entrances_top = Array[float]([4.375])
+entrances_right = Array[float]([6.8])
+entrances_bottom = Array[float]([9.8])
+indicator_offset = Vector2(0, 1)
 
-[node name="MapNode03_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=560111150 instance=ExtResource("2_rd7dy")]
-modulate = Color(0.4, 0.4, 0.4, 1)
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 232.0
-offset_top = 48.0
-offset_right = 244.0
-offset_bottom = 64.0
-grow_horizontal = 1
-grow_vertical = 1
-linked_scene = "uid://6gl4cvnn87bg"
-entrances_bottom = Array[float]([6.6])
-entrances_left = Array[float]([8.575])
-
-[node name="MapNode02_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=518500698 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=518500698 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 146.0
-offset_top = 73.0
-offset_right = 178.0
-offset_bottom = 83.0
+offset_left = 152.0
+offset_top = 104.0
+offset_right = 184.0
+offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://27wl7of1eaq3"
 entrances_top = Array[float]([6.075])
 entrances_right = Array[float]([5.0])
 entrances_left = Array[float]([4.9])
+indicator_offset = Vector2(0, -100)
 
-[node name="MapNode02_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=1655452351 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=1655452351 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 120.0
-offset_top = 64.0
-offset_right = 146.0
-offset_bottom = 83.0
+offset_left = 126.0
+offset_top = 95.0
+offset_right = 152.0
+offset_bottom = 114.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://b3lne8e7sd83h"
 entrances_right = Array[float]([13.975])
 entrances_left = Array[float]([9.275, 14.0])
+indicator_offset = Vector2(0, -100)
 
-[node name="MapNode02_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=1250366569 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=1250366569 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 108.0
-offset_top = 70.0
-offset_right = 120.0
-offset_bottom = 89.0
+offset_left = 114.0
+offset_top = 101.0
+offset_right = 126.0
+offset_bottom = 133.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c0h8wwub11rtw"
 entrances_top = Array[float]([5.525])
 entrances_right = Array[float]([3.1, 7.8999996, 13.9])
+indicator_offset = Vector2(0, -100)
 
-[node name="MapNode02_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=2123739401 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=2123739401 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 120.0
-offset_top = 83.0
-offset_right = 178.0
-offset_bottom = 102.0
+offset_left = 126.0
+offset_top = 114.0
+offset_right = 184.0
+offset_bottom = 133.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://73u6rdggpiip"
 entrances_right = Array[float]([2.0749998])
 entrances_left = Array[float]([14.0])
+indicator_offset = Vector2(0, -100)
 
-[node name="MapNode02_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1768602326 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1768602326 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 178.0
-offset_top = 71.0
-offset_right = 204.0
-offset_bottom = 90.0
+offset_left = 184.0
+offset_top = 102.0
+offset_right = 210.0
+offset_bottom = 121.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://bw53l057627td"
 entrances_right = Array[float]([13.975])
 entrances_left = Array[float]([6.875, 14.0])
+indicator_offset = Vector2(0, -100)
 
-[node name="MapNode02_05_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=2003033017 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_05_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=2003033017 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.2769, 0.71, 0.68112665, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 204.0
-offset_top = 69.0
-offset_right = 222.0
-offset_bottom = 80.0
+offset_left = 210.0
+offset_top = 100.0
+offset_right = 228.0
+offset_bottom = 111.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c1mlf1ku1x57o"
 entrances_right = Array[float]([4.475])
 entrances_left = Array[float]([4.475])
+indicator_offset = Vector2(0, 1)
 
-[node name="MapNode02_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=1922607642 instance=ExtResource("2_rd7dy")]
+[node name="MapNode10_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=1922607642 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 222.0
-offset_top = 68.0
-offset_right = 236.0
-offset_bottom = 78.0
+offset_left = 228.0
+offset_top = 99.0
+offset_right = 250.0
+offset_bottom = 115.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://fgk6d8keq1qo"
 entrances_top = Array[float]([6.075])
 entrances_left = Array[float]([4.95])
+indicator_offset = Vector2(0, -100)
+
+[node name="MapNode20_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=1332611133 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 202.0
+offset_top = 82.0
+offset_right = 238.0
+offset_bottom = 98.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://ci4wcdj2mjayn"
+entrances_right = Array[float]([8.65])
+entrances_left = Array[float]([8.575])
+indicator_offset = Vector2(0, 173)
+
+[node name="MapNode20_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=560111150 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 238.0
+offset_top = 82.0
+offset_right = 250.0
+offset_bottom = 98.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://6gl4cvnn87bg"
+entrances_top = Array[float]([7.0])
+entrances_bottom = Array[float]([6.6])
+entrances_left = Array[float]([7.5249996])
+indicator_offset = Vector2(0, 173)
+
+[node name="MapNode20_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=982973229 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_top = 68.0
+offset_right = 250.0
+offset_bottom = 82.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://dpf4vluhel30l"
+entrances_top = Array[float]([31.0])
+entrances_bottom = Array[float]([31.0])
+entrances_left = Array[float]([8.575, 2.0])
+indicator_offset = Vector2(0, 173)
+
+[node name="MapNode20_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=1846492551 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 184.0
+offset_top = 67.0
+offset_right = 214.0
+offset_bottom = 83.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://regafsy8g6kw"
+entrances_top = Array[float]([2.2])
+entrances_right = Array[float]([6.7749996, 2.0, 3.975])
+entrances_bottom = Array[float]([3.6])
+entrances_left = Array[float]([2.0500002])
+indicator_offset = Vector2(0, 1)
+
+[node name="MapNode20_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1285209117 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 192.0
+offset_top = 38.0
+offset_right = 250.0
+offset_bottom = 67.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://c4t0mkimt5sb5"
+entrances_bottom = Array[float]([53.0])
+entrances_left = Array[float]([24.0])
+indicator_offset = Vector2(0, 1)
+
+[node name="MapNode20_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=462657284 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 180.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 67.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://tih4bmb6x0am"
+entrances_top = Array[float]([6.6])
+entrances_bottom = Array[float]([6.6])
+indicator_offset = Vector2(0, 173)
+
+[node name="MapNode30_final" parent="Control/PauseScreen/Map/MapNodes" unique_id=853666765 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 165.0
+offset_top = 53.0
+offset_right = 177.0
+offset_bottom = 60.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://cfdmjdsqdq7yt"
+entrances_bottom = Array[float]([7.0])
+indicator_offset = Vector2(0, 1)
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=608613520]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 61.0
+offset_right = 60.0
+offset_bottom = 101.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1001555570]
 layout_mode = 1

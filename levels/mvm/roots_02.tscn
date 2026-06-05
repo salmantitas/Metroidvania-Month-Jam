@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b3lne8e7sd83h"]
 
-[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_a8eo8"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_a8eo8"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="3_a8eo8"]
 [ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="4_a8eo8"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="4_gmcpm"]
@@ -205,7 +205,7 @@ tile_set = ExtResource("1_a8eo8")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="LevelTiles/Lighting" unique_id=517242095]
 scale = Vector2(3, 3)
-energy = 0.8
+energy = 0.7
 blend_mode = 1
 
 [node name="Torch" parent="LevelTiles/Lighting" unique_id=1910336948 instance=ExtResource("4_a8eo8")]

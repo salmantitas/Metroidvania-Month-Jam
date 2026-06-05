@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cl2ov85k3emwu" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
 [ext_resource type="Texture2D" uid="uid://ctv42qd47hq73" path="res://00_global/player_hud/mvm_health_bar.png" id="2_vb1bs"]
 [ext_resource type="Texture2D" uid="uid://bpahoxjgyltqm" path="res://general/mobile/mvm-mobile-pause.png" id="3_26715"]
-[ext_resource type="Resource" uid="uid://b150qvid6eary" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_large.tres" id="4_tdgrf"]
 
 [sub_resource type="Gradient" id="Gradient_p3j8y"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -22,14 +21,12 @@ height = 16
 [sub_resource type="GDScript" id="GDScript_26715"]
 script/source = "extends Button
 
-@export var particle_settings : HitParticleSettings
-
 func _ready() -> void:
 	pressed.connect( _on_pressed )
 	
 func _on_pressed() -> void:
-	var player : Player = get_tree().get_first_node_in_group( \"Player\" )
-	VisualEffects.hit_particles( player.global_position, Vector2(-1, 0), particle_settings )
+	var player : Player = get_tree().get_first_node_in_group(\"Player\")
+	player.dash = !player.dash
 "
 
 [node name="PlayerHud" type="CanvasLayer" unique_id=391663123]
@@ -83,23 +80,79 @@ texture_under = SubResource("GradientTexture2D_hv14i")
 texture_progress = SubResource("GradientTexture2D_vb1bs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1914386118]
+visible = false
 position = Vector2(455, 18)
 scale = Vector2(2, 2)
 texture = ExtResource("3_26715")
 
-[node name="Control" type="Control" parent="Control" unique_id=1306556046]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="Control/Control" unique_id=2128736111]
+[node name="Button" type="Button" parent="Control" unique_id=2128736111]
 visible = false
 layout_mode = 0
-offset_left = 250.0
-offset_top = 2.0
-offset_right = 434.0
-offset_bottom = 26.0
+offset_left = 252.0
+offset_top = 6.0
+offset_right = 436.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 12
-text = "Particles"
+text = "Toggle Dash"
 script = SubResource("GDScript_26715")
-particle_settings = ExtResource("4_tdgrf")
+
+[node name="GameOver" type="Control" parent="Control" unique_id=1306556046]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/GameOver" unique_id=1141546160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="Label" type="Label" parent="Control/GameOver" unique_id=845097079]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -31.0
+offset_right = 72.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.47479695, 1.1130236e-06, 3.6098064e-07, 1)
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameOver" unique_id=369578807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -3.0
+offset_right = 171.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=483194252]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "load last save"
+
+[node name="QuitButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=856581749]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "quit to title"

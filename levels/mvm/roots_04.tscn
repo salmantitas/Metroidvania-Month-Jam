@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://73u6rdggpiip"]
 
-[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_g4omk"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_g4omk"]
 [ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="3_28vg6"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="5_3ehyu"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="6_1ttbc"]
@@ -202,11 +202,10 @@ tile_map_data = PackedByteArray("AADv/wIAAAAWAAMAAADv/wUAAAAVAAEAAADw/wUAAAAVAAE
 tile_set = ExtResource("1_g4omk")
 
 [node name="Lighting" type="Node2D" parent="LevelTiles" unique_id=1236298520]
-visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="LevelTiles/Lighting" unique_id=517242095]
 scale = Vector2(3, 3)
-energy = 0.8
+energy = 0.9
 blend_mode = 1
 
 [node name="Torch" parent="LevelTiles/Lighting" unique_id=1910336948 instance=ExtResource("3_28vg6")]

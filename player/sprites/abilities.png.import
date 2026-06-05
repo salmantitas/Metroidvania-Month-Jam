@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbx5cr72wj8nv"
-path="res://.godot/imported/mvm-2026-tileset.png-5a3768fc548b6f6e113ac7402596487c.ctex"
+uid="uid://clrtolo52yly7"
+path="res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/tilesets/sprites/mvm-2026-tileset.png"
-dest_files=["res://.godot/imported/mvm-2026-tileset.png-5a3768fc548b6f6e113ac7402596487c.ctex"]
+source_file="res://player/sprites/abilities.png"
+dest_files=["res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"]
 
 [params]
 

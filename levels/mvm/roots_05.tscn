@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bw53l057627td"]
 
-[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_apfi7"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_apfi7"]
 [ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="2_f26em"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="3_w50k7"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="4_5corq"]
@@ -201,7 +201,6 @@ tile_map_data = PackedByteArray("AADv/wIAAAAVAAMAAADv/wUAAAAVAAEAAADw/wUAAAAVAAE
 tile_set = ExtResource("1_apfi7")
 
 [node name="Lighting" type="Node2D" parent="LevelTiles" unique_id=1236298520]
-visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="LevelTiles/Lighting" unique_id=517242095]
 scale = Vector2(3, 3)

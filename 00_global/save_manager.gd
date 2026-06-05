@@ -50,7 +50,7 @@ func create_new_game_save( slot : int) -> void:
 		"dash" : false,
 		"double_jump" : false,
 		"ground_slam" : false,
-		"morph_roll" : false,
+		"morph" : false,
 		"discovered_areas": discovered_areas,
 		"persistent_data": persistent_data
 	}
@@ -71,7 +71,7 @@ func save_game() -> void:
 		"dash" : player.dash,
 		"double_jump" : player.double_jump,
 		"ground_slam" : player.ground_slam,
-		"morph_roll" : player.morph_roll,
+		"morph" : player.morph,
 		"discovered_areas": discovered_areas,
 		"persistent_data": persistent_data
 	}
@@ -109,7 +109,7 @@ func setup_player() -> void:
 	player.dash = save_data.get( "dash", false)
 	player.double_jump = save_data.get( "double_jump", false)
 	player.ground_slam = save_data.get( "ground_slam", false)
-	player.morph_roll = save_data.get( "morph_roll", false)
+	player.morph = save_data.get( "morph", false)
 	
 	player.global_position = Vector2(
 		save_data.get("x", 0),

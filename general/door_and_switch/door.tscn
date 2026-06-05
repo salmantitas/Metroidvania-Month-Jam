@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cvtg13yeuylj5"]
 
-[ext_resource type="Texture2D" uid="uid://bq008w7kds2fd" path="res://general/door_and_switch/door_and_switch.png" id="1_ar1bk"]
 [ext_resource type="Script" uid="uid://diuil2nyuy3ub" path="res://general/door_and_switch/door.gd" id="1_wis3y"]
+[ext_resource type="Texture2D" uid="uid://dk2uq8arhtv7a" path="res://general/door_and_switch/mvm_door_and_switch.png" id="2_wis3y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ut10y"]
+load_path = "res://.godot/imported/door_and_switch.png-fb8ab323b91ecd3817ff25cc97a226e9.ctex"
 
 [sub_resource type="Animation" id="Animation_wis3y"]
 length = 0.001
@@ -179,8 +182,9 @@ process_mode = 3
 script = ExtResource("1_wis3y")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=603774356]
+visible = false
 position = Vector2(0, 15)
-texture = ExtResource("1_ar1bk")
+texture = SubResource("CompressedTexture2D_ut10y")
 vframes = 3
 frame = 1
 
@@ -190,10 +194,10 @@ offset_left = -16.0
 offset_top = -106.0
 offset_right = 16.0
 offset_bottom = 10.0
-texture = ExtResource("1_ar1bk")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_top = 15
-patch_margin_bottom = 6
+texture = ExtResource("2_wis3y")
+region_rect = Rect2(0, 0, 16, 32)
+patch_margin_top = 20
+patch_margin_bottom = 5
 axis_stretch_vertical = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1812834924]
@@ -201,6 +205,7 @@ libraries/ = SubResource("AnimationLibrary_wis3y")
 autoplay = &"closed"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1936583183]
+visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1923100264]

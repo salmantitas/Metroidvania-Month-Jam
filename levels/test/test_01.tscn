@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cxvqjrf38q1nd" path="res://levels/tilesets/light_stream.jpg" id="6_chwhs"]
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_8sv46"]
-[ext_resource type="AudioStream" uid="uid://dp5irt4ajmjxs" path="res://music/forest_01.ogg" id="9_08onm"]
+[ext_resource type="PackedScene" uid="uid://dk3e287ex1gpm" path="res://levels/props/crate.tscn" id="9_8v3r1"]
+[ext_resource type="PackedScene" uid="uid://sr3qlj0qniox" path="res://levels/props/test_dummy/test_dummy.tscn" id="9_pj0xl"]
+[ext_resource type="Script" uid="uid://bidhkrsku6rfu" path="res://general/scripts/breakable.gd" id="10_wajjk"]
 [ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="11_3nsd0"]
-[ext_resource type="AudioStream" uid="uid://c4bkgbfnwiuwd" path="res://general/audio/hit.wav" id="11_jwd80"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="12_qt823"]
+[ext_resource type="PackedScene" uid="uid://btfakv3rwtj7r" path="res://levels/props/test_dummy/spike_dummy.tscn" id="13_kv4s0"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -79,11 +81,8 @@ hue_variation_max = 0.09999997
 turbulence_enabled = true
 turbulence_influence_max = 0.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwd80"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_her5p"]
-size = Vector2(32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt823"]
+size = Vector2(127, 126)
 
 [node name="01" type="Node2D" unique_id=1411465302]
 
@@ -296,27 +295,38 @@ process_material = SubResource("ParticleProcessMaterial_72pnk")
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=658584197]
 script = ExtResource("8_8sv46")
-track = ExtResource("9_08onm")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
-
-[node name="DamageArea" type="Area2D" parent="." unique_id=785595419]
-position = Vector2(953, 139)
-collision_layer = 32
-collision_mask = 0
-script = ExtResource("11_3nsd0")
-audio = ExtResource("11_jwd80")
-metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1776783646]
-shape = SubResource("RectangleShape2D_jwd80")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=817286463]
-position = Vector2(795, 139)
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2042643088]
-shape = SubResource("RectangleShape2D_her5p")
 
 [node name="PlayerSpawn2" parent="." unique_id=1878681734 instance=ExtResource("12_qt823")]
 position = Vector2(753, 158)
+
+[node name="Crate" parent="." unique_id=1674375098 instance=ExtResource("9_8v3r1")]
+position = Vector2(811, 150)
+
+[node name="TestDummy" parent="." unique_id=2008839215 instance=ExtResource("9_pj0xl")]
+position = Vector2(859, 158)
+
+[node name="SpikeDummy" parent="." unique_id=1550054407 instance=ExtResource("13_kv4s0")]
+position = Vector2(691, 160)
+
+[node name="Breakable" type="Node2D" parent="." unique_id=508528391]
+position = Vector2(928, 36)
+script = ExtResource("10_wajjk")
+hp = 2.0
+fixed_hit_count = true
+metadata/_custom_type_script = "uid://bidhkrsku6rfu"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Breakable" unique_id=269870914]
+tile_map_data = PackedByteArray("AAAAAAAAAQAQAA0AAAAAAAEAAQAQAA0AAAAAAAIAAQAQAA0AAAABAAAAAQARAA0AAAABAAEAAQARAA0AAAABAAIAAQARAA0AAAACAAAAAQAQAA4AAAACAAEAAQAQAA4AAAACAAIAAQAQAA4AAAAAAAMAAQAQAA0AAAABAAMAAQARAA0AAAACAAMAAQAQAA4AAAADAAAAAQARAA4AAAADAAEAAQARAA4AAAADAAIAAQARAA4AAAADAAMAAQARAA4AAAA=")
+tile_set = ExtResource("1_fvrtv")
+
+[node name="DamageArea" type="Area2D" parent="Breakable" unique_id=174298946]
+position = Vector2(32, 32)
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("11_3nsd0")
+metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=964665662]
+position = Vector2(31.5, 32)
+shape = SubResource("RectangleShape2D_qt823")

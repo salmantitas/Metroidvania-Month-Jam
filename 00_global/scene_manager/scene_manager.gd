@@ -9,6 +9,7 @@ signal scene_entered (uid : String)
 
 var current_scene_uid : String = ""
 
+const TITLE_SCREEN_UID = "uid://c2iu2rqjvhsko"
 const MOBILE_CONTROLS_UID = preload("uid://byqtogtyhm8qq")
 var mobile_controls : CanvasLayer = null
 
@@ -83,7 +84,7 @@ func create_mobile_control_hud( new_scene : String) -> void:
 			get_tree().root.add_child(mobile_controls)
 
 		if mobile_controls != null:
-			if new_scene == "res://title_screen/title_screen.tscn":
+			if new_scene == TITLE_SCREEN_UID:
 				get_tree().root.remove_child(mobile_controls)
 				mobile_controls.queue_free()
 				mobile_controls = null

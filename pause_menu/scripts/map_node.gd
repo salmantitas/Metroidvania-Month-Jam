@@ -15,7 +15,7 @@ const SCALE_FACTOR = 40
 @export var entrances_bottom : Array[ float ] = []
 @export var entrances_left : Array[ float ] = []
 
-var indicator_offset : Vector2 = Vector2.ZERO
+@export var indicator_offset : Vector2 = Vector2.ZERO
 var lb : LevelBounds
 
 @onready var label: Label = $Label
@@ -158,7 +158,6 @@ func get_indicator_offset() -> void:
 		if packed_scene:
 			var instance = packed_scene.instantiate()
 			if instance:
-				update_node_label(instance)
 				for c in instance.get_children():
 					if c is LevelBounds:
 						indicator_offset = c.position
@@ -170,7 +169,7 @@ func display_player_location():
 	var indicator : Control = %PlayerIndicator
 	var pos : Vector2 = position
 	
-	get_indicator_offset()
+	#get_indicator_offset()
 	
 	pos += ( (player.global_position - indicator_offset) /SCALE_FACTOR)
 	var clamp : Vector2 = Vector2(3,3)

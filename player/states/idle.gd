@@ -6,26 +6,33 @@ func init() -> void:
 
 func enter() -> void:
 	player.animation_player.play("idle")
-	pass
+	player.jump_count = 0
+	player.dash_count = 0
 	
 func exit() -> void:
 	pass
 
 # Takes an input and determines which state to change to
-func handle_input( _event : InputEvent ) -> PlayerState:
-	if (_event.is_action_pressed("attack")):
+func handle_input( event : InputEvent ) -> PlayerState:
+	if (event.is_action_pressed("dash")) and player.can_dash():
+		return dash
+		
+	if (event.is_action_pressed("attack")):
 		return attack
 		
-	if (_event.is_action_pressed("jump")):
+	if (event.is_action_pressed("jump")):
 		return jump
-	return next_state
+		
+	if (event.is_action_pressed("action")) and player.can_morph():
+		return morph
+	return null
 
 func process(_delta: float) -> PlayerState:
 	if player.direction.x != 0:
 		return run
 	elif player.direction.y > 0.5:
 		return crouch
-	return next_state
+	return null
 
 func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = 0

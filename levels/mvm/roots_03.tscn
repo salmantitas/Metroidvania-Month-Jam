@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c0h8wwub11rtw"]
 
-[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_a8eo8"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_a8eo8"]
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="2_a8eo8"]
 [ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="4_a8eo8"]
 [ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="4_gmcpm"]
@@ -244,7 +244,7 @@ blend_mode = 1
 z_index = 256
 position = Vector2(0, -100)
 script = ExtResource("5_0tkdc")
-height = 750
+height = 1294
 metadata/_custom_type_script = "uid://bs17osqaujnog"
 
 [node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("6_p3o8i")]

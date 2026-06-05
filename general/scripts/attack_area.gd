@@ -21,11 +21,11 @@ func _on_body_entered( body : Node2D) -> void:
 	
 
 func activate( duration : float = 0.1 ) -> void:
-	set_activate()
+	set_active()
 	await get_tree().create_timer(duration).timeout
-	set_activate(false)
+	set_active(false)
 
-func set_activate( value : bool = true ) -> void:
+func set_active( value : bool = true ) -> void:
 	monitoring = value
 	visible = value
 

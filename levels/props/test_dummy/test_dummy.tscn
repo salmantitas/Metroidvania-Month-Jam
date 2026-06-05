@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://sr3qlj0qniox"]
+
+[ext_resource type="Script" uid="uid://lewtitjhlcn" path="res://levels/props/test_dummy/test_dummy.gd" id="1_vx0d5"]
+[ext_resource type="Script" uid="uid://ctivrgvl3scfc" path="res://00_global/visual_effects/hit_particle_settings.gd" id="2_j8duf"]
+[ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="2_yoejb"]
+[ext_resource type="Resource" uid="uid://b02xao2u88hcc" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_small.tres" id="3_j8duf"]
+[ext_resource type="Texture2D" uid="uid://drxw2d07mnwqu" path="res://levels/props/props_destructible.png" id="3_jfbdl"]
+[ext_resource type="Resource" uid="uid://7gt0tdvsrbyc" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="4_qiu83"]
+[ext_resource type="AudioStream" uid="uid://c4bkgbfnwiuwd" path="res://general/audio/hit.wav" id="7_dr2jp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfbdl"]
+atlas = ExtResource("3_jfbdl")
+region = Rect2(16, 10, 16, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qitiv"]
+atlas = ExtResource("3_jfbdl")
+region = Rect2(16, 51, 16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfbdl"]
+size = Vector2(20, 29)
+
+[node name="TestDummy" type="Node2D" unique_id=2008839215]
+script = ExtResource("1_vx0d5")
+particles = Array[ExtResource("2_j8duf")]([ExtResource("3_j8duf"), ExtResource("4_qiu83")])
+
+[node name="BodySprite" type="Sprite2D" parent="." unique_id=340342082]
+position = Vector2(0, -11)
+texture = SubResource("AtlasTexture_jfbdl")
+offset = Vector2(0, -19)
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1124423649]
+position = Vector2(0, -6)
+texture = SubResource("AtlasTexture_qitiv")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1718697925]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_yoejb")
+audio = ExtResource("7_dr2jp")
+metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1319856549]
+position = Vector2(0, -34.5)
+shape = SubResource("RectangleShape2D_jfbdl")
+debug_color = Color(0, 0.5950001, 0.7, 0)

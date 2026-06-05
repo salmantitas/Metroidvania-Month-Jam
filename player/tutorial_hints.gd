@@ -8,7 +8,8 @@ const HINT_MAP : Dictionary = {
 	"crouch" : "Crouch",
 	"drop down" : "Drop Down",
 	"attack" : "Attack",
-	"save" : "Save your progress at the flower"
+	"save" : "Save your progress at the flower",
+	"ability" : "Break glass to acquire ability"
 }
 
 @onready var label: Label = $Label

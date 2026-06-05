@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c1mlf1ku1x57o"]
 
-[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_2026_tileset.tres" id="1_1bjub"]
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_1bjub"]
 [ext_resource type="PackedScene" uid="uid://bkjbair0atc65" path="res://levels/props/glow_plant.tscn" id="2_1e3t5"]
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="3_ofntm"]
 [ext_resource type="PackedScene" uid="uid://mr7cyq54kym4" path="res://levels/mvm/props/plant.tscn" id="4_mtf6t"]

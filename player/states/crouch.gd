@@ -12,12 +12,21 @@ func enter() -> void:
 	player.collision_stand.disabled = true
 	player.collision_crouch.disabled = false
 	
+	player.da_stand.disabled = true
+	player.da_crouch.disabled = false
+	
 func exit() -> void:
-	player.collision_stand.disabled = false
-	player.collision_crouch.disabled = true
+	player.collision_stand.set_deferred("disabled", false)
+	player.collision_crouch.set_deferred("disabled", true)
+	
+	player.da_stand.set_deferred("disabled", false)
+	player.da_crouch.set_deferred("disabled", true)
 
 # Takes an input and determines which state to change to
 func handle_input( event : InputEvent ) -> PlayerState:
+	if (event.is_action_pressed("dash")) and player.can_dash():
+		return dash
+		
 	if (event.is_action_pressed("attack")):
 		return attack
 		
@@ -26,6 +35,9 @@ func handle_input( event : InputEvent ) -> PlayerState:
 		if player.one_way_platform_shape_cast.is_colliding() == true:
 			player.position.y += 4
 			return fall
+	
+	if (event.is_action_pressed("action")) and player.can_morph():
+		return morph
 	return next_state
 
 func process(_delta: float) -> PlayerState:
