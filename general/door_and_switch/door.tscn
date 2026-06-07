@@ -205,7 +205,6 @@ libraries/ = SubResource("AnimationLibrary_wis3y")
 autoplay = &"closed"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1936583183]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1923100264]

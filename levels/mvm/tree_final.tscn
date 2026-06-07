@@ -55,10 +55,11 @@ script = ExtResource("3_s251n")
 metadata/_custom_type_script = "uid://bs17osqaujnog"
 
 [node name="LevelTransition" parent="." unique_id=66526337 instance=ExtResource("4_guwib")]
-position = Vector2(332, 265)
+position = Vector2(289, 270)
+size = 5
 location = 3
-target_level = "uid://tih4bmb6x0am"
-target_area_name = "LevelTransition2"
+target_level = "uid://c07di3v6skv87"
+target_area_name = "LevelTransition3"
 
 [node name="Lights" type="Parallax2D" parent="." unique_id=2066130429]
 visible = false

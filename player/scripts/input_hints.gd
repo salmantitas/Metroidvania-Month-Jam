@@ -16,7 +16,9 @@ const HINT_MAP : Dictionary = {
 		"up" : 13,
 		"movement": 16,
 		"save" : 20,
-		"ability" : 20
+		"ability" : 20,
+		"morph" : 12,
+		"double jump" : 9
 	},
 	"playstation" : {
 		"interact" : 0,

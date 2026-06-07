@@ -6,13 +6,14 @@ enum TYPE {JUMP, LAND, HIT}
 
 func start( type : TYPE	) -> void:
 	var anim_name : String = "jump"
+	var jump_offset = 6
 	
 	match type:
 		TYPE.JUMP:
-			position.y -= 14	
+			position.y -= jump_offset	
 		TYPE.LAND:
 			anim_name = "land"
-			position.y -= 14
+			position.y -= jump_offset
 		TYPE.HIT:
 			anim_name = "hit"
 			rotation_degrees = randi_range(0, 3) * 90

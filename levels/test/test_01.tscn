@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://sr3qlj0qniox" path="res://levels/props/test_dummy/test_dummy.tscn" id="9_pj0xl"]
 [ext_resource type="Script" uid="uid://bidhkrsku6rfu" path="res://general/scripts/breakable.gd" id="10_wajjk"]
 [ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="11_3nsd0"]
+[ext_resource type="PackedScene" uid="uid://dncbq6xlljemy" path="res://enemies/slime2/slime2.tscn" id="12_oreg4"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="12_qt823"]
 [ext_resource type="PackedScene" uid="uid://btfakv3rwtj7r" path="res://levels/props/test_dummy/spike_dummy.tscn" id="13_kv4s0"]
+[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="15_7uwpl"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -298,16 +300,25 @@ script = ExtResource("8_8sv46")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
 
 [node name="PlayerSpawn2" parent="." unique_id=1878681734 instance=ExtResource("12_qt823")]
-position = Vector2(753, 158)
+position = Vector2(610, 124)
 
 [node name="Crate" parent="." unique_id=1674375098 instance=ExtResource("9_8v3r1")]
 position = Vector2(811, 150)
+
+[node name="Crate2" parent="." unique_id=1955506328 instance=ExtResource("9_8v3r1")]
+position = Vector2(621, 144)
 
 [node name="TestDummy" parent="." unique_id=2008839215 instance=ExtResource("9_pj0xl")]
 position = Vector2(859, 158)
 
 [node name="SpikeDummy" parent="." unique_id=1550054407 instance=ExtResource("13_kv4s0")]
 position = Vector2(691, 160)
+
+[node name="Slime2" parent="." unique_id=483238355 instance=ExtResource("12_oreg4")]
+position = Vector2(516, 11)
+
+[node name="Slime3" parent="." unique_id=940647052 instance=ExtResource("12_oreg4")]
+position = Vector2(720, 148)
 
 [node name="Breakable" type="Node2D" parent="." unique_id=508528391]
 position = Vector2(928, 36)
@@ -330,3 +341,6 @@ metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=964665662]
 position = Vector2(31.5, 32)
 shape = SubResource("RectangleShape2D_qt823")
+
+[node name="Slime4" parent="." unique_id=1180847487 instance=ExtResource("15_7uwpl")]
+position = Vector2(424, 160)

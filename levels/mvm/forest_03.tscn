@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_1tliu"]
 [ext_resource type="AudioStream" uid="uid://cot788ddv100l" path="res://music/mvm-32-forest.ogg" id="9_4c7w6"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="10_bk8he"]
+[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="11_bk8he"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="11_usox2"]
 
 [sub_resource type="Gradient" id="Gradient_hxn5c"]
@@ -319,3 +320,29 @@ position = Vector2(-165, 205)
 script = ExtResource("8_1tliu")
 track = ExtResource("9_4c7w6")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
+
+[node name="Enemy" type="Node2D" parent="." unique_id=1614248704]
+
+[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("11_bk8he")]
+position = Vector2(179, 264)
+face_left_on_start = true
+
+[node name="ShortWolf2" parent="Enemy" unique_id=1546261226 instance=ExtResource("11_bk8he")]
+position = Vector2(383, 169)
+face_left_on_start = true
+
+[node name="ShortWolf3" parent="Enemy" unique_id=769246228 instance=ExtResource("11_bk8he")]
+position = Vector2(154, 63)
+face_left_on_start = true
+
+[node name="ShortWolf4" parent="Enemy" unique_id=1565559662 instance=ExtResource("11_bk8he")]
+position = Vector2(-33, -33)
+face_left_on_start = true
+
+[node name="ShortWolf5" parent="Enemy" unique_id=84623060 instance=ExtResource("11_bk8he")]
+position = Vector2(152, -317)
+face_left_on_start = true
+
+[node name="ShortWolf6" parent="Enemy" unique_id=1347266881 instance=ExtResource("11_bk8he")]
+position = Vector2(1010, -271)
+face_left_on_start = true

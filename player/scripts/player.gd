@@ -45,10 +45,14 @@ var max_hp : float = 20 :
 		Messages.player_health_changed.emit(hp, max_hp)
 var dash : bool = true
 var dash_count : int = 0
-var double_jump : bool = false
+
+var morph : bool = true
+
+var double_jump : bool = true
 var jump_count : int = 0
+
 var ground_slam : bool = false
-var morph : bool = false
+
 var can_interact : bool = false
 #endregion
 
@@ -182,8 +186,8 @@ func add_debug_indicator( color : Color = Color.RED ) -> void:
 func _on_player_healed( amount : float) -> void:
 	hp += amount
 
-func _on_damage_taken( attack_area : AttackArea ) -> void:
-	hp -= attack_area.damage
+func _on_damage_taken( a : AttackArea ) -> void:
+	hp -= a.damage
 	damage_taken.emit()
 	
 func _on_input_hint_changed( prompt : String):

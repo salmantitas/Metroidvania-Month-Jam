@@ -69,7 +69,7 @@ func handle_input( event : InputEvent ) -> PlayerState:
 			if Input.is_action_pressed("down"):
 				player.one_way_platform_shape_cast.force_shapecast_update()
 				if player.one_way_platform_shape_cast.is_colliding():
-					player.position.x += 4
+					player.position.y += 4
 					return null
 			player.velocity.y -= jump_velocity
 			Audio.play_spatial_sound(preload("uid://dbrjtobxxoni2"), player.global_position)

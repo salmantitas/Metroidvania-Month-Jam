@@ -10,8 +10,10 @@ enum REVERB_TYPE {NONE, SMALL, MEDIUM, LARGE}
 
 var current_track : int = 0
 var music_tweens : Array[ Tween ]
-
 var ui_audio_player : AudioStreamPlaybackPolyphonic
+var audio_pool : Array[AudioStreamPlayer2D]
+var audio_index : int = 0
+var max_audio_streams : int = 32
 
 @onready var music_1: AudioStreamPlayer = %Music1 
 @onready var music_2: AudioStreamPlayer = %Music2
@@ -20,6 +22,13 @@ var ui_audio_player : AudioStreamPlaybackPolyphonic
 func _ready() -> void:
 	ui.play()
 	ui_audio_player = ui.get_stream_playback()
+	
+	
+	for i in max_audio_streams:
+		var audio_player : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		add_child(audio_player)
+		audio_player.bus = "SFX"
+		audio_pool.append(audio_player)
 
 func setup_button_audio ( node : Node ) -> void:
 	for c in node.find_children( "*", "Button"):
@@ -80,14 +89,21 @@ func set_reverb ( type : REVERB_TYPE ) -> void:
 			reverb_fx.room_size = 0.8
 	
 
-func play_spatial_sound( audio : AudioStream, pos : Vector2) -> void:
-	var audio_player_2d : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
-	add_child(audio_player_2d)
-	audio_player_2d.bus = "SFX"
-	audio_player_2d.global_position = pos
-	audio_player_2d.stream = audio
-	audio_player_2d.finished.connect( audio_player_2d.queue_free)
-	audio_player_2d.play()
+func play_spatial_sound( audio : AudioStream, pos : Vector2, ignore_pool : bool = false) -> void:
+	if ignore_pool:
+		var audio_player_2d : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		add_child(audio_player_2d)
+		audio_player_2d.bus = "SFX"
+		audio_player_2d.global_position = pos
+		audio_player_2d.stream = audio
+		audio_player_2d.finished.connect( audio_player_2d.queue_free)
+		audio_player_2d.play()
+	else:
+		var audio_player_2d : AudioStreamPlayer2D = audio_pool[audio_index]
+		audio_player_2d.global_position = pos
+		audio_player_2d.stream = audio
+		audio_player_2d.play()
+		audio_index = wrapi( audio_index + 1, 0, 32)
 
 func play_ui_audio (audio : AudioStream) -> void:
 	if ui_audio_player:

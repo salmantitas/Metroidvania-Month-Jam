@@ -20,13 +20,11 @@ func _ready() -> void:
 		area_2d.area_exited.connect(_on_player_exited)
 
 func _on_player_entered( _n : Node2D):
-	print (_n.name)
 	Messages.tutorial_hint_changed.emit(hint)
 	Messages.input_hint_changed.emit(hint)
 	visited = true
 
 func _on_player_exited( _n : Node2D):
-	print (_n.name)
 	Messages.tutorial_hint_changed.emit("")
 	Messages.input_hint_changed.emit("")
 	SaveManager.persistent_data[unique_name()] = visited

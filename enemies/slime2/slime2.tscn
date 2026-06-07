@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://dncbq6xlljemy"]
+
+[ext_resource type="Script" uid="uid://2bv3oukhjqrs" path="res://enemies/scripts/enemy.gd" id="1_7fjy4"]
+[ext_resource type="Texture2D" uid="uid://rjsm4xp5oqm5" path="res://enemies/slime/slime.png" id="2_d1r4s"]
+[ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="3_dp7tl"]
+[ext_resource type="AudioStream" uid="uid://stx8b0juhc0k" path="res://enemies/slime/slime_hit.wav" id="4_liine"]
+[ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="5_2541m"]
+[ext_resource type="Script" uid="uid://cx0u42gi5ve2b" path="res://enemies/scripts/enemy_state_machine.gd" id="7_liine"]
+[ext_resource type="Script" uid="uid://b7cb5b3lwcdgt" path="res://enemies/scripts/states/es_walk.gd" id="8_8see4"]
+[ext_resource type="Script" uid="uid://b7hj1g7hv24bm" path="res://enemies/scripts/decision_engines/decision_engine_basic.gd" id="8_2541m"]
+[ext_resource type="Script" uid="uid://cx5orscnro51t" path="res://enemies/scripts/states/es_stun.gd" id="9_r2nuq"]
+[ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="10_5ljtw"]
+[ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="11_5ljtw"]
+[ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_5ljtw"]
+
+[sub_resource type="Animation" id="Animation_u2l51"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bkm6f"]
+resource_name = "death"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_2ui2u"]
+resource_name = "stun"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_57eei"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylgn2"]
+_data = {
+&"RESET": SubResource("Animation_u2l51"),
+&"death": SubResource("Animation_bkm6f"),
+&"stun": SubResource("Animation_2ui2u"),
+&"walk": SubResource("Animation_57eei")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8see4"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2nuq"]
+size = Vector2(28, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljtw"]
+size = Vector2(26, 16)
+
+[node name="Slime2" type="CharacterBody2D" unique_id=483238355]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_7fjy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605519301]
+texture = ExtResource("2_d1r4s")
+hframes = 6
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=511422654]
+libraries/ = SubResource("AnimationLibrary_ylgn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
+position = Vector2(0, 7)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8see4")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_dp7tl")
+audio = ExtResource("4_liine")
+metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=862960719]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_r2nuq")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_2541m")
+metadata/_custom_type_script = "uid://c20iho8lxary4"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=135911165]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_5ljtw")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1093051899]
+script = ExtResource("7_liine")
+metadata/_custom_type_script = "uid://cx0u42gi5ve2b"
+
+[node name="ESWalk" type="Node" parent="EnemyStateMachine" unique_id=1477031412]
+unique_name_in_owner = true
+script = ExtResource("8_8see4")
+animation_name = "walk"
+metadata/_custom_type_script = "uid://b7cb5b3lwcdgt"
+
+[node name="ESStun" type="Node" parent="EnemyStateMachine" unique_id=709002884]
+unique_name_in_owner = true
+script = ExtResource("9_r2nuq")
+animation_name = "stun"
+metadata/_custom_type_script = "uid://cx5orscnro51t"
+
+[node name="ESDeath" type="Node" parent="EnemyStateMachine" unique_id=1109512078]
+unique_name_in_owner = true
+script = ExtResource("10_5ljtw")
+death_sound = ExtResource("11_5ljtw")
+animation_name = "death"
+metadata/_custom_type_script = "uid://cwfct1lx3qndn"
+
+[node name="DecisionEngineBasic" type="Node" parent="." unique_id=1055918250]
+script = ExtResource("8_2541m")
+metadata/_custom_type_script = "uid://b7hj1g7hv24bm"
+
+[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=329773588]
+position = Vector2(7, 15)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+script = ExtResource("12_5ljtw")
+metadata/_custom_type_script = "uid://b7p15g1owg13o"

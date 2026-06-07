@@ -1,9 +1,7 @@
-[gd_scene format=4 uid="uid://c0h8wwub11rtw"]
+[gd_scene format=4 uid="uid://b3lne8e7sd83h"]
 
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_a8eo8"]
-[ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="2_a8eo8"]
 [ext_resource type="PackedScene" uid="uid://ck165iotre055" path="res://levels/props/torch2.tscn" id="4_a8eo8"]
-[ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="4_gmcpm"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="5_0tkdc"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="6_p3o8i"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="7_ie3c5"]
@@ -19,22 +17,6 @@ width = 1440
 height = 810
 fill_to = Vector2(0, 1)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xuk8y"]
-blend_mode = 3
-
-[sub_resource type="Gradient" id="Gradient_5k5uq"]
-colors = PackedColorArray(0.20033002, 0.20033002, 0.20032999, 1, 0.6610811, 0.66108096, 0.66108096, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6ckm"]
-gradient = SubResource("Gradient_5k5uq")
-width = 512
-height = 288
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_knlyp"]
-blend_mode = 1
-
 [node name="01" type="Node2D" unique_id=1411465302]
 
 [node name="BGParallaxLayer" type="Node2D" parent="." unique_id=346571586]
@@ -42,38 +24,34 @@ blend_mode = 1
 [node name="BackgroundSky" type="Parallax2D" parent="BGParallaxLayer" unique_id=619318063]
 z_index = -10
 scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(141, 120)
 
 [node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayer/BackgroundSky" unique_id=421064149]
-position = Vector2(551, 180)
+position = Vector2(509, 180)
 texture = SubResource("GradientTexture2D_qux6w")
 
 [node name="Parallax1" type="Parallax2D" parent="BGParallaxLayer" unique_id=898531442]
-visible = false
 modulate = Color(0.95, 0.95, 0.95, 1)
 scale = Vector2(2.1, 2.1)
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-146, -149)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax1" unique_id=2032024786]
+visible = false
 position = Vector2(152.85715, 10.952379)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
 tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
-[node name="TheBigTree" type="Sprite2D" parent="BGParallaxLayer/Parallax1" unique_id=193985254]
-position = Vector2(434.7619, 170.4762)
-scale = Vector2(20, 20)
-texture = ExtResource("2_a8eo8")
-
 [node name="Parallax2" type="Parallax2D" parent="BGParallaxLayer" unique_id=752671112]
-visible = false
 modulate = Color(0.9, 0.9, 0.9, 1)
 scale = Vector2(2.2, 2.2)
 scroll_scale = Vector2(0.2, 1)
 scroll_offset = Vector2(-146, -149)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax2" unique_id=275840097]
+visible = false
 position = Vector2(152.27272, -2.2727246)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
@@ -81,13 +59,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax3" type="Parallax2D" parent="BGParallaxLayer" unique_id=154908073]
-visible = false
 modulate = Color(0.85, 0.85, 0.85, 1)
 scale = Vector2(2.3, 2.3)
 scroll_scale = Vector2(0.3, 1)
 scroll_offset = Vector2(-146, -149)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax3" unique_id=304114293]
+visible = false
 position = Vector2(189.13042, -11.304346)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAAHAAIAAAAOAAYAAAA=")
@@ -95,13 +73,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax4" type="Parallax2D" parent="BGParallaxLayer" unique_id=956686690]
-visible = false
 modulate = Color(0.8, 0.8, 0.8, 1)
 scale = Vector2(2.4, 2.4)
 scroll_scale = Vector2(0.4, 1)
 scroll_offset = Vector2(-116, -186.99998)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax4" unique_id=2128462285]
+visible = false
 position = Vector2(188.33333, -7.5000043)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAAGAAIAAAAOAAYAAAA=")
@@ -109,13 +87,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax5" type="Parallax2D" parent="BGParallaxLayer" unique_id=753244588]
-visible = false
 modulate = Color(0.75, 0.75, 0.75, 1)
 scale = Vector2(2.5, 2.5)
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-116, -186.99998)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax5" unique_id=648618582]
+visible = false
 position = Vector2(184.4, -20.000008)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAA=")
@@ -123,13 +101,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax6" type="Parallax2D" parent="BGParallaxLayer" unique_id=1879864963]
-visible = false
 modulate = Color(0.7, 0.7, 0.7, 1)
 scale = Vector2(2.6, 2.6)
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(-116, -186.99998)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax6" unique_id=672532043]
+visible = false
 position = Vector2(185.00002, -28.46154)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAAFAAIAAAAOAAYAAAA=")
@@ -137,13 +115,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax7" type="Parallax2D" parent="BGParallaxLayer" unique_id=748368540]
-visible = false
 modulate = Color(0.65, 0.65, 0.65, 1)
 scale = Vector2(2.7, 2.7)
 scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(-116, -186.99998)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax7" unique_id=736138588]
+visible = false
 position = Vector2(185.9259, -42.962955)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAA=")
@@ -151,13 +129,13 @@ tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
 [node name="Parallax8" type="Parallax2D" parent="BGParallaxLayer" unique_id=1715363644]
-visible = false
 modulate = Color(0.6, 0.6, 0.6, 1)
 scale = Vector2(2.8, 2.8)
 scroll_scale = Vector2(0.8, 1)
 scroll_offset = Vector2(-116, -187)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax8" unique_id=2004607075]
+visible = false
 position = Vector2(171.78572, -50.714287)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAAEAAIAAAAOAAYAAAA=")
@@ -181,74 +159,93 @@ collision_enabled = false
 [node name="Parallax95" type="Parallax2D" parent="BGParallaxLayer" unique_id=1107104071]
 scale = Vector2(0.95, 0.95)
 scroll_scale = Vector2(0.95, 1)
-scroll_offset = Vector2(-116, -205)
+scroll_offset = Vector2(275, 249)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="BGParallaxLayer/Parallax95" unique_id=1311826218]
 modulate = Color(0.4, 0.4, 0.4, 1)
 position = Vector2(144.21054, 120.000015)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAIAAUAAAAUAAUAAAAJAAUAAAAVAAUAAAAAAAUAAAAWAAUAAAABAAUAAAAXAAUAAAAIAAAAAAAUAAYAAAAJAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAABAAAAAAAXAAYAAAAAAAEAAAAWAAIAAAAAAAIAAAAWAAIAAAAAAAMAAAAWAAIAAAAAAAQAAAAWAAIAAAAJAAEAAAAUAAIAAAAJAAIAAAAUAAIAAAAJAAMAAAAUAAIAAAAJAAQAAAAUAAIAAAACAAAAAAAVAAMAAAADAAAAAAAVAAMAAAACAAUAAAAVAAEAAAAEAAUAAAAWAAIAAAAFAAUAAAAUAAIAAAAGAAUAAAAVAAEAAAAHAAUAAAAVAAEAAAAGAAAAAAAVAAMAAAAHAAAAAAAVAAMAAAAEAAAAAAAWAAIAAAAFAAAAAAAUAAIAAAAFAP7/AAAUAAIAAAAFAP//AAAUAAIAAAAFAAEAAAAUAAIAAAAFAAIAAAAUAAIAAAAFAAMAAAAUAAIAAAAFAAQAAAAUAAIAAAAEAAQAAAAWAAIAAAAEAAMAAAAWAAIAAAAEAAIAAAAWAAIAAAAEAAEAAAAWAAIAAAAEAP//AAAWAAIAAAAEAP7/AAAWAAIAAAAEAAYAAAAWAAIAAAAEAAcAAAAWAAIAAAAEAAgAAAAWAAIAAAAEAAkAAAAWAAIAAAAEAAoAAAAWAAIAAAAEAAsAAAAWAAIAAAAEAAwAAAAWAAIAAAAEAA0AAAAWAAIAAAAFAAYAAAAUAAIAAAAFAAcAAAAUAAIAAAAFAAgAAAAUAAIAAAAFAAkAAAAUAAIAAAAFAAoAAAAUAAIAAAAFAAsAAAAUAAIAAAAFAAwAAAAUAAIAAAAFAA0AAAAUAAIAAAAEAA4AAAAWAAIAAAAFAA4AAAAUAAIAAAA=")
+tile_map_data = PackedByteArray("AAAIAAUAAAAWAAIAAAAJAAUAAAAVAAUAAAAAAAUAAAAWAAUAAAABAAUAAAAXAAUAAAAIAAAAAAAVAAYAAAAJAAAAAAAWAAYAAAAAAAAAAAAWAAYAAAABAAAAAAAXAAYAAAAAAAEAAAAWAAIAAAAAAAIAAAAWAAIAAAAAAAMAAAAWAAIAAAAAAAQAAAAWAAIAAAAJAAEAAAAUAAIAAAAJAAIAAAAUAAIAAAAJAAMAAAAUAAIAAAAJAAQAAAAUAAIAAAACAAAAAAAVAAMAAAADAAAAAAAVAAMAAAACAAUAAAAVAAEAAAADAAUAAAAVAAEAAAAEAAUAAAAVAAEAAAAFAAUAAAAVAAEAAAAGAAUAAAAVAAEAAAAHAAUAAAAVAAEAAAAGAAAAAAAVAAMAAAAHAAAAAAAUAAYAAAAEAAAAAAAVAAMAAAAFAAAAAAAVAAMAAAD8/wAAAAAWAAIAAAD8/wEAAAAWAAIAAAD8/wIAAAAWAAIAAAD8/wMAAAAWAAIAAAD8/wQAAAAWAAIAAAD8/wUAAAAWAAIAAAD9/wQAAAAUAAIAAAD9/wMAAAAUAAIAAAD9/wIAAAAUAAIAAAD9/wEAAAAUAAIAAAD9/wAAAAAUAAIAAAAIAAEAAAAWAAIAAAAIAAIAAAAWAAIAAAAIAAMAAAAWAAIAAAAIAAQAAAAWAAIAAAAOAAAAAAAWAAIAAAAOAAEAAAAWAAIAAAANAAEAAAAUAAIAAAANAAIAAAAUAAIAAAANAAMAAAAUAAIAAAANAAQAAAAUAAIAAAANAAUAAAAUAAIAAAAOAAUAAAAWAAIAAAAOAAIAAAAWAAIAAAAOAAMAAAAWAAIAAAAOAAQAAAAWAAIAAAAOAAYAAAAWAAIAAAANAAAAAAAUAAIAAAD8//r/AAAWAAIAAAD8//v/AAAWAAIAAAD8//z/AAAWAAIAAAD9//z/AAAUAAIAAAD9//v/AAAUAAIAAAD9//r/AAAUAAIAAAD9//n/AAAUAAIAAAD9//j/AAAUAAIAAAD9//f/AAAWAAYAAAD+//f/AAAXAAYAAAD///f/AAAVAAMAAAAAAPf/AAAVAAMAAAABAPf/AAAVAAMAAAACAPf/AAAVAAMAAAADAPf/AAAVAAMAAAAEAPf/AAAVAAMAAAAFAPf/AAAVAAMAAAAGAPf/AAAVAAMAAAAHAPf/AAAVAAMAAAAIAPf/AAAVAAMAAAAJAPf/AAAVAAMAAAAKAPf/AAAVAAMAAAALAPf/AAAVAAMAAAANAPj/AAAUAAIAAAANAPn/AAAUAAIAAAANAPr/AAAUAAIAAAANAPv/AAAUAAIAAAANAPz/AAAUAAIAAAANAP3/AAAUAAIAAAANAP7/AAAUAAIAAAANAP//AAAUAAIAAAAMAPf/AAAUAAYAAAANAPf/AAAVAAYAAAAKAAAAAAAXAAYAAAALAAAAAAAVAAMAAAAMAAAAAAAVAAMAAAD4/wIAAAAUAAIAAAD4/wMAAAAUAAIAAAD4/wQAAAAUAAIAAAD3/wIAAAAWAAIAAAD3/wMAAAAWAAIAAAD3/wQAAAAWAAIAAAD8//3/AAAWAAIAAAD8//7/AAAWAAIAAAD8////AAAWAAIAAAD9////AAAUAAIAAAD9//7/AAAUAAIAAAD9//3/AAAUAAIAAAA=")
 tile_set = ExtResource("1_a8eo8")
 collision_enabled = false
 
-[node name="Lighting2" type="Node2D" parent="BGParallaxLayer/Parallax95" unique_id=451161929]
-position = Vector2(122.10527, 215.78947)
-scale = Vector2(1.0526316, 1.0526316)
+[node name="Lighting" type="Node2D" parent="BGParallaxLayer/Parallax95" unique_id=368438485]
 
-[node name="Torch4" parent="BGParallaxLayer/Parallax95/Lighting2" unique_id=566875710 instance=ExtResource("4_a8eo8")]
-position = Vector2(447, 85)
-
-[node name="Torch3" parent="BGParallaxLayer/Parallax95/Lighting2" unique_id=288019354 instance=ExtResource("4_a8eo8")]
-position = Vector2(246.00003, 97)
+[node name="Torch2" parent="BGParallaxLayer/Parallax95/Lighting" unique_id=1503811613 instance=ExtResource("4_a8eo8")]
+position = Vector2(575.78955, 286.3158)
 scale = Vector2(2.1052632, 2.1052632)
 
-[node name="Torch5" parent="BGParallaxLayer/Parallax95/Lighting2" unique_id=1910336948 instance=ExtResource("4_a8eo8")]
-position = Vector2(246.00003, 289)
+[node name="Torch9" parent="BGParallaxLayer/Parallax95/Lighting" unique_id=176140618 instance=ExtResource("4_a8eo8")]
+position = Vector2(173.6842, 265.26318)
 scale = Vector2(2.1052632, 2.1052632)
 
-[node name="Torch6" parent="BGParallaxLayer/Parallax95/Lighting2" unique_id=2027493148 instance=ExtResource("4_a8eo8")]
-position = Vector2(246.00003, 513)
+[node name="Torch11" parent="BGParallaxLayer/Parallax95/Lighting" unique_id=370785887 instance=ExtResource("4_a8eo8")]
+position = Vector2(0, 283.15787)
+scale = Vector2(2.1052632, 2.1052632)
+
+[node name="Torch7" parent="BGParallaxLayer/Parallax95/Lighting" unique_id=1122308993 instance=ExtResource("4_a8eo8")]
+position = Vector2(1.0967255e-05, 70.52632)
+scale = Vector2(2.1052632, 2.1052632)
+
+[node name="Torch10" parent="BGParallaxLayer/Parallax95/Lighting" unique_id=375705397 instance=ExtResource("4_a8eo8")]
+position = Vector2(-238.94737, 265.26315)
 scale = Vector2(2.1052632, 2.1052632)
 
 [node name="LevelTiles" type="Node2D" parent="." unique_id=1015903143]
 
-[node name="Sprite2D" type="Sprite2D" parent="LevelTiles" unique_id=1898864992]
-visible = false
-material = SubResource("CanvasItemMaterial_xuk8y")
-position = Vector2(995, 347.5)
-scale = Vector2(1, 0.9826389)
-texture = SubResource("GradientTexture2D_b6ckm")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelTiles" unique_id=1297987974]
-position = Vector2(0, -100)
+position = Vector2(816, 339)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAIAAUAAAAUAAUAAAAJAAUAAAAVAAEAAAAAAAUAAAAWAAUAAAABAAUAAAAXAAUAAAAIAAAAAAAUAAYAAAAJAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAABAAAAAAAXAAYAAAAAAAEAAAAWAAIAAAAAAAIAAAAWAAIAAAAAAAMAAAAWAAIAAAAAAAQAAAAWAAIAAAAJAAEAAAAUAAIAAAAJAAIAAAAUAAMAAAACAAAAAAAVAAMAAAADAAAAAAAWAAMAAAACAAUAAAAVAAEAAAADAAUAAAAVAAEAAAAEAAUAAAAVAAEAAAAFAAUAAAAVAAEAAAAGAAUAAAAVAAEAAAAHAAUAAAAVAAEAAAAGAAAAAAAUAAMAAAAHAAAAAAAVAAMAAAABAAEAAAAMAAMAAAACAAEAAAANAAMAAAADAAEAAAANAAMAAAAEAAEAAAANAAMAAAAFAAEAAAANAAMAAAAGAAEAAAANAAMAAAAHAAEAAAANAAMAAAAIAAEAAAAOAAMAAAAFAAMAAAANAAMAAAAEAAMAAAANAAMAAAAKAAUAAAAVAAEAAAAKAAIAAAAVAAMAAAAAAAYAAAAWAAYAAAAAAAcAAAAWAAIAAAAAAAgAAAAWAAIAAAAAAAkAAAAWAAIAAAABAAYAAAAXAAYAAAACAAYAAAAVAAMAAAADAAYAAAAVAAMAAAADAAkAAAAUAAEAAAAEAAYAAAAVAAMAAAAEAAkAAAAVAAEAAAAFAAYAAAAVAAMAAAAFAAkAAAAVAAEAAAAGAAYAAAAVAAMAAAAGAAkAAAAVAAEAAAAHAAYAAAAVAAMAAAAHAAkAAAAVAAEAAAAIAAYAAAAVAAMAAAAIAAkAAAAVAAEAAAAJAAYAAAAVAAMAAAAJAAkAAAAVAAEAAAAKAAYAAAAVAAMAAAAKAAkAAAAVAAEAAAAAAAsAAAAWAAIAAAAAAAwAAAAWAAIAAAAAAA0AAAAWAAIAAAAAAA4AAAAWAAUAAAABAA4AAAAXAAUAAAACAA4AAAAVAAEAAAADAAsAAAAUAAMAAAADAA4AAAAVAAEAAAAEAAsAAAAVAAMAAAAEAA4AAAAVAAEAAAAFAAsAAAAVAAMAAAAFAA4AAAAVAAEAAAAGAAsAAAAVAAMAAAAGAA4AAAAVAAEAAAAHAAsAAAAVAAMAAAAHAA4AAAAVAAEAAAAIAAsAAAAVAAMAAAAIAA4AAAAVAAEAAAAJAAsAAAAVAAMAAAAJAA4AAAAVAAEAAAAKAAsAAAAVAAMAAAAKAA4AAAAVAAEAAAAAAAoAAAAWAAIAAAADAAoAAAAUAAIAAAAEAAoAAAAVAAIAAAAFAAoAAAAVAAIAAAAGAAoAAAAVAAIAAAAHAAoAAAAVAAIAAAAIAAoAAAAVAAIAAAAJAAoAAAAVAAIAAAAKAAoAAAAVAAIAAAAKAA8AAAAVAAIAAAAJAA8AAAAVAAIAAAAIAA8AAAAVAAIAAAAHAA8AAAAVAAIAAAAGAA8AAAAVAAIAAAAFAA8AAAAVAAIAAAAEAA8AAAAVAAIAAAADAA8AAAAVAAIAAAACAA8AAAAVAAIAAAABAA8AAAAVAAIAAAAAAA8AAAAVAAIAAAD//w4AAAAVAAIAAAD//w8AAAAVAAIAAAABAAwAAAANAAMAAAACAAoAAAANAAMAAAA=")
+tile_map_data = PackedByteArray("AADv/wIAAAAVAAMAAADv/wUAAAAVAAEAAADw/wUAAAAVAAEAAADw/wYAAAAVAAIAAADx/wUAAAAXAAUAAADx/wYAAAAVAAIAAADw/wEAAAAVAAEAAADw/wIAAAAVAAMAAAD0/wUAAAAVAAEAAAD0/wYAAAAVAAIAAAD1/wUAAAAVAAEAAAD1/wYAAAAVAAIAAAD2/wUAAAAVAAEAAAD2/wYAAAAVAAIAAAD3/wUAAAAVAAEAAAD3/wYAAAAVAAIAAAD4/wUAAAAVAAEAAAD4/wYAAAAVAAIAAAD5/wUAAAAVAAEAAAD5/wYAAAAVAAIAAAD6//v/AAAWAAIAAAD6/wUAAAAVAAEAAAD6/wYAAAAVAAIAAAD7/wUAAAAVAAEAAAD7/wYAAAAVAAIAAAD8/wUAAAAVAAEAAAD8/wYAAAAVAAIAAAD9/wUAAAAVAAEAAAD9/wYAAAAVAAIAAAD+/wUAAAAVAAEAAAD+/wYAAAAVAAIAAAD//wUAAAAXAAUAAAD//wYAAAAVAAIAAAAAAAUAAAAVAAEAAAAAAAYAAAAVAAIAAAABAAUAAAAVAAEAAAABAAYAAAAVAAIAAADy/wUAAAAVAAEAAADy/wYAAAAVAAIAAADz/wUAAAAVAAEAAADz/wYAAAAVAAIAAAD1//f/AAAWAAYAAAD5//r/AAAUAAEAAAD5//v/AAAUAAIAAAD5//z/AAAUAAIAAAD5//3/AAAUAAIAAAD5//7/AAAUAAIAAAD5////AAAUAAIAAAD5/wAAAAAUAAIAAAD5/wEAAAAVAAUAAAD5/wIAAAAVAAMAAAD6//r/AAAWAAEAAAD6//z/AAAWAAIAAAD6//3/AAAWAAIAAAD6//7/AAAWAAIAAAD6/wIAAAAWAAMAAAD+//f/AAAVAAYAAAD+//j/AAAUAAIAAAD+//n/AAAUAAIAAAD+//r/AAAUAAIAAAAEAAAAAAAVAAYAAAAEAAUAAAAVAAEAAAAEAAYAAAAVAAIAAAACAAUAAAAVAAEAAAACAAYAAAAVAAIAAAADAAUAAAAUAAUAAAADAAYAAAAVAAIAAAAEAAEAAAAUAAIAAAAEAAIAAAAUAAMAAAD2//f/AAAVAAMAAAD3//f/AAAVAAMAAAD4//f/AAAUAAYAAAD5//f/AAAVAAYAAAD6//f/AAAWAAYAAAD7//f/AAAXAAYAAAD8//f/AAAVAAMAAAD9//f/AAAUAAYAAADu//7/AAAVAAMAAADu/wEAAAAVAAEAAADv//7/AAAVAAMAAADv/wEAAAAVAAEAAADw//7/AAAUAAYAAADx//7/AAAVAAYAAADx/wEAAAAVAAEAAADy//7/AAAWAAYAAADy/wEAAAAVAAEAAADz//7/AAAXAAYAAADz/wEAAAAVAAEAAAD0//7/AAAWAAMAAAD0/wEAAAAVAAEAAAD1/wEAAAAVAAEAAADu/wIAAAAVAAMAAADx/wIAAAAVAAMAAADy/wIAAAAVAAMAAADz/wIAAAAVAAMAAAD0/wIAAAAVAAMAAAD1/wIAAAAVAAMAAAD0//v/AAAWAAMAAAD0//r/AAAWAAIAAAD0//n/AAAWAAEAAADz//n/AAAVAAEAAADy//v/AAAUAAMAAAD2/wEAAAAVAAEAAAD4////AAANAAMAAADx////AAAUAAIAAADy////AAAWAAIAAADu/wUAAAAVAAEAAAD2/wIAAAAVAAMAAAD3/wEAAAAVAAEAAAD3/wIAAAAVAAMAAAD4/wEAAAAUAAUAAAD4/wIAAAAVAAMAAAD1//3/AAANAAMAAAD0//3/AAAWAAEAAADz//3/AAAVAAEAAADy//3/AAAVAAEAAADw//3/AAAWAAUAAADx//3/AAAXAAUAAADw//z/AAAWAAIAAADw//v/AAAWAAIAAADw//r/AAAWAAIAAADw//n/AAAWAAIAAADw//f/AAAWAAYAAADx//f/AAAXAAYAAADw//j/AAAWAAIAAADy//f/AAAVAAMAAADz//f/AAAVAAMAAAD0//f/AAAVAAMAAADy//n/AAAUAAEAAADy//r/AAAUAAIAAADz//v/AAAVAAMAAADx//v/AAANAAMAAAD4//r/AAANAAMAAAD6//j/AAAWAAIAAAD5//j/AAAUAAIAAAA=")
 tile_set = ExtResource("1_a8eo8")
 
-[node name="Lighting" type="Node2D" parent="LevelTiles" unique_id=1808728547]
-
-[node name="Torch" parent="LevelTiles/Lighting" unique_id=1974351029 instance=ExtResource("4_a8eo8")]
-position = Vector2(35.000015, 67)
-scale = Vector2(2.1052632, 2.1052632)
-
-[node name="Torch2" parent="LevelTiles/Lighting" unique_id=1725012766 instance=ExtResource("4_a8eo8")]
-position = Vector2(298, -79)
-scale = Vector2(2.1052632, 2.1052632)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="LevelTiles/Lighting" unique_id=1293750298]
+[node name="TileMapLayerMorphPoints" type="TileMapLayer" parent="LevelTiles" unique_id=781062890]
+position = Vector2(816, 327)
 scale = Vector2(3, 3)
-energy = 0.8
+tile_map_data = PackedByteArray("AADx/wAAAAAUAAMAAADy/wAAAAAWAAMAAADy//z/AAAUAAMAAADz//z/AAAVAAMAAAD0//z/AAAWAAMAAAD5//n/AAAUAAMAAAD6//n/AAAUAAYAAAD7//n/AAAUAAYAAAD8//n/AAAVAAYAAAD8//r/AAAUAAIAAAD8//v/AAAUAAIAAAD8//z/AAAUAAMAAAACAP7/AAAUAAIAAAACAP//AAAUAAIAAAACAAAAAAAUAAIAAAACAAEAAAAUAAIAAAACAAIAAAAUAAMAAAADAAIAAAAVAAMAAAAEAAIAAAAVAAMAAAAFAAIAAAAVAAMAAAADAPr/AAAVAAIAAAADAPv/AAAVAAIAAAADAPz/AAAVAAIAAAADAP3/AAAVAAIAAAADAP7/AAAVAAIAAAADAP//AAAVAAIAAAADAAAAAAAVAAIAAAADAAEAAAAVAAIAAAAEAPr/AAAVAAIAAAAEAPv/AAAVAAIAAAAEAPz/AAAVAAIAAAAEAP3/AAAVAAIAAAAEAP7/AAAVAAIAAAAEAP//AAAVAAIAAAAEAAAAAAAVAAIAAAAEAAEAAAAVAAIAAAAFAPr/AAAVAAIAAAAFAPv/AAAVAAIAAAAFAPz/AAAVAAIAAAAFAP3/AAAVAAIAAAAFAP7/AAAVAAIAAAAFAP//AAAVAAIAAAAFAAAAAAAVAAIAAAAFAAEAAAAVAAIAAAD9//b/AAAVAAIAAAD9//f/AAAVAAIAAAD9//j/AAAVAAIAAAD9//n/AAAVAAIAAAD9//r/AAAVAAIAAAD9//v/AAAVAAIAAAD+//b/AAAVAAIAAAD+//f/AAAVAAIAAAD+//j/AAAVAAIAAAD+//n/AAAVAAIAAAD+//r/AAAVAAIAAAD+//v/AAAVAAIAAAD///b/AAAVAAIAAAD///f/AAAVAAIAAAD///j/AAAVAAIAAAD///n/AAAVAAIAAAD///r/AAAVAAIAAAD///v/AAAVAAIAAAAAAPb/AAAVAAIAAAAAAPf/AAAVAAIAAAAAAPj/AAAVAAIAAAAAAPn/AAAVAAIAAAAAAPr/AAAVAAIAAAAAAPv/AAAVAAIAAAABAPb/AAAVAAIAAAABAPf/AAAVAAIAAAABAPj/AAAVAAIAAAABAPn/AAAVAAIAAAABAPr/AAAVAAIAAAABAPv/AAAVAAIAAAACAPb/AAAVAAIAAAACAPf/AAAVAAIAAAACAPj/AAAVAAIAAAACAPn/AAAVAAIAAAACAPr/AAAVAAIAAAACAPv/AAAVAAIAAAADAPb/AAAVAAIAAAADAPf/AAAVAAIAAAADAPj/AAAVAAIAAAADAPn/AAAVAAIAAAAEAPb/AAAVAAIAAAAEAPf/AAAVAAIAAAAEAPj/AAAVAAIAAAAEAPn/AAAVAAIAAAD7//b/AAAVAAIAAAD7//f/AAAVAAIAAAD7//j/AAAVAAIAAAD8//b/AAAVAAIAAAD8//f/AAAVAAIAAAD8//j/AAAVAAIAAAD9//z/AAAVAAMAAAD+//z/AAAVAAMAAAD///z/AAAVAAMAAAAAAPz/AAAVAAMAAAABAPz/AAAUAAYAAAACAPz/AAAVAAYAAAACAP3/AAAUAAIAAAA=")
+tile_set = ExtResource("1_a8eo8")
+
+[node name="TileMapLayerMorphPoints2" type="TileMapLayer" parent="LevelTiles" unique_id=939901134]
+position = Vector2(800.00006, 339)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD7//v/AAAWAAIAAAD7//z/AAAWAAIAAAD7//3/AAAWAAIAAAD7//7/AAAWAAUAAAD8//7/AAAXAAUAAAD9//7/AAAVAAEAAAD+//7/AAAVAAEAAAD7//r/AAAWAAEAAAD///7/AAAVAAEAAAAAAP7/AAAVAAEAAAABAP7/AAAWAAEAAAABAP//AAAWAAIAAAABAAAAAAAWAAIAAAABAAEAAAAWAAIAAAABAAIAAAAWAAMAAAAAAAIAAAAVAAMAAAD//wIAAAAVAAMAAAD+/wIAAAAVAAMAAAD9/wIAAAAVAAMAAAD8/wIAAAAVAAMAAAD7/wIAAAAVAAMAAAD6/wIAAAAVAAMAAAD6/wEAAAAVAAIAAAD7/wEAAAAVAAIAAAD8/wEAAAAVAAIAAAD9/wEAAAAVAAIAAAD+/wEAAAAVAAIAAAD//wEAAAAVAAIAAAAAAAEAAAAVAAIAAAD7/wAAAAAVAAIAAAD7////AAAVAAIAAAD6////AAAVAAIAAAD6/wAAAAAVAAIAAAD9////AAAVAAIAAAD+////AAAVAAIAAAD/////AAAVAAIAAAAAAP//AAAVAAIAAAAAAAAAAAAVAAIAAAD//wAAAAAVAAIAAAA=")
+tile_set = ExtResource("1_a8eo8")
+
+[node name="Lighting" type="Node2D" parent="LevelTiles" unique_id=1236298520]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="LevelTiles/Lighting" unique_id=517242095]
+scale = Vector2(3, 3)
+energy = 0.7
 blend_mode = 1
+
+[node name="Torch" parent="LevelTiles/Lighting" unique_id=1910336948 instance=ExtResource("4_a8eo8")]
+position = Vector2(1018, 525)
+
+[node name="Torch3" parent="LevelTiles/Lighting" unique_id=1205063371 instance=ExtResource("4_a8eo8")]
+position = Vector2(219, -10)
+
+[node name="Torch4" parent="LevelTiles/Lighting" unique_id=1820692239 instance=ExtResource("4_a8eo8")]
+position = Vector2(118, 164)
+
+[node name="Torch5" parent="LevelTiles/Lighting" unique_id=565737819 instance=ExtResource("4_a8eo8")]
+position = Vector2(865, 218)
+
+[node name="Torch6" parent="LevelTiles/Lighting" unique_id=1761218470 instance=ExtResource("4_a8eo8")]
+position = Vector2(627, 209)
+
+[node name="Torch8" parent="LevelTiles/Lighting" unique_id=1196509196 instance=ExtResource("4_a8eo8")]
+position = Vector2(488, 27)
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=1483850271]
 z_index = 256
 position = Vector2(0, -100)
 script = ExtResource("5_0tkdc")
-height = 1294
+width = 1056
+height = 750
 metadata/_custom_type_script = "uid://bs17osqaujnog"
 
 [node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("6_p3o8i")]
-position = Vector2(238, -43)
+position = Vector2(991, 550)
 
 [node name="Foreground" type="Parallax2D" parent="." unique_id=1817786885]
 modulate = Color(0.3, 0.3, 0.3, 1)
@@ -257,58 +254,24 @@ scale = Vector2(1.1, 1.1)
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(544, -43)
 
-[node name="TileMapLayer3" type="TileMapLayer" parent="Foreground" unique_id=1765981493]
-position = Vector2(-600, -96.36363)
-scale = Vector2(3, 3)
-tile_set = ExtResource("1_a8eo8")
-
-[node name="Spotlight" type="Parallax2D" parent="Foreground" unique_id=1470906639]
-scale = Vector2(1.0092567, 0.9767514)
-scroll_offset = Vector2(-1211.8181, -630.90906)
-
-[node name="LightBeam3" type="Sprite2D" parent="Foreground/Spotlight" unique_id=763424235]
-modulate = Color(1.1638972, 0.6825001, 0, 0.5882353)
-z_index = 5
-material = SubResource("CanvasItemMaterial_knlyp")
-position = Vector2(930.9091, 512.7273)
-scale = Vector2(13.701681, 46.396404)
-texture = ExtResource("4_gmcpm")
-
-[node name="LightBeam5" type="Sprite2D" parent="Foreground/Spotlight" unique_id=436872745]
-modulate = Color(1.1638972, 0.6825001, 0, 0.5882353)
-z_index = 5
-material = SubResource("CanvasItemMaterial_knlyp")
-position = Vector2(937.2727, 503.578)
-scale = Vector2(2.5, 46.297073)
-texture = ExtResource("4_gmcpm")
-
 [node name="LevelTransition" parent="." unique_id=66526337 instance=ExtResource("7_ie3c5")]
-position = Vector2(221, -100)
-size = 3
-location = 2
-target_level = "uid://crje8l7x6y5wq"
-target_area_name = "LevelTransition4"
-
-[node name="LevelTransition2" parent="." unique_id=60301957 instance=ExtResource("7_ie3c5")]
-position = Vector2(476, 144)
+position = Vector2(1055, 591)
 size = 3
 location = 1
-target_level = "uid://b3lne8e7sd83h"
+target_level = "uid://27wl7of1eaq3"
 target_area_name = "LevelTransition2"
 
-[node name="LevelTransition3" parent="." unique_id=1087009907 instance=ExtResource("7_ie3c5")]
-position = Vector2(482, 336)
+[node name="LevelTransition2" parent="." unique_id=1111579038 instance=ExtResource("7_ie3c5")]
+position = Vector2(-2, 391)
 size = 3
-location = 1
-target_level = "uid://b3lne8e7sd83h"
+target_level = "uid://c0h8wwub11rtw"
+target_area_name = "LevelTransition2"
+
+[node name="LevelTransition3" parent="." unique_id=1657968322 instance=ExtResource("7_ie3c5")]
+position = Vector2(-1, 592)
+size = 4
+target_level = "uid://c0h8wwub11rtw"
 target_area_name = "LevelTransition3"
-
-[node name="LevelTransition4" parent="." unique_id=1218666273 instance=ExtResource("7_ie3c5")]
-position = Vector2(481, 576)
-size = 3
-location = 1
-target_level = "uid://73u6rdggpiip"
-target_area_name = "LevelTransition2"
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1197043162]
 script = ExtResource("8_h43xx")
