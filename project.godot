@@ -30,6 +30,10 @@ PlayerHud="*uid://7ryjauoupcxc"
 Audio="*uid://c5ecvg50n0hjs"
 VisualEffects="*uid://dmwl1sbjfp2xp"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=480

@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bcq7pulajb7q6" path="res://general/scripts/loot_data.gd" id="19_r3j0o"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="21_4m4tx"]
 [ext_resource type="Script" uid="uid://dmbn4jj50b1gp" path="res://enemies/scripts/decision_engines/decision_engine_flying.gd" id="21_8171w"]
+[ext_resource type="Script" uid="uid://dcqbi3rbadqw5" path="res://enemies/scripts/damage_modulate.gd" id="22_e7bnv"]
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -351,3 +352,7 @@ attack_state = NodePath("../EnemyStateMachine/ESFlyAttack")
 stun_state = NodePath("../EnemyStateMachine/ESStun")
 death_state = NodePath("../EnemyStateMachine/ESDeath")
 metadata/_custom_type_script = "uid://dmbn4jj50b1gp"
+
+[node name="DamageModulate" type="Node" parent="." unique_id=585477965]
+script = ExtResource("22_e7bnv")
+metadata/_custom_type_script = "uid://dcqbi3rbadqw5"

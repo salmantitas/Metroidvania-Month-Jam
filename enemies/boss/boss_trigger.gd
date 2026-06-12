@@ -22,6 +22,9 @@ var tileset : TileMapLayer
 var boss : Boss
 @export var boss_ability : String # temp
 
+@onready var boss_ui: CanvasLayer = $BossUI
+@onready var progress_bar: ProgressBar = $BossUI/VBoxContainer/ProgressBar
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -40,6 +43,7 @@ func _ready() -> void:
 		if c is TileMapLayer:
 			tileset = c
 	
+	boss_ui.visible = false
 	enable_tileset(false)
 		
 func _on_body_entered( _b : Node2D) -> void:
@@ -65,6 +69,12 @@ func spawn_boss() -> void:
 	boss.position = spawn_location
 	boss.face_left_on_start = true
 	boss.was_killed.connect(_on_boss_killed)
+	boss.was_hit.connect(_on_boss_hit)
+	
+	boss_ui.visible = true
+	$BossUI/VBoxContainer/Label.text = boss.name
+	progress_bar.min_value = 0
+	progress_bar.max_value = boss.blackboard.health
 
 func unique_name() -> String:
 	var unique_name : String = ResourceUID.path_to_uid( owner.scene_file_path )
@@ -79,6 +89,7 @@ func enable_tileset( value : bool = true) -> void:
 func _on_boss_killed() -> void:
 	change_track(null)
 	enable_tileset(false)
+	boss_ui.visible = false
 	#Messages.powerup_acquired.emit(boss.ability)
 	#Messages.tutorial_hint_changed.emit(boss.ability)
 	#Messages.input_hint_changed.emit(boss.ability)
@@ -91,6 +102,10 @@ func _on_boss_killed() -> void:
 	Messages.powerup_acquired.emit("")
 	Messages.tutorial_hint_changed.emit("")
 	Messages.input_hint_changed.emit("")
+
+func _on_boss_hit(_a : AttackArea) -> void:
+	print(boss.blackboard.health)
+	$BossUI/VBoxContainer/ProgressBar.value = boss.blackboard.health
 	
 func apply_area_settings() -> void:
 	area_2d = get_node_or_null("Area2D")

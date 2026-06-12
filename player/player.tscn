@@ -18,10 +18,11 @@
 [ext_resource type="Script" uid="uid://c7ilxcybs2ua2" path="res://player/tutorial_hints.gd" id="10_ik82o"]
 [ext_resource type="FontFile" uid="uid://0dmwp65n8wek" path="res://general/fonts/prstartk.ttf" id="11_ik82o"]
 [ext_resource type="Script" uid="uid://b2w4mspef5qkd" path="res://player/states/ground_slam.gd" id="11_x7c3f"]
-[ext_resource type="Script" uid="uid://cjyuqa8gpe8fg" path="res://player/scripts/player_sprite.gd" id="12_65viv"]
+[ext_resource type="Script" uid="uid://cjyuqa8gpe8fg" path="res://player/scripts/dashing_sprite.gd" id="12_65viv"]
 [ext_resource type="Script" uid="uid://bnoai3eb5f6il" path="res://player/morph.gd" id="12_bjvpn"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="13_7t3bf"]
 [ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="16_32hag"]
+[ext_resource type="Script" uid="uid://dcqbi3rbadqw5" path="res://enemies/scripts/damage_modulate.gd" id="23_s7qer"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 radius = 8.0
@@ -355,7 +356,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -619,3 +620,8 @@ exclude_parent = false
 target_position = Vector2(0, 6)
 collision_mask = 3
 hit_from_inside = true
+
+[node name="DamageModulate" type="Node" parent="." unique_id=1543629118]
+script = ExtResource("23_s7qer")
+color = Color(4.415934, 4.415934, 4.415934, 1)
+metadata/_custom_type_script = "uid://dcqbi3rbadqw5"

@@ -46,9 +46,9 @@ var max_hp : float = 20 :
 var dash : bool = true
 var dash_count : int = 0
 
-var morph : bool = true
+var morph : bool = false
 
-var double_jump : bool = true
+var double_jump : bool = false
 var jump_count : int = 0
 
 var ground_slam : bool = false
@@ -61,6 +61,9 @@ var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980
 var gravity_multiplier : float = 1
 #endregion
+
+#debug
+var god_mode : bool = false
 
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Player") != self:
@@ -97,6 +100,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				hp += 2
 			elif event.keycode == KEY_BACKSPACE:
 				max_hp += 2
+			elif event.keycode == KEY_G:
+				god_mode = !god_mode
 	# END DEBUG
 	
 # Called every frame
@@ -188,6 +193,9 @@ func _on_player_healed( amount : float) -> void:
 	hp += amount
 
 func _on_damage_taken( a : AttackArea ) -> void:
+	if god_mode:
+		return
+		
 	hp -= a.damage
 	damage_taken.emit()
 	

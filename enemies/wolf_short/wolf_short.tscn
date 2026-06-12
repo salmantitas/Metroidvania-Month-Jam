@@ -13,9 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="10_e6xyi"]
 [ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_aauro"]
 [ext_resource type="Script" uid="uid://b5xkwv6rnyto1" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="12_ee4f3"]
-[ext_resource type="Script" uid="uid://cdfhl3v322bhi" path="res://enemies/scripts/states/es_attack.gd" id="12_u5kjo"]
 [ext_resource type="Script" uid="uid://bhqle3lkawev6" path="res://enemies/scripts/states/es_chase.gd" id="13_n1cen"]
 [ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="15_n1cen"]
+[ext_resource type="Script" uid="uid://dgsjfvy7kak23" path="res://enemies/scripts/states/es_attack_shortwolf.gd" id="16_60qwm"]
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -46,7 +46,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ee4f3"]
 resource_name = "attack"
-length = 0.4
+length = 0.5
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -56,10 +56,24 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyStateMachine/ESAttackShortwolf")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_jump"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bkm6f"]
@@ -93,7 +107,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2ui2u"]
 resource_name = "stun"
-length = 0.5
+length = 0.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -148,9 +162,9 @@ size = Vector2(32, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60qwm"]
 size = Vector2(16, 30)
 
-[sub_resource type="Curve" id="Curve_n1cen"]
-_data = [Vector2(0.025316462, 0), 0.0, 0.0, 0, 0, Vector2(0.2531646, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Curve" id="Curve_sh5rg"]
+_data = [Vector2(0.025316462, 0), 0.0, 0.0, 0, 0, Vector2(0.2531646, 0), 0.0, 0.0, 0, 0, Vector2(0.50210977, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5018889), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="GDScript" id="GDScript_ee4f3"]
 script/source = "extends Label
@@ -177,7 +191,6 @@ libraries/ = SubResource("AnimationLibrary_ylgn2")
 autoplay = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
-visible = false
 position = Vector2(0, 5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8see4")
@@ -219,8 +232,9 @@ shape = SubResource("RectangleShape2D_60qwm")
 debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=329773588]
-position = Vector2(8, 13)
-target_position = Vector2(0, 8)
+position = Vector2(13, 12)
+target_position = Vector2(0, 10)
+collision_mask = 3
 hit_from_inside = true
 script = ExtResource("12_aauro")
 metadata/_custom_type_script = "uid://b7p15g1owg13o"
@@ -228,11 +242,12 @@ metadata/_custom_type_script = "uid://b7p15g1owg13o"
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=546356312]
 position = Vector2(1, -1)
 script = ExtResource("15_n1cen")
+use_audio_sensor = false
 audio_detect_distance = 256.0
 metadata/_custom_type_script = "uid://dbypeu8au6hwx"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=521046447]
-polygon = PackedVector2Array(0, 0, 256, 128, 256, -128)
+polygon = PackedVector2Array(0, 0, 128, 64, 128, -64)
 
 [node name="EnemyStateMachine" type="Node" parent="." unique_id=1093051899]
 script = ExtResource("6_dly3q")
@@ -241,6 +256,7 @@ metadata/_custom_type_script = "uid://cx0u42gi5ve2b"
 [node name="ESWalk" type="Node" parent="EnemyStateMachine" unique_id=1477031412]
 unique_name_in_owner = true
 script = ExtResource("7_f31c5")
+move_speed = 100.0
 animation_name = "walk"
 metadata/_custom_type_script = "uid://b7cb5b3lwcdgt"
 
@@ -257,21 +273,25 @@ death_sound = ExtResource("10_e6xyi")
 animation_name = "death"
 metadata/_custom_type_script = "uid://cwfct1lx3qndn"
 
-[node name="ESAttack" type="Node" parent="EnemyStateMachine" unique_id=1936220980]
-script = ExtResource("12_u5kjo")
-attack_range = 150.0
-move_speed = 300.0
-cooldown = 2.0
-move_speed_curve = SubResource("Curve_n1cen")
-metadata/_custom_type_script = "uid://cdfhl3v322bhi"
+[node name="ESAttackShortwolf" type="Node" parent="EnemyStateMachine" unique_id=2053963870 node_paths=PackedStringArray("attack_area")]
+script = ExtResource("16_60qwm")
+jump_velocity = 200
+attack_range = 200.0
+move_speed = 600.0
+cooldown = 1.0
+attack_area = NodePath("../../AttackArea")
+move_speed_curve = SubResource("Curve_sh5rg")
+metadata/_custom_type_script = "uid://dgsjfvy7kak23"
 
 [node name="ESChase" type="Node" parent="EnemyStateMachine" unique_id=197214744]
 script = ExtResource("13_n1cen")
+chase_speed = 125.0
+animation_name = "walk"
 metadata/_custom_type_script = "uid://bhqle3lkawev6"
 
 [node name="DecisionEngineBasic" type="Node" parent="." unique_id=1317282633 node_paths=PackedStringArray("attack_state", "chase_state")]
 script = ExtResource("12_ee4f3")
-attack_state = NodePath("../EnemyStateMachine/ESAttack")
+attack_state = NodePath("../EnemyStateMachine/ESAttackShortwolf")
 chase_state = NodePath("../EnemyStateMachine/ESChase")
 metadata/_custom_type_script = "uid://b5xkwv6rnyto1"
 

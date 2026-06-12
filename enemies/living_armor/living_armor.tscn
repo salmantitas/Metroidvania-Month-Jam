@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bcq7pulajb7q6" path="res://general/scripts/loot_data.gd" id="18_job4n"]
 [ext_resource type="Script" uid="uid://b5xkwv6rnyto1" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="18_rai4y"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="20_bxcqb"]
+[ext_resource type="Script" uid="uid://dcqbi3rbadqw5" path="res://enemies/scripts/damage_modulate.gd" id="22_dh8sx"]
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -354,3 +355,7 @@ offset_top = -83.0
 offset_right = 30.0
 offset_bottom = -67.0
 script = SubResource("GDScript_gjt4y")
+
+[node name="DamageModulate" type="Node" parent="." unique_id=154919849]
+script = ExtResource("22_dh8sx")
+metadata/_custom_type_script = "uid://dcqbi3rbadqw5"

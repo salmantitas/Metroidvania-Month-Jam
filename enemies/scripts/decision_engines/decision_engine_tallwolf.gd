@@ -1,14 +1,9 @@
-class_name DecisionEngineBasicAttack
+class_name DecisionEngineTallWolf
 extends DecisionEngine
-
-
-# Included in DecisionEngine
-# var enemy : Enemy
-# var current_state : EnemyState
-# var blackboard : Blackboard
 
 @export var attack_state : ESAttack
 @export var chase_state : EnemyState
+@export var dash_state : EnemyState
 
 @onready var es_walk: ESWalk = %ESWalk
 @onready var es_stun: ESStun = %ESStun
@@ -20,7 +15,6 @@ func _ready() -> void:
 	pass
 
 func decide() -> EnemyState:
-	# Example decision
 	if blackboard.damage_source:
 		if blackboard.health <= 0:
 			return es_death
@@ -30,11 +24,17 @@ func decide() -> EnemyState:
 	if current_state is ESDeath or not blackboard.can_decide:
 		return null
 	
-	if blackboard.edge_detected:
-		enemy.change_direction(-blackboard.dir)
+	#if blackboard.edge_detected:
+		#enemy.change_direction(-blackboard.dir)
 	
 	if blackboard.target:
-		if attack_state.can_attack():
+		if dash_state.can_dash():
+			return dash_state
+		elif attack_state.can_attack():
 			return attack_state
 		return chase_state
+	
+	if enemy.state_machine.prev_state == dash_state:
+		return es_stun
+	
 	return es_walk # default state

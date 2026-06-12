@@ -5,6 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaouq"]
 size = Vector2(64, 64)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4itc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okcx5"]
+bg_color = Color(1, 0.3350352, 0.3407538, 1)
+
 [node name="BossTrigger" type="Node2D" unique_id=178568994]
 script = ExtResource("1_k4itc")
 
@@ -17,3 +22,36 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1744542782]
 position = Vector2(32, -32)
 shape = SubResource("RectangleShape2D_xaouq")
+
+[node name="BossUI" type="CanvasLayer" parent="." unique_id=1195994145]
+
+[node name="Control" type="Control" parent="BossUI" unique_id=322297206]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BossUI" unique_id=1055547814]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -40.0
+offset_right = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="BossUI/VBoxContainer" unique_id=982670242]
+layout_mode = 2
+text = "Name"
+
+[node name="ProgressBar" type="ProgressBar" parent="BossUI/VBoxContainer" unique_id=1523845231]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_k4itc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_okcx5")
+value = 50.0
+show_percentage = false

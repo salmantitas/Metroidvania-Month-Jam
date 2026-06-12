@@ -331,7 +331,7 @@ location = 3
 target_level = "uid://c0h8wwub11rtw"
 
 [node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("5_2rbur")]
-position = Vector2(1281, -264)
+position = Vector2(-173, 197)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1926997295]
 script = ExtResource("8_1tliu")
@@ -344,22 +344,17 @@ metadata/_custom_type_script = "uid://cmetx1xg2tcil"
 position = Vector2(179, 264)
 face_left_on_start = true
 
-[node name="ShortWolf2" parent="Enemy" unique_id=1546261226 instance=ExtResource("11_bk8he")]
-position = Vector2(383, 169)
-face_left_on_start = true
+[node name="ShortWolf2" parent="Enemy" unique_id=611287731 instance=ExtResource("11_bk8he")]
+position = Vector2(-44, -11)
 
-[node name="ShortWolf3" parent="Enemy" unique_id=769246228 instance=ExtResource("11_bk8he")]
-position = Vector2(154, 63)
-face_left_on_start = true
+[node name="ShortWolf3" parent="Enemy" unique_id=470098497 instance=ExtResource("11_bk8he")]
+position = Vector2(602, 56)
 
-[node name="ShortWolf4" parent="Enemy" unique_id=1565559662 instance=ExtResource("11_bk8he")]
-position = Vector2(-33, -33)
-face_left_on_start = true
+[node name="ShortWolf4" parent="Enemy" unique_id=2054949588 instance=ExtResource("11_bk8he")]
+position = Vector2(368, 139)
 
-[node name="ShortWolf5" parent="Enemy" unique_id=84623060 instance=ExtResource("11_bk8he")]
-position = Vector2(152, -317)
-face_left_on_start = true
+[node name="ShortWolf5" parent="Enemy" unique_id=1407370045 instance=ExtResource("11_bk8he")]
+position = Vector2(429, -290)
 
-[node name="ShortWolf6" parent="Enemy" unique_id=1347266881 instance=ExtResource("11_bk8he")]
-position = Vector2(1010, -271)
-face_left_on_start = true
+[node name="ShortWolf6" parent="Enemy" unique_id=658337972 instance=ExtResource("11_bk8he")]
+position = Vector2(1023, 248)

@@ -4,6 +4,7 @@ extends Resource
 var health : float = 3
 var target : Player = null
 var distance_to_target : float = -1
+
 var can_decide : bool = true
 var edge_detected : bool = false
 var damage_source: AttackArea = null
@@ -14,3 +15,9 @@ func update_distance_to_target ( pos : Vector2 ) -> void:
 		distance_to_target = pos.distance_to( target.global_position )
 	else:
 		distance_to_target = -1
+
+func distance_to_x( pos : Vector2 ) -> float:
+	return abs(target.global_position.x - pos.x)
+	
+func distance_to_y( pos : Vector2 ) -> float:
+	return abs(target.global_position.y - pos.y)
