@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="7_u74mi"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="8_w50k7"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="9_5corq"]
+[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="10_q0csc"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -279,12 +280,12 @@ target_level = "uid://27wl7of1eaq3"
 target_area_name = "LevelTransition3"
 
 [node name="LevelTransition3" parent="." unique_id=1657968322 instance=ExtResource("5_crjp3")]
-position = Vector2(-1, 583)
+position = Vector2(-1, 590)
 size = 3
 target_level = "uid://73u6rdggpiip"
 
 [node name="LevelTransition4" parent="." unique_id=1239836445 instance=ExtResource("5_crjp3")]
-position = Vector2(-1, 1023)
+position = Vector2(-1, 1025)
 size = 3
 target_level = "uid://73u6rdggpiip"
 target_area_name = "LevelTransition3"
@@ -299,3 +300,21 @@ position = Vector2(107, 579)
 
 [node name="Switch" parent="Door" unique_id=2039898596 instance=ExtResource("9_5corq")]
 position = Vector2(-28, 10)
+
+[node name="Enemy" type="Node2D" parent="." unique_id=1949046447]
+
+[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("10_q0csc")]
+position = Vector2(179, 264)
+face_left_on_start = true
+
+[node name="ShortWolf2" parent="Enemy" unique_id=25418208 instance=ExtResource("10_q0csc")]
+position = Vector2(278, 557)
+face_left_on_start = true
+
+[node name="ShortWolf3" parent="Enemy" unique_id=598798565 instance=ExtResource("10_q0csc")]
+position = Vector2(149, 992)
+face_left_on_start = true
+
+[node name="ShortWolf4" parent="Enemy" unique_id=664925620 instance=ExtResource("10_q0csc")]
+position = Vector2(460, 179)
+face_left_on_start = true

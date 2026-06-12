@@ -9,6 +9,7 @@ var current_slot : int = 0
 var save_data : Dictionary  = {}
 var discovered_areas : Array = []
 var persistent_data : Dictionary = {}
+var scenes_seen : Dictionary = {}
 
 const new_game_path_test : String = "uid://b2so5wjsaqq0x"
 const new_game_path_mvm : String = "uid://tv46cj7vcfkf"

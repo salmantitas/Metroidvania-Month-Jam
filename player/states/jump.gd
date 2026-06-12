@@ -66,7 +66,7 @@ func do_jump() -> void:
 	
 	player.jump_count += 1
 	player.velocity.y = -jump_velocity
-	Audio.play_spatial_sound(AUDIO_JUMP, player.global_position)
+	Audio.play_spatial_sound(AUDIO_JUMP, player.global_position,  false, true, 0.25)
 
 func set_jump_frame() -> void:
 	var frame : float = remap(player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)

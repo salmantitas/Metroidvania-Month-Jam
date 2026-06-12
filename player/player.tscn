@@ -516,6 +516,7 @@ zoom = Vector2(0.8, 0.8)
 script = ExtResource("8_v7fv1")
 
 [node name="InputHints" type="Node2D" parent="." unique_id=1851492166]
+z_index = 20
 script = ExtResource("8_giqxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=1392081789]
@@ -525,6 +526,7 @@ texture = ExtResource("9_3fsdd")
 hframes = 21
 
 [node name="TutorialHints" type="Node2D" parent="." unique_id=2023185835]
+z_index = 20
 script = ExtResource("10_ik82o")
 
 [node name="Label" type="Label" parent="TutorialHints" unique_id=1724432836]

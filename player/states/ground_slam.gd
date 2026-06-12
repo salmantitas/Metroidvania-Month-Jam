@@ -26,7 +26,7 @@ func init() -> void:
 func enter() -> void:
 	player.animation_player.play("ground_slam")
 	player.sprite.tween_color()
-	Audio.play_spatial_sound(AUDIO_SLAM, player.global_position)
+	Audio.play_spatial_sound(AUDIO_SLAM, player.global_position, false, true, 0.75)
 	damage_area.start_invulnerable()
 	ground_slam_attack_area.set_active()
 	
@@ -37,7 +37,7 @@ func exit() -> void:
 	
 	VisualEffects.land_dust(pos)
 	VisualEffects.hit_dust(pos)
-	Audio.play_spatial_sound(AUDIO_LAND, pos)
+	Audio.play_spatial_sound(AUDIO_LAND, pos, false, true, 1)
 	
 	damage_area.end_invulnerable()
 	ground_slam_attack_area.set_active(false)
@@ -80,7 +80,7 @@ func check_collisions( delta : float) -> bool:
 			if c.get_parent() is Breakable:
 				var b : Breakable = c.get_parent()
 				b.queue_free()
-				Audio.play_spatial_sound(b.destroy_audio, pos)
+				Audio.play_spatial_sound(b.destroy_audio, pos, false, true, 0.75)
 				for p in b.destroyed_particles:
 					VisualEffects.hit_particles( pos, Vector2.DOWN, p)
 			else:
@@ -88,7 +88,7 @@ func check_collisions( delta : float) -> bool:
 				VisualEffects.hit_particles( pos, Vector2.DOWN, HIT_WOOD_LARGE )
 				VisualEffects.hit_particles( pos, Vector2.DOWN, HIT_WOOD_MEDIUM )
 				VisualEffects.hit_particles( pos, Vector2.DOWN, HIT_WOOD_SMALL )
-				Audio.play_spatial_sound(AUDIO_BREAK_WOOD, pos)
+				Audio.play_spatial_sound(AUDIO_BREAK_WOOD, pos, false, true, 0.75)
 		return true
 	
 	return false

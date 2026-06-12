@@ -12,6 +12,12 @@
 [ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="10_5ljtw"]
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="11_5ljtw"]
 [ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_5ljtw"]
+[ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="13_q5v0v"]
+[ext_resource type="Script" uid="uid://bcmcdjhbp5acb" path="res://enemies/scripts/enemy_hit_particles.gd" id="14_il8gj"]
+[ext_resource type="Script" uid="uid://ctivrgvl3scfc" path="res://00_global/visual_effects/hit_particle_settings.gd" id="15_fvkjk"]
+[ext_resource type="Resource" uid="uid://b02xao2u88hcc" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_small.tres" id="16_4p5fi"]
+[ext_resource type="Script" uid="uid://dumk37em5gyn8" path="res://general/scripts/loot_dropper.gd" id="17_4p5fi"]
+[ext_resource type="Script" uid="uid://bcq7pulajb7q6" path="res://general/scripts/loot_data.gd" id="18_f6r7e"]
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -98,6 +104,57 @@ size = Vector2(28, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljtw"]
 size = Vector2(26, 16)
 
+[sub_resource type="GDScript" id="GDScript_q5v0v"]
+script/source = "extends Label
+
+@onready var player_sensor: PlayerSensor = $\"../PlayerSensor\"
+@onready var slime_2: Enemy = $\"..\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+func _physics_process(delta: float) -> void:
+	text = \"\"
+	text = \"Target: \"
+	text += slime_2.blackboard.target.name if slime_2.blackboard.target else \"none\"
+	text += \"\\nDistance : \"
+	text += str(slime_2.blackboard.distance_to_target)
+	
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6r7e"]
+load_path = "res://.godot/imported/props_destructible.png-edb312bd37620780eb252dd3d1df0887.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkxp3"]
+atlas = SubResource("CompressedTexture2D_f6r7e")
+region = Rect2(121, 7, 2, 2)
+
+[sub_resource type="Resource" id="Resource_t5k58"]
+script = ExtResource("15_fvkjk")
+color = Color(0.24705882, 0.6156863, 1, 1)
+texture = SubResource("AtlasTexture_nkxp3")
+metadata/_custom_type_script = "uid://ctivrgvl3scfc"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_magut"]
+load_path = "res://.godot/imported/props_destructible.png-edb312bd37620780eb252dd3d1df0887.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsqvn"]
+atlas = SubResource("CompressedTexture2D_magut")
+region = Rect2(121, 7, 2, 2)
+
+[sub_resource type="Resource" id="Resource_3ebjj"]
+script = ExtResource("15_fvkjk")
+color = Color(0.13725491, 0.28235295, 1, 1)
+texture = SubResource("AtlasTexture_tsqvn")
+metadata/_custom_type_script = "uid://ctivrgvl3scfc"
+
+[sub_resource type="Resource" id="Resource_f6r7e"]
+script = ExtResource("18_f6r7e")
+item = "uid://vy4ara32jscd"
+metadata/_custom_type_script = "uid://bcq7pulajb7q6"
+
 [node name="Slime2" type="CharacterBody2D" unique_id=483238355]
 collision_layer = 32
 collision_mask = 3
@@ -112,11 +169,13 @@ vframes = 3
 libraries/ = SubResource("AnimationLibrary_ylgn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
+visible = false
 position = Vector2(0, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8see4")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
+visible = false
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("3_dp7tl")
@@ -128,6 +187,7 @@ position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_r2nuq")
 
 [node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_2541m")
@@ -170,3 +230,28 @@ target_position = Vector2(0, 8)
 hit_from_inside = true
 script = ExtResource("12_5ljtw")
 metadata/_custom_type_script = "uid://b7p15g1owg13o"
+
+[node name="PlayerSensor" type="Area2D" parent="." unique_id=471512573]
+position = Vector2(0, 7)
+script = ExtResource("13_q5v0v")
+metadata/_custom_type_script = "uid://dbypeu8au6hwx"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=437302986]
+polygon = PackedVector2Array(0, 0, 256, 128, 256, -128)
+
+[node name="Label" type="Label" parent="." unique_id=36149376]
+offset_right = 40.0
+offset_bottom = 16.0
+script = SubResource("GDScript_q5v0v")
+
+[node name="EnemyHitParticles" type="Node2D" parent="." unique_id=495030835]
+position = Vector2(0, 7)
+script = ExtResource("14_il8gj")
+hit_particles = Array[ExtResource("15_fvkjk")]([ExtResource("16_4p5fi")])
+death_particles = Array[ExtResource("15_fvkjk")]([SubResource("Resource_t5k58"), SubResource("Resource_3ebjj")])
+metadata/_custom_type_script = "uid://bcmcdjhbp5acb"
+
+[node name="LootDropper" type="Marker2D" parent="." unique_id=336201918]
+script = ExtResource("17_4p5fi")
+items = Array[ExtResource("18_f6r7e")]([SubResource("Resource_f6r7e"), SubResource("Resource_f6r7e")])
+metadata/_custom_type_script = "uid://dumk37em5gyn8"

@@ -497,16 +497,42 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 161.0
-offset_top = 92.0
+offset_top = 64.0
 offset_right = 179.0
-offset_bottom = 109.0
+offset_bottom = 81.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c07di3v6skv87"
-entrances_top = Array[float]([8.2])
+entrances_top = Array[float]([7.4])
 entrances_right = Array[float]([6.8])
-entrances_bottom = Array[float]([9.8])
+entrances_bottom = Array[float]([7.4])
 entrances_left = Array[float]([2.0])
+indicator_offset = Vector2(0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Control/PauseScreen/Map/MapNodes/MapNode02_03" unique_id=874888640]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 17.0
+offset_right = 10.0
+offset_bottom = 46.0
+
+[node name="MapNode02_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=1449164475 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 161.0
+offset_top = 47.0
+offset_right = 179.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://br31lgna35rwc"
+entrances_top = Array[float]([7.4])
+entrances_right = Array[float]([2.0])
+entrances_bottom = Array[float]([7.4])
 indicator_offset = Vector2(0, 1)
 
 [node name="MapNode10_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=518500698 instance=ExtResource("2_rd7dy")]
@@ -614,24 +640,6 @@ entrances_right = Array[float]([4.475])
 entrances_left = Array[float]([5.675])
 indicator_offset = Vector2(0, 1)
 
-[node name="MapNode10_05_save2" parent="Control/PauseScreen/Map/MapNodes" unique_id=237004991 instance=ExtResource("2_rd7dy")]
-modulate = Color(0.2769, 0.71, 0.68112665, 1)
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 231.0
-offset_top = 164.0
-offset_right = 249.0
-offset_bottom = 175.0
-grow_horizontal = 1
-grow_vertical = 1
-linked_scene = "uid://cypshcwi3pywq"
-entrances_top = Array[float]([2.0])
-entrances_right = Array[float]([4.475])
-entrances_left = Array[float]([5.675])
-indicator_offset = Vector2(0, 1)
-
 [node name="MapNode10_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=1922607642 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.29, 0.19212501, 0.055099998, 1)
 layout_mode = 0
@@ -641,7 +649,7 @@ anchor_bottom = 0.0
 offset_left = 166.0
 offset_top = 165.0
 offset_right = 188.0
-offset_bottom = 181.0
+offset_bottom = 183.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://fgk6d8keq1qo"
@@ -662,7 +670,7 @@ offset_bottom = 129.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://ci4wcdj2mjayn"
-entrances_top = Array[float]([3.0])
+entrances_top = Array[float]([3.6])
 entrances_right = Array[float]([8.65])
 entrances_left = Array[float]([8.575])
 indicator_offset = Vector2(0, 173)
@@ -692,7 +700,7 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 214.0
-offset_top = 99.0
+offset_top = 97.0
 offset_right = 250.0
 offset_bottom = 113.0
 grow_horizontal = 1
@@ -700,8 +708,8 @@ grow_vertical = 1
 linked_scene = "uid://dpf4vluhel30l"
 entrances_top = Array[float]([31.0])
 entrances_bottom = Array[float]([31.0])
-entrances_left = Array[float]([8.575, 2.0])
-indicator_offset = Vector2(0, 173)
+entrances_left = Array[float]([10.225, 2.9499998])
+indicator_offset = Vector2(0, 110)
 
 [node name="MapNode20_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=1846492551 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.4, 0.4, 0.4, 1)
@@ -709,18 +717,16 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 180.0
+offset_left = 190.0
 offset_top = 97.0
 offset_right = 214.0
 offset_bottom = 113.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://regafsy8g6kw"
-entrances_top = Array[float]([7.475, 2.2])
-entrances_right = Array[float]([8.575, 2.0])
-entrances_bottom = Array[float]([24.0])
-entrances_left = Array[float]([2.0500002])
-indicator_offset = Vector2(0, 1)
+entrances_right = Array[float]([10.175, 2.5749998])
+entrances_bottom = Array[float]([12.85])
+indicator_offset = Vector2(414, -31)
 
 [node name="MapNode20_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1285209117 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.4, 0.4, 0.4, 1)
@@ -728,15 +734,32 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 186.0
-offset_top = 68.0
-offset_right = 244.0
+offset_left = 192.0
+offset_top = 73.0
+offset_right = 250.0
 offset_bottom = 97.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c4t0mkimt5sb5"
-entrances_bottom = Array[float]([53.0, 2.0])
-indicator_offset = Vector2(0, 1)
+entrances_bottom = Array[float]([53.0])
+entrances_left = Array[float]([10.95])
+indicator_offset = Vector2(0, 193)
+
+[node name="MapNode20_07" parent="Control/PauseScreen/Map/MapNodes" unique_id=302900787 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 192.0
+offset_top = 57.0
+offset_right = 216.0
+offset_bottom = 73.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://c2qgeudgfpt0"
+entrances_right = Array[float]([9.45])
+entrances_left = Array[float]([9.45])
 
 [node name="MapNode20_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=462657284 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.4, 0.4, 0.4, 1)
@@ -744,24 +767,16 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 175.0
-offset_top = 52.0
-offset_right = 191.0
-offset_bottom = 68.0
+offset_left = 179.0
+offset_top = 63.0
+offset_right = 192.0
+offset_bottom = 89.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://tih4bmb6x0am"
-entrances_bottom = Array[float]([6.6])
-entrances_left = Array[float]([7.1000004])
-indicator_offset = Vector2(0, 173)
-
-[node name="ColorRect5" type="ColorRect" parent="Control/PauseScreen/Map/MapNodes/MapNode20_06" unique_id=1590518405]
-modulate = Color(1, 1, 1, 0.19607843)
-layout_mode = 0
-offset_left = 7.0
-offset_top = 16.0
-offset_right = 10.0
-offset_bottom = 45.0
+entrances_right = Array[float]([21.0, 3.3249998])
+entrances_left = Array[float]([7.95])
+indicator_offset = Vector2(0, -191)
 
 [node name="MapNode30_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=990980149 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
@@ -769,16 +784,16 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 226.0
-offset_top = 51.0
-offset_right = 244.0
-offset_bottom = 68.0
+offset_left = 216.0
+offset_top = 38.0
+offset_right = 235.0
+offset_bottom = 72.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://dgjfvjp0by0sq"
-entrances_top = Array[float]([13.0])
-entrances_left = Array[float]([11.875])
-indicator_offset = Vector2(0, 1)
+entrances_top = Array[float]([14.0])
+entrances_left = Array[float]([27.8])
+indicator_offset = Vector2(0, -639)
 
 [node name="MapNode30_02" parent="Control/PauseScreen/Map/MapNodes" unique_id=1548118474 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
@@ -786,16 +801,84 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 226.0
-offset_top = 34.0
-offset_right = 244.0
-offset_bottom = 51.0
+offset_left = 216.0
+offset_top = 11.0
+offset_right = 252.0
+offset_bottom = 38.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://dn7ftmtvpyu2r"
-entrances_bottom = Array[float]([13.0])
-entrances_left = Array[float]([11.875])
-indicator_offset = Vector2(0, 1)
+entrances_bottom = Array[float]([14.425])
+entrances_left = Array[float]([20.7])
+indicator_offset = Vector2(0, -255)
+
+[node name="MapNode30_05" parent="Control/PauseScreen/Map/MapNodes" unique_id=1245674455 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = 28.0
+offset_right = 216.0
+offset_bottom = 55.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://0e6b5nuuk5cc"
+entrances_right = Array[float]([3.9])
+entrances_left = Array[float]([20.8])
+indicator_offset = Vector2(0, -255)
+
+[node name="MapNode30_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=753324806 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 122.0
+offset_top = 70.0
+offset_right = 141.0
+offset_bottom = 104.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://di5l5p2yegdap"
+entrances_top = Array[float]([7.225])
+entrances_left = Array[float]([27.725])
+indicator_offset = Vector2(0, -639)
+
+[node name="MapNode30_06" parent="Control/PauseScreen/Map/MapNodes" unique_id=596218152 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 141.0
+offset_top = 37.0
+offset_right = 161.0
+offset_bottom = 71.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://bgg2fugmd5qx4"
+entrances_right = Array[float]([28.675])
+entrances_left = Array[float]([7.4750004])
+indicator_offset = Vector2(0, -639)
+
+[node name="MapNode30_04" parent="Control/PauseScreen/Map/MapNodes" unique_id=596993289 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 42.0
+offset_right = 141.0
+offset_bottom = 70.0
+grow_horizontal = 1
+grow_vertical = 1
+linked_scene = "uid://8flp1jqr3yvc"
+entrances_right = Array[float]([2.225])
+entrances_bottom = Array[float]([23.625])
+indicator_offset = Vector2(0, -287)
 
 [node name="MapNode30_final" parent="Control/PauseScreen/Map/MapNodes" unique_id=853666765 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.13725491, 0.3137255, 0.30980393, 1)
@@ -803,9 +886,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 162.0
+offset_left = 161.0
 offset_top = 21.0
-offset_right = 174.0
+offset_right = 173.0
 offset_bottom = 28.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -819,7 +902,7 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 10.0
-offset_bottom = 71.0
+offset_bottom = 26.0
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=608613520]
 unique_name_in_owner = true
@@ -1050,13 +1133,13 @@ text = "Down Arrow + Z"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
-text = "X (To Do)"
+text = "X"
 
 [node name="Label8" type="Label" parent="Control/ControlsScreen/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=770066542]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
-text = "C (To-Do)"
+text = "C"
 
 [node name="Label9" type="Label" parent="Control/ControlsScreen/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1654311013]
 layout_mode = 2

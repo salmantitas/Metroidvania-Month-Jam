@@ -3,15 +3,17 @@
 [ext_resource type="Script" uid="uid://db1d4npp5swad" path="res://enemies/boss/boss_trigger.gd" id="1_k4itc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaouq"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [node name="BossTrigger" type="Node2D" unique_id=178568994]
 script = ExtResource("1_k4itc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1220287697]
+scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1744542782]
+position = Vector2(32, -32)
 shape = SubResource("RectangleShape2D_xaouq")

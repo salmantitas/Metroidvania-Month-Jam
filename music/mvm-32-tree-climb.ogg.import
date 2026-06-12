@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/mvm-32-tree-climb.ogg-2a1a354bad2d065741fbd2e
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

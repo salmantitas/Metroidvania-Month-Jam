@@ -8,6 +8,8 @@ enum REVERB_TYPE {NONE, SMALL, MEDIUM, LARGE}
 @export var ui_success_audio : AudioStream
 @export var ui_error_audio : AudioStream
 
+signal player_made_sound( pos : Vector2, magnitude : float )
+
 var current_track : int = 0
 var music_tweens : Array[ Tween ]
 var ui_audio_player : AudioStreamPlaybackPolyphonic
@@ -89,7 +91,9 @@ func set_reverb ( type : REVERB_TYPE ) -> void:
 			reverb_fx.room_size = 0.8
 	
 
-func play_spatial_sound( audio : AudioStream, pos : Vector2, ignore_pool : bool = false) -> void:
+func play_spatial_sound( 
+	audio : AudioStream, pos : Vector2, ignore_pool : bool = false, was_player : bool = false, volume : float = 0.5
+	) -> void:
 	if ignore_pool:
 		var audio_player_2d : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 		add_child(audio_player_2d)
@@ -104,6 +108,9 @@ func play_spatial_sound( audio : AudioStream, pos : Vector2, ignore_pool : bool 
 		audio_player_2d.stream = audio
 		audio_player_2d.play()
 		audio_index = wrapi( audio_index + 1, 0, 32)
+
+	if was_player:
+		player_made_sound.emit(pos, volume)
 
 func play_ui_audio (audio : AudioStream) -> void:
 	if ui_audio_player:

@@ -50,7 +50,7 @@ func do_attack() -> void:
 	attack_sprite_2d.visible = true
 	player.animation_player.play(anim_name)
 	player.attack_area.activate()
-	Audio.play_spatial_sound(AUDIO_ATTACK, player.global_position)
+	Audio.play_spatial_sound(AUDIO_ATTACK, player.global_position, false, true, 0.25)
 	
 func _on_animation_finished( _anim_name : String ) -> void:
 	_end_attack()

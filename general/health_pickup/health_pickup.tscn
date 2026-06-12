@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://vy4ara32jscd"]
+
+[ext_resource type="Script" uid="uid://dpu237p8m56ah" path="res://general/health_pickup/health_pickup.gd" id="1_4tdop"]
+[ext_resource type="Texture2D" uid="uid://dfju8b7jhkc4w" path="res://general/health_pickup/heart.png" id="1_oswdi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tdop"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_4bav5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_66wk7"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndoxy"]
+_data = {
+&"RESET": SubResource("Animation_4bav5"),
+&"idle": SubResource("Animation_66wk7")
+}
+
+[node name="HealthPickup" type="CharacterBody2D" unique_id=1448543006]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_4tdop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651813925]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_4tdop")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2015600475]
+texture = ExtResource("1_oswdi")
+hframes = 10
+
+[node name="Area2D" type="Area2D" parent="." unique_id=869233528]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=385415654]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_4tdop")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=602334029]
+libraries/ = SubResource("AnimationLibrary_ndoxy")
+autoplay = &"idle"

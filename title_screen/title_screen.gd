@@ -15,7 +15,10 @@ extends CanvasLayer
 @onready var new_back: Button = %NewBack
 @onready var load_back: Button = %LoadBack
 
-@onready var animation_player: AnimationPlayer = $MainMenu/Logo/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
+@onready var fade: ColorRect = $Fade
+
 #endregion
 
 func _ready() -> void:
@@ -35,8 +38,7 @@ func _ready() -> void:
 	load_back.pressed.connect( show_main_menu )
 	
 	Audio.setup_button_audio(self)
-	Audio.play_music(preload("res://music/mvm-32-theme.ogg"))
-	show_main_menu()
+	
 	PlayerHud.visible = false
 	animation_player.animation_finished.connect( _on_animation_finished )
 	pass	
@@ -47,14 +49,22 @@ func show_main_menu() -> void:
 	load_game_menu.visible = false
 	new_game_button.grab_focus()
 	
+func hide_main_menu() -> void:
+	$MainMenu/NewGameButton.visible = false
+	$MainMenu/LoadGameButton. visible = false
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if main_menu.visible == false:
 			#audio
 			show_main_menu()
-
+	if event.is_action_pressed("ui_accept") and animation_player.current_animation == "start":
+		animation_player.seek(1)
+		show_main_menu()
+			
 func _on_animation_finished( anim_name : String) -> void:
 	if anim_name == "start":
+		show_main_menu()
 		animation_player.play("loop")
 
 func _show_new_game_menu():

@@ -1,3 +1,4 @@
+@icon("res://general/icons/edge_sensor.svg")
 class_name EdgeSensor
 extends RayCast2D
 

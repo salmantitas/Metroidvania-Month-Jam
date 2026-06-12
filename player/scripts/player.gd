@@ -71,6 +71,7 @@ func _ready() -> void:
 	Messages.player_healed.connect( _on_player_healed 	)
 	Messages.input_hint_changed.connect( _on_input_hint_changed )
 	damage_area.damage_taken.connect( _on_damage_taken )
+	Messages.powerup_acquired.connect (_on_ability_acquired)
 	hp = max_hp
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -203,3 +204,11 @@ func can_morph() -> bool:
 	if morph == false or can_interact == true:
 		return false
 	return true
+
+func _on_ability_acquired(ability : String) -> void:
+	if (ability == "dash"):
+		dash = true
+	if (ability == "morph"):
+		morph = true
+	if (ability == "double jump"):
+		double_jump = true

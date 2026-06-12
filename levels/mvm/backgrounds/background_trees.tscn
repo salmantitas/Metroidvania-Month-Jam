@@ -1,0 +1,101 @@
+[gd_scene format=4 uid="uid://b84bhjrqcd717"]
+
+[ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_48v1s"]
+
+[node name="BackgroundTrees" type="Node2D" unique_id=636596031]
+
+[node name="Parallax2" type="Parallax2D" parent="." unique_id=548939133]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-1352, 702)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax2" unique_id=455371321]
+modulate = Color(0.627451, 0.7764706, 0.8509804, 1)
+position = Vector2(1203, -494)
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAAEAAAAAAAOAAcAAAAFAAAAAAAOAAcAAAAGAAAAAAAOAAcAAAAHAAAAAAAOAAcAAAAIAAAAAAAOAAcAAAAJAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax3" type="Parallax2D" parent="." unique_id=1039801968]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(-1352, 701)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax3" unique_id=1358740738]
+modulate = Color(0.60784316, 0.6901961, 0.81960785, 1)
+position = Vector2(1412, -531)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAAEAAAAAAAOAAcAAAAFAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax4" type="Parallax2D" parent="." unique_id=1475163010]
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-1352, 701)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax4" unique_id=1891812642]
+modulate = Color(0.59607846, 0.7607843, 0.8901961, 1)
+position = Vector2(1382.0001, -531.00006)
+scale = Vector2(10, 10)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAAEAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax5" type="Parallax2D" parent="." unique_id=1246418516]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-1352, 701)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax5" unique_id=81929150]
+modulate = Color(0.621, 0.7325999, 0.9, 1)
+position = Vector2(1382, -572)
+scale = Vector2(12, 12)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax6" type="Parallax2D" parent="." unique_id=1369090090]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-1352, 701)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax6" unique_id=1438774125]
+modulate = Color(0.47300002, 0.6277999, 0.86, 1)
+position = Vector2(1381.9999, -604)
+scale = Vector2(14, 14)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax7" type="Parallax2D" parent="." unique_id=1924841709]
+modulate = Color(0.12962228, 0.27017826, 0.47653937, 1)
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(0, 207)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax7" unique_id=308437359]
+position = Vector2(144, -99)
+scale = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAD+/wAAAAAOAAcAAAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax8" type="Parallax2D" parent="." unique_id=94920218]
+modulate = Color(0.18733856, 0.19223297, 0.41872865, 1)
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-69, 216)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax8" unique_id=198626906]
+position = Vector2(-81, -169)
+scale = Vector2(18, 18)
+tile_map_data = PackedByteArray("AAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAACAAAAAAAOAAcAAAABAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false
+
+[node name="Parallax9" type="Parallax2D" parent="." unique_id=277015327]
+modulate = Color(0.12631908, 0.1165734, 0.35781175, 1)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(-161, 170)
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="Parallax9" unique_id=242599140]
+position = Vector2(76.999985, -150)
+scale = Vector2(20, 20)
+tile_map_data = PackedByteArray("AAD//wAAAAAOAAcAAAAAAAAAAAAOAAcAAAABAAAAAAAOAAcAAAACAAAAAAAOAAcAAAADAAAAAAAOAAcAAAA=")
+tile_set = ExtResource("1_48v1s")
+collision_enabled = false

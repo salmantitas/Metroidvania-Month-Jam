@@ -5,7 +5,7 @@ const AUDIO_DEATH = preload("uid://bonphniwprq0u")
 
 func enter() -> void:
 	player.animation_player.play("death")
-	Audio.play_spatial_sound(AUDIO_DEATH, player.global_position)
+	Audio.play_spatial_sound(AUDIO_DEATH, player.global_position, true)
 	Audio.play_music(null)
 	await player.animation_player.animation_finished
 	PlayerHud.show_game_over()

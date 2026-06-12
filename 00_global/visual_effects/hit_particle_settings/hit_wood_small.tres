@@ -9,5 +9,6 @@ region = Rect2(121, 7, 2, 2)
 
 [resource]
 script = ExtResource("1_s5ow1")
+color = Color(0.97421974, 1.7230808e-05, 0.6605865, 1)
 texture = SubResource("AtlasTexture_maesk")
 metadata/_custom_type_script = "uid://ctivrgvl3scfc"

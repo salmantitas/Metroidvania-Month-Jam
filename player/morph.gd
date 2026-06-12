@@ -29,7 +29,7 @@ func enter() -> void:
 	
 	player.velocity.y -= 100
 	
-	Audio.play_spatial_sound(AUDIO_MORPH, player.position)
+	Audio.play_spatial_sound(AUDIO_MORPH, player.position, false, true, 0.5)
 	
 	await player.animation_player.animation_finished
 	morphed = true
@@ -47,7 +47,7 @@ func exit() -> void:
 	player.collision_stand.position.y = -23
 	player.da_stand.position.y = -23
 	player.velocity.y -= 100
-	Audio.play_spatial_sound(AUDIO_MORPH_OUT, player.position)
+	Audio.play_spatial_sound(AUDIO_MORPH_OUT, player.position, false, true, 0.5)
 	
 
 # Takes an input and determines which state to change to
@@ -72,7 +72,7 @@ func handle_input( event : InputEvent ) -> PlayerState:
 					player.position.y += 4
 					return null
 			player.velocity.y -= jump_velocity
-			Audio.play_spatial_sound(preload("uid://dbrjtobxxoni2"), player.global_position)
+			Audio.play_spatial_sound(preload("uid://dbrjtobxxoni2"), player.global_position, false, true, 0.5)
 			VisualEffects.jump_dust(player.global_position)
 	return null
 
@@ -97,7 +97,7 @@ func physics_process(_delta: float) -> PlayerState:
 		if player.is_on_floor():
 			on_floor = true
 			VisualEffects.land_dust(player.global_position)
-			Audio.play_spatial_sound(preload("uid://cg4l8ntp265vl"), player.global_position)
+			Audio.play_spatial_sound(preload("uid://cg4l8ntp265vl"), player.global_position, false, true, 0.5)
 	return next_state
 
 func can_unmorph() -> bool:

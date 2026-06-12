@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://dscowjw1n6psx"]
+
+[ext_resource type="Script" uid="uid://31q842mvfot8" path="res://enemies/boss/boss.gd" id="1_qwntu"]
+[ext_resource type="Texture2D" uid="uid://6fa1gw87xbvw" path="res://enemies/wolf_tall/mvm-32-enemy-1-boss.png" id="2_qwntu"]
+[ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="3_4ns2h"]
+[ext_resource type="AudioStream" uid="uid://stx8b0juhc0k" path="res://enemies/slime/slime_hit.wav" id="4_grmq1"]
+[ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="5_7cxp6"]
+[ext_resource type="Script" uid="uid://cx0u42gi5ve2b" path="res://enemies/scripts/enemy_state_machine.gd" id="6_2c3p8"]
+[ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="6_spy00"]
+[ext_resource type="Script" uid="uid://b7cb5b3lwcdgt" path="res://enemies/scripts/states/es_walk.gd" id="7_l2j28"]
+[ext_resource type="Script" uid="uid://cx5orscnro51t" path="res://enemies/scripts/states/es_stun.gd" id="8_0upti"]
+[ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="9_qqmx6"]
+[ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="10_g8wvx"]
+[ext_resource type="Script" uid="uid://cdfhl3v322bhi" path="res://enemies/scripts/states/es_attack.gd" id="11_ejvbp"]
+[ext_resource type="Script" uid="uid://bhqle3lkawev6" path="res://enemies/scripts/states/es_chase.gd" id="12_5jpdu"]
+[ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_b50vw"]
+[ext_resource type="Script" uid="uid://b5xkwv6rnyto1" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="13_spy00"]
+[ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="15_5jpdu"]
+
+[sub_resource type="GDScript" id="GDScript_ee4f3"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	visible = true
+	text = get_parent().name
+"
+
+[sub_resource type="Animation" id="Animation_u2l51"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bkm6f"]
+resource_name = "death"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 9, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2ui2u"]
+resource_name = "stun"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_57eei"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylgn2"]
+_data = {
+&"RESET": SubResource("Animation_u2l51"),
+&"death": SubResource("Animation_bkm6f"),
+&"stun": SubResource("Animation_2ui2u"),
+&"walk": SubResource("Animation_57eei")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8see4"]
+radius = 33.0
+height = 66.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2nuq"]
+size = Vector2(66, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljtw"]
+size = Vector2(60, 56.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o55u"]
+size = Vector2(20, 61)
+
+[sub_resource type="Curve" id="Curve_1o55u"]
+_data = [Vector2(0.025316462, 0), 0.0, 0.0, 0, 0, Vector2(0.2531646, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="TallWolf" type="CharacterBody2D" unique_id=483238355]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_qwntu")
+ability = "dash"
+health = 10.0
+face_left_on_start = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605519301]
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_qwntu")
+hframes = 4
+
+[node name="Label" type="Label" parent="." unique_id=449715480]
+offset_left = -28.0
+offset_top = -76.0
+offset_right = 36.0
+offset_bottom = -60.0
+text = "Name"
+script = SubResource("GDScript_ee4f3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=511422654]
+libraries/ = SubResource("AnimationLibrary_ylgn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
+position = Vector2(0, -34)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8see4")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
+visible = false
+position = Vector2(0, -33)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_4ns2h")
+audio = ExtResource("4_grmq1")
+metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=862960719]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_r2nuq")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_7cxp6")
+metadata/_custom_type_script = "uid://c20iho8lxary4"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=135911165]
+position = Vector2(0, -30.25)
+shape = SubResource("RectangleShape2D_5ljtw")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=249719513]
+script = ExtResource("6_spy00")
+damage = 5.0
+metadata/_custom_type_script = "uid://b8aavctqxkj24"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=129396636]
+position = Vector2(22, -30.5)
+shape = SubResource("RectangleShape2D_1o55u")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1093051899]
+script = ExtResource("6_2c3p8")
+metadata/_custom_type_script = "uid://cx0u42gi5ve2b"
+
+[node name="ESWalk" type="Node" parent="EnemyStateMachine" unique_id=1477031412]
+unique_name_in_owner = true
+script = ExtResource("7_l2j28")
+move_speed = 100.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://b7cb5b3lwcdgt"
+
+[node name="ESStun" type="Node" parent="EnemyStateMachine" unique_id=709002884]
+unique_name_in_owner = true
+script = ExtResource("8_0upti")
+knockback_strength = 50.0
+animation_name = "stun"
+metadata/_custom_type_script = "uid://cx5orscnro51t"
+
+[node name="ESDeath" type="Node" parent="EnemyStateMachine" unique_id=1109512078]
+unique_name_in_owner = true
+script = ExtResource("9_qqmx6")
+death_sound = ExtResource("10_g8wvx")
+animation_name = "death"
+metadata/_custom_type_script = "uid://cwfct1lx3qndn"
+
+[node name="ESAttack" type="Node" parent="EnemyStateMachine" unique_id=986233578 node_paths=PackedStringArray("attack_area")]
+script = ExtResource("11_ejvbp")
+attack_range = 150.0
+move_speed = 400.0
+cooldown = 2.0
+attack_area = NodePath("../../AttackArea")
+move_speed_curve = SubResource("Curve_1o55u")
+metadata/_custom_type_script = "uid://cdfhl3v322bhi"
+
+[node name="ESChase" type="Node" parent="EnemyStateMachine" unique_id=1578899388]
+script = ExtResource("12_5jpdu")
+chase_speed = 200.0
+metadata/_custom_type_script = "uid://bhqle3lkawev6"
+
+[node name="DecisionEngineBasic" type="Node" parent="." unique_id=150549646 node_paths=PackedStringArray("attack_state", "chase_state")]
+script = ExtResource("13_spy00")
+attack_state = NodePath("../EnemyStateMachine/ESAttack")
+chase_state = NodePath("../EnemyStateMachine/ESChase")
+metadata/_custom_type_script = "uid://b5xkwv6rnyto1"
+
+[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=329773588]
+position = Vector2(12, 0)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+script = ExtResource("12_b50vw")
+metadata/_custom_type_script = "uid://b7p15g1owg13o"
+
+[node name="PlayerSensor" type="Area2D" parent="." unique_id=299749342]
+position = Vector2(17, -54)
+script = ExtResource("15_5jpdu")
+metadata/_custom_type_script = "uid://dbypeu8au6hwx"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1321409023]
+polygon = PackedVector2Array(0, 0, 256, 128, 256, -128)

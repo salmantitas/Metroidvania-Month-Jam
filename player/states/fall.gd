@@ -67,7 +67,7 @@ func process(delta: float) -> PlayerState:
 func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
 		VisualEffects.land_dust(player.global_position)
-		Audio.play_spatial_sound(AUDIO_LAND, player.global_position)
+		Audio.play_spatial_sound(AUDIO_LAND, player.global_position,  false, true, 0.5)
 				
 		#player.add_debug_indicator(Color.RED)
 		if buffer_timer > 0:
