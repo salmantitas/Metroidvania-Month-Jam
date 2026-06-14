@@ -295,6 +295,7 @@ collision_layer = 32
 collision_mask = 3
 script = ExtResource("1_qwntu")
 ability = "dash"
+title = "The Beast"
 health = 10.0
 face_left_on_start = true
 
@@ -316,8 +317,9 @@ move_speed = 150.0
 animation_name = "walk"
 metadata/_custom_type_script = "uid://b7cb5b3lwcdgt"
 
-[node name="ESChaseTallWolf" type="Node" parent="EnemyStateMachine" unique_id=96012506]
+[node name="ESChaseTallWolf" type="Node" parent="EnemyStateMachine" unique_id=96012506 node_paths=PackedStringArray("attack_state")]
 script = ExtResource("13_1o55u")
+attack_state = NodePath("../ESAttackTallWolf")
 chase_speed = 200.0
 animation_name = "walk"
 metadata/_custom_type_script = "uid://dhppd5r3b1o7s"
@@ -337,6 +339,7 @@ metadata/_custom_type_script = "uid://bc4hrmu3qyu4l"
 
 [node name="ESAttackTallWolf" type="Node" parent="EnemyStateMachine" unique_id=1855992140 node_paths=PackedStringArray("attack_area")]
 script = ExtResource("16_04y1n")
+attack_range = 40.0
 cooldown = 1.0
 attack_area = NodePath("../../AttackArea")
 move_speed_curve = SubResource("Curve_04y1n")
@@ -362,6 +365,7 @@ texture = ExtResource("4_04y1n")
 hframes = 4
 
 [node name="Label" type="Label" parent="." unique_id=449715480]
+visible = false
 offset_left = -28.0
 offset_top = -76.0
 offset_right = 36.0

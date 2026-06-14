@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="5_05o1r"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="6_qpj8i"]
 [ext_resource type="AudioStream" uid="uid://13fg8dtpjsdm" path="res://music/mvm-32-castle.ogg" id="7_be7lu"]
+[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="8_nkhgq"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="9_uy4c0"]
 
 [sub_resource type="Gradient" id="Gradient_nkhgq"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
@@ -123,3 +125,30 @@ texture = ExtResource("5_05o1r")
 script = ExtResource("6_qpj8i")
 track = ExtResource("7_be7lu")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
+
+[node name="Enemy" type="Node2D" parent="." unique_id=887930878]
+position = Vector2(999, 348)
+
+[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("8_nkhgq")]
+position = Vector2(142, 107)
+face_left_on_start = true
+
+[node name="ShortWolf2" parent="Enemy" unique_id=312802044 instance=ExtResource("8_nkhgq")]
+position = Vector2(-378, 118)
+face_left_on_start = true
+
+[node name="ShortWolf3" parent="Enemy" unique_id=650984003 instance=ExtResource("8_nkhgq")]
+position = Vector2(-188, -188)
+face_left_on_start = true
+
+[node name="SmallHead" parent="Enemy" unique_id=1695025136 instance=ExtResource("9_uy4c0")]
+position = Vector2(-127, 123)
+
+[node name="SmallHead4" parent="Enemy" unique_id=1873732167 instance=ExtResource("9_uy4c0")]
+position = Vector2(206, -189)
+
+[node name="SmallHead2" parent="Enemy" unique_id=616286888 instance=ExtResource("9_uy4c0")]
+position = Vector2(-492, 36)
+
+[node name="SmallHead3" parent="Enemy" unique_id=1381750153 instance=ExtResource("9_uy4c0")]
+position = Vector2(-447, -169)

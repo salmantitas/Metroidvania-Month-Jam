@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="7_ie3c5"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_h43xx"]
 [ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="9_akfux"]
-[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="10_yojbs"]
+[ext_resource type="PackedScene" uid="uid://dg5g063ag4ogt" path="res://enemies/arm_mouse/arm_mouse.tscn" id="10_yojbs"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -345,18 +345,20 @@ metadata/_custom_type_script = "uid://cmetx1xg2tcil"
 
 [node name="Enemy" type="Node2D" parent="." unique_id=998629303]
 
-[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("10_yojbs")]
-position = Vector2(215, 322)
-face_left_on_start = true
+[node name="Arm Mouse" parent="Enemy" unique_id=483238355 instance=ExtResource("10_yojbs")]
+position = Vector2(276, 288)
 
-[node name="ShortWolf2" parent="Enemy" unique_id=1095639655 instance=ExtResource("10_yojbs")]
-position = Vector2(251, 480)
-face_left_on_start = true
+[node name="Arm Mouse2" parent="Enemy" unique_id=858453315 instance=ExtResource("10_yojbs")]
+position = Vector2(312, 458)
 
-[node name="ShortWolf3" parent="Enemy" unique_id=1464603413 instance=ExtResource("10_yojbs")]
-position = Vector2(345, 705)
-face_left_on_start = true
+[node name="Arm Mouse3" parent="Enemy" unique_id=876590967 instance=ExtResource("10_yojbs")]
+position = Vector2(336, 684)
 
-[node name="ShortWolf4" parent="Enemy" unique_id=957032937 instance=ExtResource("10_yojbs")]
-position = Vector2(144, 1090)
-face_left_on_start = true
+[node name="Arm Mouse4" parent="Enemy" unique_id=1935603900 instance=ExtResource("10_yojbs")]
+position = Vector2(67, 693)
+
+[node name="Arm Mouse5" parent="Enemy" unique_id=792492925 instance=ExtResource("10_yojbs")]
+position = Vector2(144, 1064)
+
+[node name="Arm Mouse6" parent="Enemy" unique_id=123304721 instance=ExtResource("10_yojbs")]
+position = Vector2(431, 1124)

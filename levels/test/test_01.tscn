@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_8sv46"]
 [ext_resource type="PackedScene" uid="uid://dscowjw1n6psx" path="res://enemies/wolf_tall/wolf_tall.tscn" id="9_pj0xl"]
+[ext_resource type="PackedScene" uid="uid://uxhyrig8x6fy" path="res://enemies/jumping_rat/jumping_rat.tscn" id="10_8v3r1"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="12_qt823"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
@@ -291,11 +292,15 @@ script = ExtResource("8_8sv46")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
 
 [node name="PlayerSpawn2" parent="." unique_id=1878681734 instance=ExtResource("12_qt823")]
-position = Vector2(489, 11)
+position = Vector2(698, 160)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1958477007]
 color = Color(0.5106953, 0.57587343, 0.9641021, 1)
 blend_mode = 2
 
 [node name="TallWolf" parent="." unique_id=483238355 instance=ExtResource("9_pj0xl")]
-position = Vector2(687, 144)
+position = Vector2(655, 160)
+
+[node name="JumpingRat" parent="." unique_id=681087566 instance=ExtResource("10_8v3r1")]
+position = Vector2(783, 166)
+face_left_on_start = false

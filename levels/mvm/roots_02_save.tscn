@@ -94,8 +94,8 @@ energy = 0.5
 
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="Level" unique_id=377518019]
 scale = Vector2(3, 3)
-energy = 0.8
-blend_mode = 1
+color = Color(0.07822811, 0.038058646, 0.004874908, 1)
+blend_mode = 2
 
 [node name="Foreground" type="Parallax2D" parent="." unique_id=698517105]
 modulate = Color(0.19607843, 0.19607843, 0.19607843, 1)

@@ -45,3 +45,4 @@ func change_state( new_state : EnemyState ) -> void:
 func physics_update( delta : float ) -> void:
 	if current_state:
 		current_state.physics_update( delta )
+		print(current_state)

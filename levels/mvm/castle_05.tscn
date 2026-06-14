@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="5_0lqo6"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="7_2j4g5"]
 [ext_resource type="AudioStream" uid="uid://13fg8dtpjsdm" path="res://music/mvm-32-castle.ogg" id="8_4nsqd"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="8_c35rp"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="8_kblu7"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="9_c35rp"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="10_8f7ss"]
@@ -150,6 +151,42 @@ face_left_on_start = true
 [node name="ShortWolf12" parent="Enemy" unique_id=830862201 instance=ExtResource("8_kblu7")]
 position = Vector2(349, 326)
 face_left_on_start = true
+
+[node name="SmallHead" parent="Enemy" unique_id=1772482584 instance=ExtResource("8_c35rp")]
+position = Vector2(1914, 1062)
+
+[node name="SmallHead2" parent="Enemy" unique_id=651358202 instance=ExtResource("8_c35rp")]
+position = Vector2(2200, 876)
+
+[node name="SmallHead3" parent="Enemy" unique_id=1624877983 instance=ExtResource("8_c35rp")]
+position = Vector2(1772, 887)
+
+[node name="SmallHead4" parent="Enemy" unique_id=1314133016 instance=ExtResource("8_c35rp")]
+position = Vector2(1317, 1072)
+
+[node name="SmallHead5" parent="Enemy" unique_id=745263074 instance=ExtResource("8_c35rp")]
+position = Vector2(1052, 887)
+
+[node name="SmallHead6" parent="Enemy" unique_id=1223233825 instance=ExtResource("8_c35rp")]
+position = Vector2(333, 935)
+
+[node name="SmallHead7" parent="Enemy" unique_id=1890965044 instance=ExtResource("8_c35rp")]
+position = Vector2(191, 1030)
+
+[node name="SmallHead8" parent="Enemy" unique_id=1713832312 instance=ExtResource("8_c35rp")]
+position = Vector2(286, 577)
+
+[node name="SmallHead9" parent="Enemy" unique_id=1149157094 instance=ExtResource("8_c35rp")]
+position = Vector2(1112, 500)
+
+[node name="SmallHead10" parent="Enemy" unique_id=511400658 instance=ExtResource("8_c35rp")]
+position = Vector2(1734, 541)
+
+[node name="SmallHead11" parent="Enemy" unique_id=1379740970 instance=ExtResource("8_c35rp")]
+position = Vector2(1559, 318)
+
+[node name="SmallHead12" parent="Enemy" unique_id=1611465929 instance=ExtResource("8_c35rp")]
+position = Vector2(194, 325)
 
 [node name="Door" parent="." unique_id=734168993 instance=ExtResource("9_c35rp")]
 modulate = Color(0.70519364, 0.70519364, 0.7051936, 1)

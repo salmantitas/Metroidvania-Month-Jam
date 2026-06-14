@@ -117,8 +117,9 @@ tile_map_data = PackedByteArray("AAD4/wYAAAAHAAMAAAD4/wcAAAAHAAMAAAD4/wgAAAAHAAM
 tile_set = ExtResource("1_t5vos")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=895676111]
-energy = 0.1
-blend_mode = 1
+color = Color(0.19892839, 0.20612612, 0.36280808, 1)
+energy = 0.5
+blend_mode = 2
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1774339427]
 script = ExtResource("7_dl3gj")

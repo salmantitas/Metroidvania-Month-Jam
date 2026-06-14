@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="8_w50k7"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="9_5corq"]
 [ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="9_qsplu"]
+[ext_resource type="PackedScene" uid="uid://dg5g063ag4ogt" path="res://enemies/arm_mouse/arm_mouse.tscn" id="10_5corq"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="11_crjp3"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -243,3 +245,44 @@ target_level = "uid://fgk6d8keq1qo"
 script = ExtResource("8_6noml")
 track = ExtResource("9_qsplu")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=418399006]
+
+[node name="Arm Mouse" parent="Enemies" unique_id=483238355 instance=ExtResource("10_5corq")]
+position = Vector2(213, 546)
+
+[node name="Arm Mouse2" parent="Enemies" unique_id=1388747431 instance=ExtResource("10_5corq")]
+position = Vector2(220, 219)
+
+[node name="Arm Mouse3" parent="Enemies" unique_id=1910403104 instance=ExtResource("10_5corq")]
+position = Vector2(1219, 279)
+
+[node name="Arm Mouse4" parent="Enemies" unique_id=899792582 instance=ExtResource("10_5corq")]
+position = Vector2(828, 74)
+
+[node name="Arm Mouse5" parent="Enemies" unique_id=607044344 instance=ExtResource("10_5corq")]
+position = Vector2(1673, 297)
+
+[node name="Arm Mouse6" parent="Enemies" unique_id=975377359 instance=ExtResource("10_5corq")]
+position = Vector2(2100, 10)
+
+[node name="Arm Mouse7" parent="Enemies" unique_id=1763774969 instance=ExtResource("10_5corq")]
+position = Vector2(1996, 254)
+
+[node name="SmallHead" parent="Enemies" unique_id=755101939 instance=ExtResource("11_crjp3")]
+position = Vector2(85, 155)
+
+[node name="SmallHead2" parent="Enemies" unique_id=433525511 instance=ExtResource("11_crjp3")]
+position = Vector2(601, 235)
+
+[node name="SmallHead3" parent="Enemies" unique_id=1162078368 instance=ExtResource("11_crjp3")]
+position = Vector2(327, 95)
+
+[node name="SmallHead4" parent="Enemies" unique_id=1854002869 instance=ExtResource("11_crjp3")]
+position = Vector2(1130, 220)
+
+[node name="SmallHead5" parent="Enemies" unique_id=1803093167 instance=ExtResource("11_crjp3")]
+position = Vector2(1636, 104)
+
+[node name="SmallHead6" parent="Enemies" unique_id=1952320970 instance=ExtResource("11_crjp3")]
+position = Vector2(1883, 279)

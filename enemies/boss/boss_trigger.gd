@@ -35,7 +35,7 @@ func _ready() -> void:
 		queue_free()
 	else:
 		area_2d.body_entered.connect( _on_body_entered)
-		area_2d.body_exited.connect( _on_body_exited)
+		#area_2d.body_exited.connect( _on_body_exited)
 	
 	for c in get_children():
 		if c.name == "SpawnLocation":
@@ -47,7 +47,6 @@ func _ready() -> void:
 	enable_tileset(false)
 		
 func _on_body_entered( _b : Node2D) -> void:
-	print("Entered")
 	visited = true
 	area_2d.queue_free()
 	SaveManager.persistent_data[unique_name()] = visited
@@ -56,7 +55,7 @@ func _on_body_entered( _b : Node2D) -> void:
 	change_track()
 
 func _on_body_exited( _b : Node2D) -> void:
-	print("Exited")
+	pass
 
 func change_track(track : AudioStream = boss_track) -> void:
 	Audio.play_music(track)
@@ -72,7 +71,7 @@ func spawn_boss() -> void:
 	boss.was_hit.connect(_on_boss_hit)
 	
 	boss_ui.visible = true
-	$BossUI/VBoxContainer/Label.text = boss.name
+	$BossUI/VBoxContainer/Label.text = boss.title
 	progress_bar.min_value = 0
 	progress_bar.max_value = boss.blackboard.health
 

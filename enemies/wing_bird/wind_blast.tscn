@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cvpu2jwvlbech"]
+
+[ext_resource type="Script" uid="uid://dp3id2r1yqdxu" path="res://enemies/wing_bird/wind_blast.gd" id="1_6yrj2"]
+[ext_resource type="Texture2D" uid="uid://cqv40qrcpuyxa" path="res://enemies/wing_bird/mvm-32-wind-attack.png" id="2_6yrj2"]
+[ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="3_7yd70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v401"]
+size = Vector2(13, 14)
+
+[sub_resource type="Animation" id="Animation_gqq84"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6yrj2"]
+resource_name = "default"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqq84"]
+_data = {
+&"RESET": SubResource("Animation_gqq84"),
+&"default": SubResource("Animation_6yrj2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yrj2"]
+radius = 8.0
+
+[node name="Wind Blast" type="Node2D" unique_id=1430706262]
+script = ExtResource("1_6yrj2")
+spin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1387947575]
+texture = ExtResource("2_6yrj2")
+hframes = 4
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=667977298]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_7yd70")
+metadata/_custom_type_script = "uid://c20iho8lxary4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=741693831]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_6v401")
+debug_color = Color(0.88855004, 0.00027434528, 0.800284, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=952437357]
+libraries/ = SubResource("AnimationLibrary_gqq84")
+autoplay = &"default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1463628832]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1219376300]
+shape = SubResource("CircleShape2D_6yrj2")

@@ -21,6 +21,9 @@ func re_enter() -> void:
 
 func exit() -> void:
 	blackboard.can_decide = true
+	
+	if blackboard.target == null:
+		blackboard.target = get_tree().get_first_node_in_group("Player")
 
 func physics_update( delta : float ) -> void:
 	timer += delta

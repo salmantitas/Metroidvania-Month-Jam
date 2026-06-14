@@ -9,7 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="7_u74mi"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="8_w50k7"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="9_5corq"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="10_ob2me"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="10_q0csc"]
+[ext_resource type="Script" uid="uid://dusbyka28t73" path="res://enemies/scripts/patrol_limit.gd" id="11_qlgwg"]
+[ext_resource type="PackedScene" uid="uid://dg5g063ag4ogt" path="res://enemies/arm_mouse/arm_mouse.tscn" id="13_qlgwg"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -303,18 +306,37 @@ position = Vector2(-28, 10)
 
 [node name="Enemy" type="Node2D" parent="." unique_id=1949046447]
 
-[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("10_q0csc")]
-position = Vector2(179, 264)
-face_left_on_start = true
+[node name="SmallHead" parent="Enemy" unique_id=483238355 instance=ExtResource("10_ob2me")]
+position = Vector2(145, 287)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemy/SmallHead" unique_id=1143476461]
+position = Vector2(-96, 0)
+script = ExtResource("11_qlgwg")
+metadata/_custom_type_script = "uid://dusbyka28t73"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemy/SmallHead" unique_id=598201024]
+position = Vector2(128, 0)
+script = ExtResource("11_qlgwg")
+side = 2
+metadata/_custom_type_script = "uid://dusbyka28t73"
+
+[node name="SmallHead2" parent="Enemy" unique_id=474634491 instance=ExtResource("10_ob2me")]
+position = Vector2(457, 200)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemy/SmallHead2" unique_id=1252064149]
+position = Vector2(-32, 0)
+script = ExtResource("11_qlgwg")
+metadata/_custom_type_script = "uid://dusbyka28t73"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemy/SmallHead2" unique_id=798360529]
+position = Vector2(32, 0)
+script = ExtResource("11_qlgwg")
+side = 2
+metadata/_custom_type_script = "uid://dusbyka28t73"
 
 [node name="ShortWolf2" parent="Enemy" unique_id=25418208 instance=ExtResource("10_q0csc")]
 position = Vector2(278, 557)
 face_left_on_start = true
 
-[node name="ShortWolf3" parent="Enemy" unique_id=598798565 instance=ExtResource("10_q0csc")]
-position = Vector2(149, 992)
-face_left_on_start = true
-
-[node name="ShortWolf4" parent="Enemy" unique_id=664925620 instance=ExtResource("10_q0csc")]
-position = Vector2(460, 179)
-face_left_on_start = true
+[node name="Arm Mouse" parent="Enemy" unique_id=1416863669 instance=ExtResource("13_qlgwg")]
+position = Vector2(234, 982)

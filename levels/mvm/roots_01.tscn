@@ -11,7 +11,8 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="9_uw0u7"]
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="10_drdlb"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="11_1evmg"]
-[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="12_1evmg"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="12_rh3uh"]
+[ext_resource type="Script" uid="uid://dusbyka28t73" path="res://enemies/scripts/patrol_limit.gd" id="13_r71x8"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -336,14 +337,30 @@ position = Vector2(-28, 10)
 
 [node name="Enemy" type="Node2D" parent="." unique_id=1002193337]
 
-[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("12_1evmg")]
-position = Vector2(162, 191)
-face_left_on_start = true
+[node name="SmallHead" parent="Enemy" unique_id=483238355 instance=ExtResource("12_rh3uh")]
+position = Vector2(289, 228)
 
-[node name="ShortWolf2" parent="Enemy" unique_id=552793 instance=ExtResource("12_1evmg")]
-position = Vector2(717, 198)
-face_left_on_start = true
+[node name="PatrolLimit" type="Node2D" parent="Enemy/SmallHead" unique_id=578941206]
+position = Vector2(-64, 0)
+script = ExtResource("13_r71x8")
+metadata/_custom_type_script = "uid://dusbyka28t73"
 
-[node name="ShortWolf3" parent="Enemy" unique_id=98220103 instance=ExtResource("12_1evmg")]
-position = Vector2(1200, 191)
-face_left_on_start = true
+[node name="PatrolLimit2" type="Node2D" parent="Enemy/SmallHead" unique_id=1991701838]
+position = Vector2(64, 0)
+script = ExtResource("13_r71x8")
+side = 2
+metadata/_custom_type_script = "uid://dusbyka28t73"
+
+[node name="SmallHead2" parent="Enemy" unique_id=179816653 instance=ExtResource("12_rh3uh")]
+position = Vector2(961, 228)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemy/SmallHead2" unique_id=932267267]
+position = Vector2(-256, 0)
+script = ExtResource("13_r71x8")
+metadata/_custom_type_script = "uid://dusbyka28t73"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemy/SmallHead2" unique_id=2088736650]
+position = Vector2(288, 0)
+script = ExtResource("13_r71x8")
+side = 2
+metadata/_custom_type_script = "uid://dusbyka28t73"

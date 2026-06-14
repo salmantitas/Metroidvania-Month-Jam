@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="5_0tkdc"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="6_p3o8i"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="7_ie3c5"]
-[ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="8_gfhj8"]
+[ext_resource type="PackedScene" uid="uid://dg5g063ag4ogt" path="res://enemies/arm_mouse/arm_mouse.tscn" id="8_gfhj8"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_h43xx"]
 [ext_resource type="AudioStream" uid="uid://cwo85gl3etev1" path="res://music/mvm-32-roots.ogg" id="9_akfux"]
 
@@ -276,22 +276,23 @@ metadata/_custom_type_script = "uid://cmetx1xg2tcil"
 
 [node name="Enemy" type="Node2D" parent="." unique_id=83916910]
 
-[node name="ShortWolf" parent="Enemy" unique_id=483238355 instance=ExtResource("8_gfhj8")]
-position = Vector2(266, 370)
-face_left_on_start = true
+[node name="Arm Mouse" parent="Enemy" unique_id=483238355 instance=ExtResource("8_gfhj8")]
+position = Vector2(238, 380)
 
-[node name="ShortWolf2" parent="Enemy" unique_id=240485619 instance=ExtResource("8_gfhj8")]
-position = Vector2(122, 183)
-face_left_on_start = true
+[node name="Arm Mouse2" parent="Enemy" unique_id=1345664497 instance=ExtResource("8_gfhj8")]
+position = Vector2(119, 179)
 
-[node name="ShortWolf3" parent="Enemy" unique_id=1801035867 instance=ExtResource("8_gfhj8")]
-position = Vector2(196, -10)
-face_left_on_start = true
+[node name="Arm Mouse3" parent="Enemy" unique_id=2070199336 instance=ExtResource("8_gfhj8")]
+position = Vector2(210, -15)
 
-[node name="ShortWolf4" parent="Enemy" unique_id=154014522 instance=ExtResource("8_gfhj8")]
-position = Vector2(828, 213)
-face_left_on_start = true
+[node name="Arm Mouse4" parent="Enemy" unique_id=576660261 instance=ExtResource("8_gfhj8")]
+position = Vector2(452, 41)
 
-[node name="ShortWolf5" parent="Enemy" unique_id=1884493883 instance=ExtResource("8_gfhj8")]
-position = Vector2(788, 555)
-face_left_on_start = true
+[node name="Arm Mouse5" parent="Enemy" unique_id=61307585 instance=ExtResource("8_gfhj8")]
+position = Vector2(727, 222)
+
+[node name="Arm Mouse6" parent="Enemy" unique_id=512957879 instance=ExtResource("8_gfhj8")]
+position = Vector2(790, 557)
+
+[node name="Arm Mouse7" parent="Enemy" unique_id=73215340 instance=ExtResource("8_gfhj8")]
+position = Vector2(152, 558)

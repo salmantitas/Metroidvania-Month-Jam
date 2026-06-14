@@ -26,4 +26,3 @@ func _modulate_node( _a : AttackArea) -> void:
 	owner.modulate = color
 	tween = create_tween()
 	tween.tween_property(owner, "modulate", Color.WHITE, duration)
-	print("Change color")

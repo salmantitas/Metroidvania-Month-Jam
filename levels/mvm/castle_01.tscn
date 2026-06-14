@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="6_oil6b"]
 [ext_resource type="AudioStream" uid="uid://13fg8dtpjsdm" path="res://music/mvm-32-castle.ogg" id="7_f8mv1"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="9_xltmc"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="10_x8hra"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
@@ -184,3 +185,21 @@ face_left_on_start = true
 [node name="ShortWolf5" parent="Enemy" unique_id=604528641 instance=ExtResource("9_xltmc")]
 position = Vector2(1369, 606)
 face_left_on_start = true
+
+[node name="SmallHead" parent="Enemy" unique_id=751616669 instance=ExtResource("10_x8hra")]
+position = Vector2(264, 622)
+
+[node name="SmallHead2" parent="Enemy" unique_id=2058938536 instance=ExtResource("10_x8hra")]
+position = Vector2(729, 636)
+
+[node name="SmallHead3" parent="Enemy" unique_id=574381700 instance=ExtResource("10_x8hra")]
+position = Vector2(846, 338)
+
+[node name="SmallHead4" parent="Enemy" unique_id=1536465612 instance=ExtResource("10_x8hra")]
+position = Vector2(1236, 333)
+
+[node name="SmallHead5" parent="Enemy" unique_id=254395788 instance=ExtResource("10_x8hra")]
+position = Vector2(1415, 622)
+
+[node name="SmallHead6" parent="Enemy" unique_id=811695709 instance=ExtResource("10_x8hra")]
+position = Vector2(1226, 755)

@@ -43,12 +43,12 @@ var max_hp : float = 20 :
 		max_hp = value
 		hp = max_hp
 		Messages.player_health_changed.emit(hp, max_hp)
-var dash : bool = true
+var dash : bool = false
 var dash_count : int = 0
 
 var morph : bool = false
 
-var double_jump : bool = false
+var double_jump : bool = true
 var jump_count : int = 0
 
 var ground_slam : bool = false

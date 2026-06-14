@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="5_65j5j"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="6_3mdio"]
 [ext_resource type="AudioStream" uid="uid://dfvwgt0s08asf" path="res://music/mvm-32-tree-climb.ogg" id="7_rbey0"]
+[ext_resource type="PackedScene" uid="uid://o3pe6i7k1it6" path="res://enemies/wing_bird/wing_bird.tscn" id="9_7705h"]
 
 [sub_resource type="Gradient" id="Gradient_ekba3"]
 colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
@@ -114,3 +115,23 @@ texture = ExtResource("5_65j5j")
 script = ExtResource("6_3mdio")
 track = ExtResource("7_rbey0")
 metadata/_custom_type_script = "uid://cmetx1xg2tcil"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1531946801]
+
+[node name="WingBird" parent="Enemies" unique_id=483238355 instance=ExtResource("9_7705h")]
+position = Vector2(419, -488)
+
+[node name="WingBird4" parent="Enemies" unique_id=1568563954 instance=ExtResource("9_7705h")]
+position = Vector2(755, -243)
+
+[node name="WingBird5" parent="Enemies" unique_id=1215762207 instance=ExtResource("9_7705h")]
+position = Vector2(409, -104)
+
+[node name="WingBird6" parent="Enemies" unique_id=1882012309 instance=ExtResource("9_7705h")]
+position = Vector2(634, 537)
+
+[node name="WingBird2" parent="Enemies" unique_id=984677157 instance=ExtResource("9_7705h")]
+position = Vector2(289, 131)
+
+[node name="WingBird3" parent="Enemies" unique_id=2111533709 instance=ExtResource("9_7705h")]
+position = Vector2(134, 531)

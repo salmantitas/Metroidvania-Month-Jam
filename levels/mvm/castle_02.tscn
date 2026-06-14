@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="7_laogv"]
 [ext_resource type="AudioStream" uid="uid://13fg8dtpjsdm" path="res://music/mvm-32-castle.ogg" id="8_u32p0"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="9_qitgb"]
+[ext_resource type="PackedScene" uid="uid://bppplplmvs62w" path="res://enemies/small_head/small_head.tscn" id="10_hab21"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xltmc"]
 blend_mode = 1
@@ -120,3 +121,14 @@ face_left_on_start = true
 [node name="ShortWolf4" parent="Enemy" unique_id=999536404 instance=ExtResource("9_qitgb")]
 position = Vector2(410, -30)
 face_left_on_start = true
+
+[node name="SmallHead" parent="Enemy" unique_id=1791850522 instance=ExtResource("10_hab21")]
+position = Vector2(426, 183)
+face_left_on_start = true
+
+[node name="SmallHead2" parent="Enemy" unique_id=69902768 instance=ExtResource("10_hab21")]
+position = Vector2(411, 0)
+face_left_on_start = true
+
+[node name="SmallHead3" parent="Enemy" unique_id=1439707763 instance=ExtResource("10_hab21")]
+position = Vector2(151, 100)

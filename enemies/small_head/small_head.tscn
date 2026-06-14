@@ -1,0 +1,353 @@
+[gd_scene format=3 uid="uid://bppplplmvs62w"]
+
+[ext_resource type="Script" uid="uid://2bv3oukhjqrs" path="res://enemies/scripts/enemy.gd" id="1_acqti"]
+[ext_resource type="Texture2D" uid="uid://tkh84wia7sic" path="res://enemies/small_head/mvm-32-enemy-2.png" id="2_c0xf5"]
+[ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="3_istk2"]
+[ext_resource type="AudioStream" uid="uid://c4bkgbfnwiuwd" path="res://general/audio/hit.wav" id="4_xwphx"]
+[ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="5_4hp15"]
+[ext_resource type="Script" uid="uid://cx0u42gi5ve2b" path="res://enemies/scripts/enemy_state_machine.gd" id="6_ahf63"]
+[ext_resource type="Script" uid="uid://dw3thorrcgyum" path="res://enemies/scripts/decision_engines/decision_engine_ranged.gd" id="6_wpes8"]
+[ext_resource type="Script" uid="uid://b7cb5b3lwcdgt" path="res://enemies/scripts/states/es_walk.gd" id="7_3txlm"]
+[ext_resource type="Script" uid="uid://cx5orscnro51t" path="res://enemies/scripts/states/es_stun.gd" id="8_j1peo"]
+[ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="9_x3xkg"]
+[ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="10_l71io"]
+[ext_resource type="Script" uid="uid://cdfhl3v322bhi" path="res://enemies/scripts/states/es_attack.gd" id="11_hqmrk"]
+[ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="13_1d71d"]
+[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_tallwolf.gd" id="13_wpes8"]
+[ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="14_5aiod"]
+[ext_resource type="Script" uid="uid://c6qdcxjim2hca" path="res://enemies/scripts/states/es_shoot.gd" id="14_wpes8"]
+[ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="21_tu7se"]
+
+[sub_resource type="Animation" id="Animation_u2l51"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qh6hf"]
+resource_name = "attack"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 18]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.2],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bkm6f"]
+resource_name = "death"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57eei"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2ui2u"]
+resource_name = "stun"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_rai4y"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylgn2"]
+_data = {
+&"RESET": SubResource("Animation_u2l51"),
+&"attack": SubResource("Animation_qh6hf"),
+&"death": SubResource("Animation_bkm6f"),
+&"idle": SubResource("Animation_57eei"),
+&"stun": SubResource("Animation_2ui2u"),
+&"walk": SubResource("Animation_rai4y")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8see4"]
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2nuq"]
+size = Vector2(25, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljtw"]
+size = Vector2(17, 43)
+
+[sub_resource type="Curve" id="Curve_gjt4y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4852321, 0), 0.0, 0.0, 0, 0, Vector2(0.50210977, 1), 0.0, 0.0, 0, 0, Vector2(0.7510549, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjt4y"]
+size = Vector2(24, 25)
+
+[sub_resource type="GDScript" id="GDScript_gjt4y"]
+script/source = "extends Label
+
+@onready var player_sensor: PlayerSensor = $\"../PlayerSensor\"
+@onready var enemy: Enemy = $\"..\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+func _physics_process(delta: float) -> void:
+	text = \"\"
+	text = \"Target: \"
+	text += enemy.blackboard.target.name if enemy.blackboard.target else \"none\"
+	text += \"\\nDistance : \"
+	text += str(enemy.blackboard.distance_to_target)
+	text += \"\\nSearch Timer : \"
+	text += str(player_sensor.search_timer)
+"
+
+[node name="SmallHead" type="CharacterBody2D" unique_id=483238355]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_acqti")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605519301]
+position = Vector2(0, -24.000002)
+scale = Vector2(3, 3)
+texture = ExtResource("2_c0xf5")
+hframes = 4
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=511422654]
+libraries/ = SubResource("AnimationLibrary_ylgn2")
+autoplay = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
+visible = false
+position = Vector2(3, -23)
+shape = SubResource("CapsuleShape2D_8see4")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
+visible = false
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_istk2")
+audio = ExtResource("4_xwphx")
+metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=862960719]
+position = Vector2(2.5, -24.5)
+shape = SubResource("RectangleShape2D_r2nuq")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_4hp15")
+metadata/_custom_type_script = "uid://c20iho8lxary4"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=135911165]
+position = Vector2(2.5, -24.5)
+shape = SubResource("RectangleShape2D_5ljtw")
+debug_color = Color(0.9495829, 3.85046e-06, 0.57516646, 0.41960785)
+
+[node name="DecisionEngineBasicRanged" type="Node" parent="." unique_id=226029205 node_paths=PackedStringArray("chase_state")]
+script = ExtResource("6_wpes8")
+chase_state = NodePath("../EnemyStateMachine/ESChaseTallWolf")
+metadata/_custom_type_script = "uid://dw3thorrcgyum"
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1093051899]
+script = ExtResource("6_ahf63")
+metadata/_custom_type_script = "uid://cx0u42gi5ve2b"
+
+[node name="ESWalk" type="Node" parent="EnemyStateMachine" unique_id=1477031412]
+unique_name_in_owner = true
+script = ExtResource("7_3txlm")
+move_speed = 100.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://b7cb5b3lwcdgt"
+
+[node name="ESStun" type="Node" parent="EnemyStateMachine" unique_id=709002884]
+unique_name_in_owner = true
+script = ExtResource("8_j1peo")
+knockback_strength = 25.0
+animation_name = "stun"
+metadata/_custom_type_script = "uid://cx5orscnro51t"
+
+[node name="ESDeath" type="Node" parent="EnemyStateMachine" unique_id=1109512078]
+unique_name_in_owner = true
+script = ExtResource("9_x3xkg")
+knockback_strength = 10.0
+death_sound = ExtResource("10_l71io")
+animation_name = "death"
+metadata/_custom_type_script = "uid://cwfct1lx3qndn"
+
+[node name="ESAttack" type="Node" parent="EnemyStateMachine" unique_id=1648198075 node_paths=PackedStringArray("attack_area")]
+unique_name_in_owner = true
+script = ExtResource("11_hqmrk")
+attack_range = 30.0
+move_speed = 100.0
+cooldown = 2.0
+attack_area = NodePath("../../AttackArea")
+move_speed_curve = SubResource("Curve_gjt4y")
+metadata/_custom_type_script = "uid://cdfhl3v322bhi"
+
+[node name="ESChaseTallWolf" type="Node" parent="EnemyStateMachine" unique_id=1085942552 node_paths=PackedStringArray("attack_state")]
+script = ExtResource("13_wpes8")
+attack_state = NodePath("../ESShoot")
+chase_speed = 125.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://dhppd5r3b1o7s"
+
+[node name="ESShoot" type="Node" parent="EnemyStateMachine" unique_id=1088030263]
+unique_name_in_owner = true
+script = ExtResource("14_wpes8")
+projectile_scene = "uid://hnfubfexmx21"
+attack_range = 200.0
+move_speed = 0.0
+animation_name = "attack"
+metadata/_custom_type_script = "uid://c6qdcxjim2hca"
+
+[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=329773588]
+position = Vector2(10, -5)
+target_position = Vector2(0, 12)
+collision_mask = 3
+hit_from_inside = true
+script = ExtResource("13_1d71d")
+metadata/_custom_type_script = "uid://b7p15g1owg13o"
+
+[node name="PlayerSensor" type="Area2D" parent="." unique_id=471512573]
+position = Vector2(1, -45)
+script = ExtResource("14_5aiod")
+use_audio_sensor = false
+metadata/_custom_type_script = "uid://dbypeu8au6hwx"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=437302986]
+polygon = PackedVector2Array(0, 0, 256, 160, 256, -160)
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=2078590995]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("21_tu7se")
+damage = 2.0
+metadata/_custom_type_script = "uid://b8aavctqxkj24"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1142068858]
+position = Vector2(12, -36.5)
+shape = SubResource("RectangleShape2D_gjt4y")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=578986677]
+visible = false
+offset_left = -10.0
+offset_top = -83.0
+offset_right = 30.0
+offset_bottom = -67.0
+script = SubResource("GDScript_gjt4y")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1013393484]
+position = Vector2(0, -32)
+
+[node name="ProjectileSpawnPoint" type="Node2D" parent="Pivot" unique_id=1634270296]
+unique_name_in_owner = true
+position = Vector2(15, 0)
