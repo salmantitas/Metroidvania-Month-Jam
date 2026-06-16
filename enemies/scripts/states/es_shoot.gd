@@ -15,9 +15,13 @@ extends ESAttack
 @export_file("*.tscn") var projectile_scene : String
 
 func enter() -> void:
-	print("Shooting")
 	super()
-	var projectile : Node2D = load(projectile_scene).instantiate()
+	
+	if enemy.blackboard.target == null:
+		return
+		
+	await enemy.animation.animation_finished
+	var projectile : Projectile = load(projectile_scene).instantiate()
 	
 	if projectile_spawn_point:
 		if blackboard.dir > 0:

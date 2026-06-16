@@ -5,21 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://dr0yuhxx0po6a" path="res://pause_menu/map_node.tscn" id="2_rd7dy"]
 [ext_resource type="Script" uid="uid://debglhftskh0k" path="res://pause_menu/abilities_list.gd" id="2_s1glv"]
 [ext_resource type="FontFile" uid="uid://dq7qs8xss5cpk" path="res://general/fonts/Flowmery-Regular.ttf" id="2_uwtdo"]
+[ext_resource type="Texture2D" uid="uid://dv5juw77rurka" path="res://player/sprites/mvm-32-abilities.png" id="3_wn31l"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
 spacing_glyph = 6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwtdo"]
-atlas = ExtResource("2_b4s0c")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("3_wn31l")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4s0c"]
-atlas = ExtResource("2_b4s0c")
-region = Rect2(0, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0obc"]
+atlas = ExtResource("3_wn31l")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1glv"]
-atlas = ExtResource("2_b4s0c")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("3_wn31l")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn31l"]
 atlas = ExtResource("2_b4s0c")
@@ -136,9 +137,9 @@ offset_right = -50.0
 offset_bottom = 29.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
-theme_override_colors/font_focus_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
-theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+theme_override_colors/font_hover_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
 theme_override_font_sizes/font_size = 12
 text = "Map"
 
@@ -153,9 +154,9 @@ offset_top = 2.0
 offset_right = 63.0
 offset_bottom = 29.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
-theme_override_colors/font_focus_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
-theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+theme_override_colors/font_hover_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
 theme_override_font_sizes/font_size = 12
 text = "System"
 
@@ -171,9 +172,9 @@ offset_right = 176.0
 offset_bottom = 29.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
-theme_override_colors/font_focus_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
-theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+theme_override_colors/font_hover_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
 theme_override_font_sizes/font_size = 12
 text = "Controls"
 
@@ -195,41 +196,49 @@ offset_bottom = 24.0
 theme_override_font_sizes/font_size = 12
 text = "Abilities"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseScreen" unique_id=941515984]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 68.0
+offset_bottom = 66.0
+theme_override_constants/separation = -8
+script = ExtResource("2_s1glv")
+
+[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/HBoxContainer" unique_id=928879269]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_uwtdo")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="AbilityMorph" type="TextureRect" parent="Control/PauseScreen/HBoxContainer" unique_id=756593299]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_b0obc")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/HBoxContainer" unique_id=1326973970]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1glv")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/HBoxContainer" unique_id=1215017883]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_wn31l")
+stretch_mode = 3
+
 [node name="AbilitiesList" type="VBoxContainer" parent="Control/PauseScreen" unique_id=1087127978]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 26.0
 offset_right = 44.0
 offset_bottom = 58.0
-script = ExtResource("2_s1glv")
-
-[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=928879269]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_uwtdo")
-stretch_mode = 3
-
-[node name="AbilityMorph" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=756593299]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_b4s0c")
-stretch_mode = 3
-
-[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1326973970]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_s1glv")
-stretch_mode = 3
-
-[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1215017883]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_wn31l")
-stretch_mode = 3
 
 [node name="Map" type="Control" parent="Control/PauseScreen" unique_id=184373552]
 anchors_preset = 0
@@ -321,9 +330,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 5.0
-offset_top = 116.0
+offset_top = 117.0
 offset_right = 35.0
-offset_bottom = 130.0
+offset_bottom = 131.0
 grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://tv46cj7vcfkf"
@@ -345,7 +354,7 @@ grow_vertical = 1
 linked_scene = "uid://dj1sm1hfiujva"
 entrances_top = Array[float]([20.275])
 entrances_right = Array[float]([4.2])
-entrances_left = Array[float]([2.775])
+entrances_left = Array[float]([4.375])
 indicator_offset = Vector2(-320, 1)
 
 [node name="MapNode01_02_save" parent="Control/PauseScreen/Map/MapNodes" unique_id=458874678 instance=ExtResource("2_rd7dy")]
@@ -487,7 +496,7 @@ grow_vertical = 1
 linked_scene = "uid://dqd50h0ns6tmd"
 entrances_right = Array[float]([6.7749996])
 entrances_bottom = Array[float]([14.0])
-entrances_left = Array[float]([6.7749996])
+entrances_left = Array[float]([8.125])
 indicator_offset = Vector2(0, 1)
 
 [node name="MapNode02_03" parent="Control/PauseScreen/Map/MapNodes" unique_id=254124729 instance=ExtResource("2_rd7dy")]
@@ -636,7 +645,6 @@ grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://c1mlf1ku1x57o"
 entrances_top = Array[float]([2.0])
-entrances_right = Array[float]([4.475])
 entrances_left = Array[float]([5.675])
 indicator_offset = Vector2(0, 1)
 
@@ -654,7 +662,6 @@ grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://fgk6d8keq1qo"
 entrances_top = Array[float]([6.075])
-entrances_left = Array[float]([4.95])
 indicator_offset = Vector2(0, -100)
 
 [node name="MapNode20_01" parent="Control/PauseScreen/Map/MapNodes" unique_id=1332611133 instance=ExtResource("2_rd7dy")]
@@ -689,7 +696,6 @@ grow_horizontal = 1
 grow_vertical = 1
 linked_scene = "uid://6gl4cvnn87bg"
 entrances_top = Array[float]([10.45])
-entrances_bottom = Array[float]([6.6])
 entrances_left = Array[float]([8.725])
 indicator_offset = Vector2(0, 173)
 
@@ -1015,6 +1021,9 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+theme_override_colors/font_hover_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
 theme_override_font_sizes/font_size = 12
 text = "Title"
 

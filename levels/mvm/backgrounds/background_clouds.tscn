@@ -3,18 +3,17 @@
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_wdd4c"]
 
 [node name="BackgroundClouds" type="Parallax2D" unique_id=1430551754]
-repeat_size = Vector2(0, 1000)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Parallax2" type="Parallax2D" parent="." unique_id=1524402729]
 z_index = -9
 scale = Vector2(0.2, 0.2)
 scroll_scale = Vector2(0.2, 0.2)
-repeat_size = Vector2(240, 480)
-repeat_times = 20
+repeat_size = Vector2(240, 540)
+repeat_times = 21
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2" unique_id=1960623995]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, 254.99991)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 25, 0, 12, 0, 0, 0)
@@ -24,11 +23,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.3, 0.3)
 scroll_scale = Vector2(0.3, 0.3)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 20
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax3" unique_id=12430496]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, -106.66667)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
@@ -38,11 +37,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.4, 0.4)
 scroll_scale = Vector2(0.4, 0.4)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 30
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax4" unique_id=1913161999]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
 tile_set = ExtResource("1_wdd4c")
@@ -51,11 +50,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.5, 0.5)
 scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 30
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax5" unique_id=918989155]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, -63.999996)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
@@ -65,11 +64,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(0.6, 0.6)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 30
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax6" unique_id=1445668560]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
 tile_set = ExtResource("1_wdd4c")
@@ -78,11 +77,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.7, 0.7)
 scroll_scale = Vector2(0.7, 0.7)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 30
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax7" unique_id=221341301]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
 tile_set = ExtResource("1_wdd4c")
@@ -91,11 +90,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.8, 0.8)
 scroll_scale = Vector2(0.8, 0.8)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 20
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax8" unique_id=1905992382]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(0, -40)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
@@ -105,11 +104,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.9, 0.9)
 scroll_scale = Vector2(0.9, 0.9)
-repeat_size = Vector2(240, 480)
+repeat_size = Vector2(240, 540)
 repeat_times = 30
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax9" unique_id=482657589]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(-15.555556, -201.11111)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 0, 0, 25, 0, 12, 0, 0, 0)
@@ -119,11 +118,11 @@ tile_set = ExtResource("1_wdd4c")
 z_index = -9
 scale = Vector2(0.95, 0.95)
 scroll_scale = Vector2(0.95, 0.95)
-repeat_size = Vector2(270, 480)
+repeat_size = Vector2(270, 540)
 repeat_times = 10
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax95" unique_id=1028171113]
-modulate = Color(1, 1, 1, 0.78431374)
+modulate = Color(1, 1, 1, 0.5882353)
 scale = Vector2(15, 15)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 12, 0, 0, 0)
 tile_set = ExtResource("1_wdd4c")

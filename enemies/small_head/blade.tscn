@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://hnfubfexmx21"]
 
-[ext_resource type="Script" uid="uid://bnyf840ygb7n" path="res://enemies/small_head/blade.gd" id="1_6v401"]
+[ext_resource type="Script" uid="uid://bnyf840ygb7n" path="res://enemies/small_head/projectile.gd" id="1_6v401"]
 [ext_resource type="Texture2D" uid="uid://bllklqeha60wn" path="res://enemies/small_head/mvm-32-enemy-2-projectile.png" id="1_or5v2"]
 [ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="2_g11ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6v401"]
-size = Vector2(5, 1)
+size = Vector2(11, 2)
 
 [node name="Blade" type="Node2D" unique_id=1430706262]
+z_index = 20
 script = ExtResource("1_6v401")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1387947575]
 rotation = -0.7853982
 texture = ExtResource("1_or5v2")
-offset = Vector2(2, 2)
+offset = Vector2(4, 4)
 
 [node name="HazardArea" type="Area2D" parent="." unique_id=667977298]
 collision_layer = 0
@@ -22,5 +23,11 @@ script = ExtResource("2_g11ot")
 metadata/_custom_type_script = "uid://c20iho8lxary4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=741693831]
-position = Vector2(2.5, 0)
+position = Vector2(5.5, 0)
+shape = SubResource("RectangleShape2D_6v401")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=697057309]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=818693968]
+position = Vector2(5.5, 0)
 shape = SubResource("RectangleShape2D_6v401")

@@ -1,9 +1,9 @@
 class_name ESJump
 extends ESAttack
 
-@export var jump_velocity : float = 600
+@export var jump_velocity : float = 1000
 
-var forward_velocity : float = 0
+@export var forward_velocity : float = 150
 
 func _ready() -> void:
 	run_cooldown()
@@ -27,24 +27,33 @@ func physics_update( _delta : float ) -> void:
 	timer += _delta
 	if enemy.animation.current_animation_position < 0.5:
 		return
-			
-	print("anim fin")
+		
+	if timer >= 0.2:
+		attack_area.activate(4)
+		
 	if enemy.is_on_floor():
+		attack_area.set_active(false)
 		on_cooldown = true
 		blackboard.can_decide = true
-	#print(enemy.velocity, enemy.global_position)
-	#enemy.move_and_slide()
-	#if enemy.is_on_floor():
-		#on_cooldown = true
+	
+	if enemy.global_position.y >= 500:
+		print(enemy.global_position)
+		enemy.velocity.x /= 4
+		return
+	
+	var offset = 48
+	
+	if blackboard.target.global_position.x > enemy.global_position.x:
+		enemy.change_direction(1)
+		enemy.velocity.x = forward_velocity * blackboard.dir
+	elif blackboard.target.global_position.x < enemy.global_position.x:
+		enemy.change_direction(-1)
+		enemy.velocity.x = -forward_velocity
+
 	pass
 	
 func do_jump() -> void:
-	var distance = blackboard.distance_to_x(enemy.global_position)
-	forward_velocity = distance / 1.35
-	enemy.velocity.x = forward_velocity * blackboard.dir
 	enemy.velocity.y = -jump_velocity
-	
-	attack_area.activate(1.35)
 
 func can_attack() -> bool:
 	if not on_cooldown:

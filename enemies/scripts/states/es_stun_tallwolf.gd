@@ -14,6 +14,7 @@ extends ESStun
 func re_enter() -> void:
 	super()
 	duration /= 2
+	print(duration)
 #
 #func exit() -> void:
 	#pass

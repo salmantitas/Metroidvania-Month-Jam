@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_1bjub"]
 [ext_resource type="PackedScene" uid="uid://b84bhjrqcd717" path="res://levels/mvm/backgrounds/background_trees.tscn" id="1_ajmrd"]
+[ext_resource type="PackedScene" uid="uid://b5jfh3yxpsbu7" path="res://levels/sky_1.tscn" id="1_dbb6m"]
 [ext_resource type="PackedScene" uid="uid://bkjbair0atc65" path="res://levels/props/glow_plant.tscn" id="2_1e3t5"]
 [ext_resource type="PackedScene" uid="uid://dddf53a8cccg" path="res://levels/mvm/backgrounds/background_clouds.tscn" id="3_fef3o"]
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="3_ofntm"]
@@ -12,26 +13,13 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_ycxr6"]
 [ext_resource type="AudioStream" uid="uid://bis7s342ht4mv" path="res://music/mvm-32-save.ogg" id="9_nix6u"]
 
-[sub_resource type="Gradient" id="Gradient_hxn5c"]
-colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_iea4q"]
-gradient = SubResource("Gradient_hxn5c")
-width = 1440
-height = 810
-fill_to = Vector2(0, 1)
-
 [node name="02" type="Node2D" unique_id=1411465302]
 
 [node name="BGParallaxLayers" type="Node2D" parent="." unique_id=1630916392]
 position = Vector2(49, 274)
 
-[node name="BackgroundSky" type="Parallax2D" parent="BGParallaxLayers" unique_id=186185607]
-z_index = -10
-scroll_scale = Vector2(0.05, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayers/BackgroundSky" unique_id=1900503764]
-texture = SubResource("GradientTexture2D_iea4q")
+[node name="Sky1" parent="BGParallaxLayers" unique_id=1310749737 instance=ExtResource("1_dbb6m")]
+position = Vector2(355, 792)
 
 [node name="BackgroundTrees" parent="BGParallaxLayers" unique_id=636596031 instance=ExtResource("1_ajmrd")]
 
@@ -56,7 +44,6 @@ tile_set = ExtResource("1_1bjub")
 collision_enabled = false
 
 [node name="BackgroundClouds" parent="BGParallaxLayers" unique_id=2050595117 instance=ExtResource("3_fef3o")]
-position = Vector2(-83, -1222)
 
 [node name="Level" type="Node2D" parent="." unique_id=1603359252]
 

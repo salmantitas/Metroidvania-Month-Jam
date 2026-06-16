@@ -1,7 +1,7 @@
 class_name ESDescend
 extends EnemyState
 
-@export var move_speed : float = 50
+@export var move_speed : float = 100
 @export var descent_y : float = 600
 
 var can_descend : bool = true

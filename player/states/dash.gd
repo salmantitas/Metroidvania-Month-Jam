@@ -29,7 +29,8 @@ func enter() -> void:
 	
 	player.dash_count += 1
 	
-	player.sprite.tween_color()
+	#player.sprite.tween_color()
+	player.sprite.tween_color( 0.5, Color(0.511, 0.511, 0.511, 1.0))
 	
 func exit() -> void:
 	player.gravity_multiplier = 1.0

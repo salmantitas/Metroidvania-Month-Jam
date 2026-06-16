@@ -14,8 +14,14 @@ func _ready() -> void:
 	load_button.pressed.connect( _on_load_pressed )
 	quit_button.pressed.connect( _on_quit_pressed )
 	
+	SceneManager.scene_entered.connect( _on_scene_entered )
+	
 	if SceneManager.is_running_on_mobile():
 		$Control/Sprite2D.queue_free()
+	elif SceneManager.is_running_on_web():
+		$Control/Sprite2D.frame = 15
+	else:
+		$Control/Sprite2D.frame = 14
 
 func update_health_bar( hp : float, max_hp : float) -> void:
 	var value : float = (hp/max_hp) * 100
@@ -56,3 +62,22 @@ func _on_quit_pressed() -> void:
 	clear_game_over()
 #	get_tree().paused = false
 #	Messages.back_to_title_screen.emit()
+
+func hide_hud() -> void:
+	%HPMarginContainer.visible = false
+	$Control/Sprite2D.visible = false
+	print("hidden")
+
+func show_hud() -> void:
+	%HPMarginContainer.visible = true
+	$Control/Sprite2D.visible = true
+	print("shown")
+
+func hud_visible() -> bool:
+	return %HPMarginContainer.visible or $Control/Sprite2D.visible
+
+func _on_scene_entered( scene_uid : String ) -> void:
+	if scene_uid == "uid://c2iu2rqjvhsko" or scene_uid == "uid://b8p7td8dgl6im" or scene_uid == "uid://di08nmr3pvih2":
+		hide_hud()
+	else:
+		show_hud()

@@ -13,9 +13,9 @@
 [ext_resource type="Script" uid="uid://cx5orscnro51t" path="res://enemies/scripts/states/es_stun.gd" id="11_im0qe"]
 [ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="12_ld813"]
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="13_rphqq"]
-[ext_resource type="Script" uid="uid://c6qdcxjim2hca" path="res://enemies/scripts/states/es_shoot.gd" id="14_jhsib"]
 [ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="14_q3xh4"]
 [ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="15_no1vt"]
+[ext_resource type="Script" uid="uid://vcnwi00ll2lj" path="res://enemies/scripts/states/es_fly_shoot.gd" id="15_sdc7p"]
 [ext_resource type="Script" uid="uid://clll6rubakg4r" path="res://enemies/scripts/states/es_fly_retreat.gd" id="16_sdc7p"]
 [ext_resource type="Script" uid="uid://d3eoeqberwxlx" path="res://enemies/scripts/decision_engines/decision_engine_flying_range.gd" id="17_ulb8p"]
 
@@ -186,18 +186,17 @@ _data = {
 &"stun": SubResource("Animation_2ui2u")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8see4"]
-radius = 9.0
-height = 18.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdc7p"]
+radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2nuq"]
-size = Vector2(17, 16)
+size = Vector2(25, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ljtw"]
-size = Vector2(10, 9)
+size = Vector2(11, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjt4y"]
-size = Vector2(13, 16)
+size = Vector2(9, 6)
 
 [sub_resource type="Curve" id="Curve_8171w"]
 _limits = [-0.25, 1.0, -0.25, 1.0]
@@ -232,7 +231,7 @@ affected_by_gravity = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605519301]
 position = Vector2(0, -12)
-scale = Vector2(-2, 2)
+scale = Vector2(-3, 3)
 texture = ExtResource("2_ww6yt")
 offset = Vector2(2, 0)
 hframes = 3
@@ -243,8 +242,9 @@ libraries/ = SubResource("AnimationLibrary_ylgn2")
 autoplay = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
-position = Vector2(0, -6)
-shape = SubResource("CapsuleShape2D_8see4")
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_sdc7p")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
 position = Vector2(2, 2)
@@ -255,29 +255,30 @@ audio = ExtResource("4_frkde")
 metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=862960719]
-position = Vector2(-1.5, -9)
+position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_r2nuq")
 
 [node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_lexyc")
 metadata/_custom_type_script = "uid://c20iho8lxary4"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=135911165]
-position = Vector2(1, -5)
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_5ljtw")
 debug_color = Color(0.9495829, 3.85046e-06, 0.57516646, 0.41960785)
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2078590995]
-visible = false
+position = Vector2(4, 2)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("6_sxinc")
 metadata/_custom_type_script = "uid://b8aavctqxkj24"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1142068858]
-position = Vector2(-2.5, -8)
+position = Vector2(3.5, -8)
 shape = SubResource("RectangleShape2D_gjt4y")
 debug_color = Color(1, 0, 0, 0.41960785)
 
@@ -332,11 +333,12 @@ death_sound = ExtResource("13_rphqq")
 animation_name = "death"
 metadata/_custom_type_script = "uid://cwfct1lx3qndn"
 
-[node name="ESShoot" type="Node" parent="EnemyStateMachine" unique_id=221793387]
-script = ExtResource("14_jhsib")
+[node name="ESShoot" type="Node" parent="EnemyStateMachine" unique_id=681797383]
+script = ExtResource("15_sdc7p")
 projectile_scene = "uid://cvpu2jwvlbech"
+move_speed = -200.0
 cooldown = 2.0
-metadata/_custom_type_script = "uid://c6qdcxjim2hca"
+metadata/_custom_type_script = "uid://vcnwi00ll2lj"
 
 [node name="ESFlyRetreat" type="Node" parent="EnemyStateMachine" unique_id=1276079687 node_paths=PackedStringArray("shoot_state")]
 script = ExtResource("16_sdc7p")
@@ -362,6 +364,7 @@ position = Vector2(3, -1)
 polygon = PackedVector2Array(0, 0, 256, 128, 256, -128)
 
 [node name="Label" type="Label" parent="." unique_id=578986677]
+visible = false
 offset_left = -10.0
 offset_top = -83.0
 offset_right = 30.0

@@ -49,6 +49,14 @@ func transition_scene( new_scene : String, target_area : String, player_offset :
 		pass
 	else:
 		PlayerHud.visible = true
+		print("hud visible")
+	
+	#if new_scene == TITLE_SCREEN_UID:
+		#PlayerHud.hide_hud()
+	#elif new_scene == "uid://b8p7td8dgl6im":
+		#PlayerHud.hide_hud()
+	#else:
+		#PlayerHud.show_hud()
 	
 	# fade new scene in
 	await fade_screen(Vector2.ZERO, -fade_pos)
@@ -91,3 +99,6 @@ func create_mobile_control_hud( new_scene : String) -> void:
 
 func is_running_on_mobile() -> bool:
 	return OS.has_feature("web_android") or OS.has_feature("web_ios")
+
+func is_running_on_web() -> bool:
+	return OS.has_feature("web")

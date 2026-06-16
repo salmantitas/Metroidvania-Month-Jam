@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b8p7td8dgl6im"]
+
+[sub_resource type="Gradient" id="Gradient_3iaq5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_my301"]
+gradient = SubResource("Gradient_3iaq5")
+
+[sub_resource type="GDScript" id="GDScript_3iaq5"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_tree().paused = true
+	PlayerHud.hide()
+	$\".\".grab_focus()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	SceneManager.transition_scene(\"res://title_screen/title_screen.tscn\", \"\", Vector2.ZERO, \"top\")
+	get_tree().paused = false
+	Messages.back_to_title_screen.emit()
+"
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=111044996]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2097660808]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_my301")
+
+[node name="Control" type="Control" parent="." unique_id=1995125756]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1934284124]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -51.0
+offset_right = 124.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1854304569]
+layout_mode = 2
+text = "YOU HAVE CLIMBED THE TOWER AND FREED THE KINGDOM FROM THE EVIL THAT PLAGUED IT"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1787143401]
+layout_mode = 2
+text = "THANK YOU FOR PLAYING"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=525894938]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+theme_override_colors/font_hover_color = Color(0.13725491, 0.3137255, 0.30980393, 1)
+text = "return to title"
+script = SubResource("GDScript_3iaq5")
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="Control/VBoxContainer/Button" method="_on_pressed"]

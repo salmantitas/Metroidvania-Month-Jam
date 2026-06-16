@@ -5,6 +5,8 @@ const DEBUG_JUMP_INDICATOR = preload("uid://ypbd2v844p8k")
 
 #region /// signals
 signal damage_taken
+signal death
+signal moving(direction : float)
 #endregion
 
 #region /// Onready Variables
@@ -43,10 +45,10 @@ var max_hp : float = 20 :
 		max_hp = value
 		hp = max_hp
 		Messages.player_health_changed.emit(hp, max_hp)
-var dash : bool = false
+var dash : bool = true
 var dash_count : int = 0
 
-var morph : bool = false
+var morph : bool = true
 
 var double_jump : bool = true
 var jump_count : int = 0
@@ -163,8 +165,8 @@ func change_state( new_state : PlayerState) -> void:
 func update_direction() -> void:
 	var previous_direction : Vector2 = direction
 	
-	var x_axis = Input.get_axis("left", "right")
-	var y_axis = Input.get_axis("up", "down")
+	var x_axis : float = Input.get_axis("left", "right")
+	var y_axis : float = Input.get_axis("up", "down")
 	direction = Vector2(x_axis, y_axis)
 	
 	if previous_direction.x != direction.x:
@@ -179,6 +181,9 @@ func update_direction() -> void:
 			sprite.flip_h = false
 			attack_sprite.flip_h = false
 			attack_sprite.position.x = 7
+		
+		
+	moving.emit(direction.x)
 	
 func add_debug_indicator( color : Color = Color.RED ) -> void:
 	var d : Node2D = DEBUG_JUMP_INDICATOR.instantiate()
@@ -198,6 +203,9 @@ func _on_damage_taken( a : AttackArea ) -> void:
 		
 	hp -= a.damage
 	damage_taken.emit()
+	
+	if hp <= 0:
+		death.emit()
 	
 func _on_input_hint_changed( prompt : String):
 	if prompt == "interact":

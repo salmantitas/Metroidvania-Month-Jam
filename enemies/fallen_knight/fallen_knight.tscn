@@ -4,17 +4,17 @@
 [ext_resource type="Script" uid="uid://cx0u42gi5ve2b" path="res://enemies/scripts/enemy_state_machine.gd" id="3_ca3cu"]
 [ext_resource type="Script" uid="uid://5771gvno5gd7" path="res://enemies/scripts/decision_engines/decision_engine_knight.gd" id="3_xis07"]
 [ext_resource type="Script" uid="uid://b7cb5b3lwcdgt" path="res://enemies/scripts/states/es_walk.gd" id="4_xt1b3"]
-[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_tallwolf.gd" id="5_1sy3n"]
+[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_to_attack.gd" id="5_1sy3n"]
 [ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="6_45o7v"]
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="7_yms42"]
 [ext_resource type="Script" uid="uid://cwcwt1pjclvsj" path="res://enemies/scripts/states/es_attack_tallwolf.gd" id="9_lj2jg"]
-[ext_resource type="Script" uid="uid://c6qdcxjim2hca" path="res://enemies/scripts/states/es_shoot.gd" id="10_15jkp"]
 [ext_resource type="Script" uid="uid://ddh3qd5lfc4c5" path="res://enemies/scripts/states/es_stun_tallwolf.gd" id="10_r18jm"]
 [ext_resource type="Texture2D" uid="uid://ipsm4f7gf657" path="res://enemies/fallen_knight/mvm-32-enemy-2-boss.png" id="11_15jkp"]
 [ext_resource type="Script" uid="uid://p7pj5xxekumk" path="res://enemies/scripts/states/es_morph.gd" id="11_xis07"]
+[ext_resource type="Script" uid="uid://d2j431la7jvnt" path="res://enemies/scripts/states/es_shoot_knight.gd" id="12_0fxx0"]
 [ext_resource type="Script" uid="uid://cjyuqa8gpe8fg" path="res://player/scripts/dashing_sprite.gd" id="12_rrbgb"]
-[ext_resource type="Texture2D" uid="uid://dgd4o24hm0h0t" path="res://enemies/wolf_tall/mvm-32-enemy-1-boss-attack-effects.png" id="13_cn5j4"]
 [ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="14_1p7c2"]
+[ext_resource type="Texture2D" uid="uid://bxg2ffg8vn61u" path="res://enemies/fallen_knight/mvm-32-enemy-2-boss-attack-effects.png" id="14_xis07"]
 [ext_resource type="AudioStream" uid="uid://stx8b0juhc0k" path="res://enemies/slime/slime_hit.wav" id="15_k3xav"]
 [ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="16_bghsr"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="17_47e6t"]
@@ -24,16 +24,6 @@
 [sub_resource type="Curve" id="Curve_04y1n"]
 _data = [Vector2(0, 0.25184458), 0.0, 0.0, 0, 0, Vector2(0.4011628, 1), 0.0, 0.0, 0, 0, Vector2(0.6046512, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5012297), 0.0, 0.0, 0, 0]
 point_count = 4
-
-[sub_resource type="GDScript" id="GDScript_ee4f3"]
-script/source = "extends Label
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	visible = true
-	text = get_parent().name
-"
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -160,27 +150,9 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [0.2],
+"args": [0.3],
 "method": &"activate"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_spy00"]
-resource_name = "dash"
-length = 0.2
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_bkm6f"]
@@ -315,7 +287,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_u2l51"),
 &"attack": SubResource("Animation_eu4r5"),
-&"dash": SubResource("Animation_spy00"),
 &"death": SubResource("Animation_bkm6f"),
 &"morph": SubResource("Animation_1o55u"),
 &"morph_walk": SubResource("Animation_xis07"),
@@ -335,7 +306,7 @@ size = Vector2(32, 48)
 size = Vector2(19, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o55u"]
-size = Vector2(18, 61)
+size = Vector2(26, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spy00"]
 size = Vector2(938, 660)
@@ -353,7 +324,7 @@ script = ExtResource("3_xis07")
 attack_state = NodePath("../EnemyStateMachine/ESAttackTallWolf")
 chase_state = NodePath("../EnemyStateMachine/ESChaseTallWolf")
 morph_state = NodePath("../EnemyStateMachine/ESMorph")
-shoot_state = NodePath("../EnemyStateMachine/ESShoot")
+shoot_state = NodePath("../EnemyStateMachine/ESShootKnight")
 metadata/_custom_type_script = "uid://5771gvno5gd7"
 
 [node name="EnemyStateMachine" type="Node" parent="." unique_id=1093051899]
@@ -383,7 +354,8 @@ metadata/_custom_type_script = "uid://cwfct1lx3qndn"
 
 [node name="ESAttackTallWolf" type="Node" parent="EnemyStateMachine" unique_id=1855992140 node_paths=PackedStringArray("attack_area")]
 script = ExtResource("9_lj2jg")
-attack_range = 40.0
+attack_range = 30.0
+cooldown = 0.5
 attack_area = NodePath("../../AttackArea")
 move_speed_curve = SubResource("Curve_04y1n")
 metadata/_custom_type_script = "uid://cwcwt1pjclvsj"
@@ -395,15 +367,15 @@ knockback_strength = 50.0
 animation_name = "stun"
 metadata/_custom_type_script = "uid://ddh3qd5lfc4c5"
 
-[node name="ESShoot" type="Node" parent="EnemyStateMachine" unique_id=2133345444]
-script = ExtResource("10_15jkp")
+[node name="ESShootKnight" type="Node" parent="EnemyStateMachine" unique_id=1099367494]
+script = ExtResource("12_0fxx0")
 projectile_spawn_offset = 30.0
 projectile_scene = "uid://hnfubfexmx21"
 attack_range = 300.0
 move_speed = 10.0
-cooldown = 2.0
+cooldown = 1.0
 animation_name = "shoot"
-metadata/_custom_type_script = "uid://c6qdcxjim2hca"
+metadata/_custom_type_script = "uid://d2j431la7jvnt"
 
 [node name="ESMorph" type="Node" parent="EnemyStateMachine" unique_id=1050072603]
 script = ExtResource("11_xis07")
@@ -418,17 +390,9 @@ vframes = 4
 script = ExtResource("12_rrbgb")
 
 [node name="EffectsSprite" type="Sprite2D" parent="Sprite2D" unique_id=484090982]
-texture = ExtResource("13_cn5j4")
+z_index = 3
+texture = ExtResource("14_xis07")
 hframes = 4
-
-[node name="Label" type="Label" parent="." unique_id=449715480]
-visible = false
-offset_left = -28.0
-offset_top = -76.0
-offset_right = 36.0
-offset_bottom = -60.0
-text = "Name"
-script = SubResource("GDScript_ee4f3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=511422654]
 libraries/ = SubResource("AnimationLibrary_ylgn2")
@@ -463,15 +427,14 @@ shape = SubResource("RectangleShape2D_5ljtw")
 debug_color = Color(0.842217, 0.0011004615, 0.9194282, 0.41960785)
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=249719513]
-visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("17_47e6t")
-damage = 5.0
+damage = 10.0
 metadata/_custom_type_script = "uid://b8aavctqxkj24"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=129396636]
-position = Vector2(21, -30.5)
+position = Vector2(23, -30.5)
 shape = SubResource("RectangleShape2D_1o55u")
 debug_color = Color(1, 0, 0, 0.41960785)
 

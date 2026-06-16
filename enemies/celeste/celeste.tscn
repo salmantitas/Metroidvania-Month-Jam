@@ -4,8 +4,7 @@
 [ext_resource type="Script" uid="uid://cx0u42gi5ve2b" path="res://enemies/scripts/enemy_state_machine.gd" id="3_6j5wm"]
 [ext_resource type="Script" uid="uid://d4hpaogl8lqrf" path="res://enemies/scripts/states/es_fly.gd" id="4_rs22g"]
 [ext_resource type="Script" uid="uid://4ipncou0r4c2" path="res://enemies/scripts/states/es_idle.gd" id="4_yv3xw"]
-[ext_resource type="Script" uid="uid://3x8nk7m37i2f" path="res://enemies/scripts/states/es_jump.gd" id="5_f200t"]
-[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_tallwolf.gd" id="6_4mo4b"]
+[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_to_attack.gd" id="6_4mo4b"]
 [ext_resource type="Script" uid="uid://cwfct1lx3qndn" path="res://enemies/scripts/states/es_death.gd" id="7_6kbkg"]
 [ext_resource type="Script" uid="uid://delxjl1ybo6uw" path="res://enemies/scripts/states/es_slam_celeste.gd" id="7_tow2p"]
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="8_ntb3p"]
@@ -14,9 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://cgm0wt3rcrj83" path="res://enemies/celeste/mvm-32-enemy-4-boss.png" id="12_xfuut"]
 [ext_resource type="Script" uid="uid://bjcasad1d0bfn" path="res://enemies/scripts/states/es_descend.gd" id="13_tow2p"]
 [ext_resource type="Script" uid="uid://cjyuqa8gpe8fg" path="res://player/scripts/dashing_sprite.gd" id="13_yhikg"]
-[ext_resource type="Texture2D" uid="uid://cwoevhdddj1aq" path="res://enemies/celeste/mvm-32-enemy-1-boss-attack-effects.png" id="14_lh50u"]
+[ext_resource type="Script" uid="uid://byeflatlkrfqh" path="res://enemies/scripts/states/es_attack_celeste.gd" id="14_vmcbh"]
 [ext_resource type="Script" uid="uid://cd7vc2bhcxfl4" path="res://general/scripts/damage_area.gd" id="15_4pvgt"]
 [ext_resource type="AudioStream" uid="uid://stx8b0juhc0k" path="res://enemies/slime/slime_hit.wav" id="16_cs3ou"]
+[ext_resource type="Texture2D" uid="uid://eu552whyjahh" path="res://enemies/celeste/mvm-32-enemy-4-boss-attack-effects.png" id="16_tow2p"]
 [ext_resource type="Script" uid="uid://c20iho8lxary4" path="res://general/scripts/hazard_area.gd" id="17_8bje2"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="18_2hyl5"]
 [ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="19_oc3vq"]
@@ -26,16 +26,6 @@
 [sub_resource type="Curve" id="Curve_04y1n"]
 _data = [Vector2(0, 0.25184458), 0.0, 0.0, 0, 0, Vector2(0.50210977, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5012297), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="GDScript" id="GDScript_ee4f3"]
-script/source = "extends Label
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	visible = true
-	text = get_parent().name
-"
 
 [sub_resource type="Animation" id="Animation_u2l51"]
 length = 0.001
@@ -99,6 +89,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/EffectsSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_eu4r5"]
 resource_name = "attack"
@@ -111,7 +113,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
@@ -123,7 +125,7 @@ tracks/1/path = NodePath("Sprite2D/EffectsSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.8),
+"times": PackedFloat32Array(0, 0.099999994, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -135,10 +137,10 @@ tracks/2/path = NodePath("Sprite2D/EffectsSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -164,6 +166,32 @@ tracks/4/keys = {
 "values": [{
 "args": [0.2],
 "method": &"activate"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/EffectsSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 16)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EnemyStateMachine/ESAttackCeleste")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"move_to_player"
 }]
 }
 
@@ -317,13 +345,13 @@ size = Vector2(47, 79)
 size = Vector2(32, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o55u"]
-size = Vector2(41, 80)
+size = Vector2(117, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tow2p"]
 size = Vector2(41, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spy00"]
-size = Vector2(938, 660)
+size = Vector2(1000, 1000)
 
 [node name="Celeste" type="CharacterBody2D" unique_id=483238355]
 collision_layer = 32
@@ -336,7 +364,7 @@ face_left_on_start = true
 script = ExtResource("21_rs22g")
 descend_state = NodePath("../EnemyStateMachine/ESDescend")
 fly_state = NodePath("../EnemyStateMachine/ESFly")
-slash_state = NodePath("../EnemyStateMachine/ESAttackTallWolf")
+slash_state = NodePath("../EnemyStateMachine/ESAttackCeleste")
 slam_state = NodePath("../EnemyStateMachine/ESSlamCeleste")
 metadata/_custom_type_script = "uid://ffohynhvxpcj"
 
@@ -353,6 +381,20 @@ script = ExtResource("4_rs22g")
 animation_name = "fly"
 metadata/_custom_type_script = "uid://d4hpaogl8lqrf"
 
+[node name="ESAttackCeleste" type="Node" parent="EnemyStateMachine" unique_id=2080285611 node_paths=PackedStringArray("attack_area")]
+script = ExtResource("14_vmcbh")
+cooldown = 1.0
+attack_area = NodePath("../../SlashArea")
+metadata/_custom_type_script = "uid://byeflatlkrfqh"
+
+[node name="ESSlamCeleste" type="Node" parent="EnemyStateMachine" unique_id=2013046129 node_paths=PackedStringArray("attack_area")]
+script = ExtResource("7_tow2p")
+move_speed = 300.0
+cooldown = 4.0
+attack_area = NodePath("../../SlashArea")
+animation_name = "slam"
+metadata/_custom_type_script = "uid://delxjl1ybo6uw"
+
 [node name="ESAttackTallWolf" type="Node" parent="EnemyStateMachine" unique_id=1855992140 node_paths=PackedStringArray("attack_area")]
 script = ExtResource("10_er0gf")
 attack_range = 200.0
@@ -361,23 +403,10 @@ attack_area = NodePath("../../SlashArea")
 move_speed_curve = SubResource("Curve_04y1n")
 metadata/_custom_type_script = "uid://cwcwt1pjclvsj"
 
-[node name="ESSlamCeleste" type="Node" parent="EnemyStateMachine" unique_id=2013046129 node_paths=PackedStringArray("attack_area")]
-script = ExtResource("7_tow2p")
-move_speed = 300.0
-attack_area = NodePath("../../SlashArea")
-animation_name = "slam"
-metadata/_custom_type_script = "uid://delxjl1ybo6uw"
-
 [node name="ESIdle" type="Node" parent="EnemyStateMachine" unique_id=1481772321]
 script = ExtResource("4_yv3xw")
 animation_name = "idle"
 metadata/_custom_type_script = "uid://4ipncou0r4c2"
-
-[node name="ESJump" type="Node" parent="EnemyStateMachine" unique_id=298350967]
-script = ExtResource("5_f200t")
-cooldown = 2.0
-animation_name = "jump"
-metadata/_custom_type_script = "uid://3x8nk7m37i2f"
 
 [node name="ESChaseTallWolf" type="Node" parent="EnemyStateMachine" unique_id=96012506 node_paths=PackedStringArray("attack_state")]
 script = ExtResource("6_4mo4b")
@@ -407,17 +436,9 @@ vframes = 4
 script = ExtResource("13_yhikg")
 
 [node name="EffectsSprite" type="Sprite2D" parent="Sprite2D" unique_id=484090982]
-texture = ExtResource("14_lh50u")
-hframes = 4
-
-[node name="Label" type="Label" parent="." unique_id=449715480]
-visible = false
-offset_left = -28.0
-offset_top = -76.0
-offset_right = 36.0
-offset_bottom = -60.0
-text = "Name"
-script = SubResource("GDScript_ee4f3")
+position = Vector2(0, 16)
+texture = ExtResource("16_tow2p")
+hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=511422654]
 libraries/ = SubResource("AnimationLibrary_ylgn2")
@@ -453,7 +474,6 @@ shape = SubResource("RectangleShape2D_5ljtw")
 debug_color = Color(0.7674819, 0.22042784, 0.9480396, 0.41960785)
 
 [node name="SlashArea" type="Area2D" parent="." unique_id=249719513]
-visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("18_2hyl5")
@@ -461,7 +481,7 @@ damage = 5.0
 metadata/_custom_type_script = "uid://b8aavctqxkj24"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlashArea" unique_id=129396636]
-position = Vector2(59.5, -41)
+position = Vector2(29.5, -17)
 shape = SubResource("RectangleShape2D_1o55u")
 debug_color = Color(1, 0, 0, 0.41960785)
 
@@ -485,35 +505,9 @@ script = ExtResource("19_oc3vq")
 metadata/_custom_type_script = "uid://b7p15g1owg13o"
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=299749342]
-visible = false
 position = Vector2(17, -54)
 script = ExtResource("20_pc6k4")
 metadata/_custom_type_script = "uid://dbypeu8au6hwx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor" unique_id=1309269598]
 shape = SubResource("RectangleShape2D_spy00")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1847572528]
-
-[node name="Control" type="Control" parent="CanvasLayer2" unique_id=268221650]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer2/Control" unique_id=308591600]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAME FINISHED"

@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cxvqjrf38q1nd" path="res://levels/tilesets/light_stream.jpg" id="6_chwhs"]
 [ext_resource type="Material" uid="uid://scyeil7fn632" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_8sv46"]
-[ext_resource type="PackedScene" uid="uid://dscowjw1n6psx" path="res://enemies/wolf_tall/wolf_tall.tscn" id="9_pj0xl"]
-[ext_resource type="PackedScene" uid="uid://uxhyrig8x6fy" path="res://enemies/jumping_rat/jumping_rat.tscn" id="10_8v3r1"]
+[ext_resource type="PackedScene" uid="uid://b72lqcgr6c5ru" path="res://general/dialog/dialog_area.tscn" id="9_pj0xl"]
+[ext_resource type="PackedScene" uid="uid://dydgnkx0mcpif" path="res://general/dialog/dialog_player.tscn" id="10_8v3r1"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="12_qt823"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
@@ -77,6 +77,9 @@ hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.09999997
 turbulence_enabled = true
 turbulence_influence_max = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pj0xl"]
+size = Vector2(193, 171)
 
 [node name="01" type="Node2D" unique_id=1411465302]
 
@@ -298,9 +301,15 @@ position = Vector2(698, 160)
 color = Color(0.5106953, 0.57587343, 0.9641021, 1)
 blend_mode = 2
 
-[node name="TallWolf" parent="." unique_id=483238355 instance=ExtResource("9_pj0xl")]
-position = Vector2(655, 160)
+[node name="DialogAreaSpire" parent="." unique_id=36283554 instance=ExtResource("9_pj0xl")]
+position = Vector2(481, 144)
+dialog_key = "spire"
 
-[node name="JumpingRat" parent="." unique_id=681087566 instance=ExtResource("10_8v3r1")]
-position = Vector2(783, 166)
-face_left_on_start = false
+[node name="CollisionShape2D" parent="DialogAreaSpire" index="0" unique_id=208586874]
+position = Vector2(69.5, 3.5)
+shape = SubResource("RectangleShape2D_pj0xl")
+
+[node name="DialogPlayer" parent="." unique_id=703388691 instance=ExtResource("10_8v3r1")]
+scene_text_file = "res://general/dialog/dialog.json"
+
+[editable path="DialogAreaSpire"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cygj2ww8sfpfg"
-path="res://.godot/imported/mvm-32-enemy-3-boss.png-cef0b44e36d3656c16c6953b8018ec70.ctex"
+uid="uid://dv5juw77rurka"
+path="res://.godot/imported/mvm-32-abilities.png-46624ce164489731234703031dac293b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/celeste/mvm-32-enemy-3-boss.png"
-dest_files=["res://.godot/imported/mvm-32-enemy-3-boss.png-cef0b44e36d3656c16c6953b8018ec70.ctex"]
+source_file="res://player/sprites/mvm-32-abilities.png"
+dest_files=["res://.godot/imported/mvm-32-abilities.png-46624ce164489731234703031dac293b.ctex"]
 
 [params]
 

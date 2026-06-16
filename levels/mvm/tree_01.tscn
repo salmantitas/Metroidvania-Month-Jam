@@ -164,68 +164,98 @@ energy = 2.0
 texture = SubResource("GradientTexture2D_ia6je")
 metadata/_edit_lock_ = true
 
-[node name="Spotlight1" type="Parallax2D" parent="Lighting" unique_id=1485990420]
+[node name="Spotlight1" type="Node2D" parent="Lighting" unique_id=1411182887]
+position = Vector2(53, 21.333332)
 scale = Vector2(0.33333334, 0.33333334)
-scroll_offset = Vector2(47, 6.666667)
-metadata/_edit_lock_ = true
 
 [node name="LightBeam" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1831934477]
-modulate = Color(1.1638972, 0.679102, 0, 0.19607843)
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
 z_index = 5
 material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(628, 488)
+position = Vector2(608.99994, 491)
 scale = Vector2(13.701681, 65.167816)
 texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
-
-[node name="LightBeam3" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1345644738]
-modulate = Color(0, 0, 0, 0.19607843)
-z_index = 5
-material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(628, 488)
-scale = Vector2(3, 65.168)
-texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
 
 [node name="LightBeam5" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=957324242]
-modulate = Color(1.1638972, 0.679102, 0, 0.14901961)
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
 z_index = 5
 material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(486.81183, 472.94824)
+position = Vector2(476.99997, 458.00003)
 rotation = 0.2617994
-scale = Vector2(13.70168, 65.167816)
+scale = Vector2(5, 65.168)
 texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
+
+[node name="LightBeam7" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=5356523]
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
+z_index = 5
+material = SubResource("CanvasItemMaterial_2rbur")
+position = Vector2(511.99997, 468.00003)
+rotation = 0.16557841
+scale = Vector2(2, 65.168)
+texture = ExtResource("6_dl3gj")
+
+[node name="LightBeam8" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1983867912]
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
+z_index = 5
+material = SubResource("CanvasItemMaterial_2rbur")
+position = Vector2(551, 495.00003)
+rotation = 0.14032896
+scale = Vector2(2, 65.168)
+texture = ExtResource("6_dl3gj")
+
+[node name="LightBeam9" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1723743041]
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
+z_index = 5
+material = SubResource("CanvasItemMaterial_2rbur")
+position = Vector2(512.00006, 478.00003)
+rotation = 0.22848359
+scale = Vector2(2, 65.168)
+texture = ExtResource("6_dl3gj")
 
 [node name="LightBeam6" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1963481061]
-modulate = Color(1.1638972, 0.679102, 0, 0.14901961)
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
 z_index = 5
 material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(486.81183, 472.94824)
-rotation = 0.26179937
+position = Vector2(530.00006, 473.99997)
+rotation = 0.12835689
 scale = Vector2(3, 65.168)
 texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
 
 [node name="LightBeam2" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=158036985]
-modulate = Color(1.1638972, 0.679102, 0, 0.14901961)
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
 z_index = 5
 material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(729.8119, 412.94824)
+position = Vector2(768, 498.0001)
 rotation = -0.2617994
-scale = Vector2(13.70168, 65.167816)
+scale = Vector2(6, 65.168)
 texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
+
+[node name="LightBeam3" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=1986939643]
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
+z_index = 5
+material = SubResource("CanvasItemMaterial_2rbur")
+position = Vector2(738.00006, 538)
+rotation = -0.16917479
+scale = Vector2(4, 65.168)
+texture = ExtResource("6_dl3gj")
+
+[node name="LightBeam10" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=2073403366]
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
+z_index = 5
+material = SubResource("CanvasItemMaterial_2rbur")
+position = Vector2(700, 539)
+rotation = -0.11384245
+scale = Vector2(0.2, 65.168)
+texture = ExtResource("6_dl3gj")
 
 [node name="LightBeam4" type="Sprite2D" parent="Lighting/Spotlight1" unique_id=629954994]
-modulate = Color(1.1638972, 0.679102, 0, 0.14901961)
+modulate = Color(1.1638972, 0.6825001, 0, 0.078431375)
 z_index = 5
 material = SubResource("CanvasItemMaterial_2rbur")
-position = Vector2(729.8119, 412.94824)
-rotation = -0.2617994
-scale = Vector2(3, 65.168)
+position = Vector2(697, 444)
+rotation = -0.13880107
+scale = Vector2(2, 65.168)
 texture = ExtResource("6_dl3gj")
-metadata/_edit_lock_ = true
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=1483850271]
 z_index = 256

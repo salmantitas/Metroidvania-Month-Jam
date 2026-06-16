@@ -393,10 +393,13 @@ size = Vector2(16, 3)
 size = Vector2(22, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flula"]
-size = Vector2(48, 37)
+size = Vector2(42, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjvpn"]
 size = Vector2(36, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7qer"]
+size = Vector2(64, 48)
 
 [node name="Player" type="CharacterBody2D" unique_id=1765724504 groups=["Player"]]
 z_index = 2
@@ -468,6 +471,7 @@ hframes = 4
 vframes = 2
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=2100570174]
+visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
@@ -552,7 +556,7 @@ script = ExtResource("13_7t3bf")
 metadata/_custom_type_script = "uid://b8aavctqxkj24"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2025346040]
-position = Vector2(24, 3.5)
+position = Vector2(27, 3.5)
 shape = SubResource("RectangleShape2D_flula")
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
@@ -572,12 +576,12 @@ shape = SubResource("RectangleShape2D_bjvpn")
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
 [node name="TutorialArea" type="Area2D" parent="." unique_id=572252863]
+visible = false
 collision_layer = 2147483648
 collision_mask = 0
 monitoring = false
 
 [node name="CollisionBox" type="CollisionShape2D" parent="TutorialArea" unique_id=545511928]
-visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
@@ -625,3 +629,13 @@ hit_from_inside = true
 script = ExtResource("23_s7qer")
 color = Color(4.415934, 4.415934, 4.415934, 1)
 metadata/_custom_type_script = "uid://dcqbi3rbadqw5"
+
+[node name="DialogInteractionArea" type="Area2D" parent="." unique_id=233417280]
+visible = false
+collision_layer = 1073741824
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogInteractionArea" unique_id=384791422]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_s7qer")

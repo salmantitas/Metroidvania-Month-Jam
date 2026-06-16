@@ -93,7 +93,9 @@ func _show_load_game_menu():
 	load_slot_3.disabled = not SaveManager.save_file_exists (2)
 
 func _on_new_game_pressed( slot : int):
-	SaveManager.create_new_game_save( slot )
+	SaveManager.current_slot = slot
+	SceneManager.transition_scene("res://start_screen.tscn", "", Vector2.ZERO, "up")
+	#SaveManager.create_new_game_save( slot )
 	#SceneManager.transition_scene(
 		#SaveManager.new_game_scene_path,
 		#"",

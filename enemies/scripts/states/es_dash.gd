@@ -47,7 +47,7 @@ func exit() -> void:
 func physics_update( delta : float ) -> void:
 	if timer < 0:
 		move_speed = 0
-	
+		
 	timer += delta
 	if timer >= duration:
 		blackboard.can_decide = true
@@ -57,7 +57,7 @@ func physics_update( delta : float ) -> void:
 	effect_timer -= delta
 	if effect_timer <= 0:
 		effect_timer = effect_delay
-		sprite_ghost()
+		sprite_2d.ghost()
 	
 func run_cooldown() -> void:
 	await get_tree().create_timer(cooldown).timeout
@@ -78,6 +78,3 @@ func _on_animation_finish( anim_name : String) -> void:
 
 func tween_color() -> void:
 	sprite_2d.tween_color(duration, Color.RED)
-
-func sprite_ghost() -> void:
-	sprite_2d.ghost()

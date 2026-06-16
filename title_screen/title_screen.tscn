@@ -235,7 +235,7 @@ position = Vector2(1, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapContainer/BackgroundLayers" unique_id=777782940]
 position = Vector2(248.40002, 140)
-scale = Vector2(0.82866675, 0.695)
+scale = Vector2(0.9086643, 0.695)
 texture = SubResource("GradientTexture2D_cjsac")
 
 [node name="BackgroundTree" parent="TileMapContainer/BackgroundLayers" unique_id=1233011113 instance=ExtResource("1_1oos5")]

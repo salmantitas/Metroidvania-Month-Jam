@@ -19,8 +19,6 @@ func decide() -> EnemyState:
 	if blackboard.damage_source:
 		if blackboard.health <= 0:
 			return es_death
-		else:
-			return es_stun
 	
 	if current_state is ESDeath or not blackboard.can_decide:
 		return null
@@ -29,7 +27,7 @@ func decide() -> EnemyState:
 		#enemy.change_direction(-blackboard.dir)
 		
 	if blackboard.target:
-		if morph_condition_met():
+		if morph_state.can_morph():
 			return morph_state
 		elif attack_state.can_attack():
 			return attack_state
@@ -37,11 +35,7 @@ func decide() -> EnemyState:
 			return shoot_state
 		return chase_state
 	
-	#if enemy.state_machine.prev_state == dash_state:
-		#return es_stun
+	if enemy.state_machine.prev_state == morph_state:
+		return es_stun
 	
 	return es_walk # default state
-
-func morph_condition_met() -> bool:
-	return morph_state.can_morph()
-	return true

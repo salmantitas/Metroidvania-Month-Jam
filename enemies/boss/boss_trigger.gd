@@ -103,7 +103,6 @@ func _on_boss_killed() -> void:
 	Messages.input_hint_changed.emit("")
 
 func _on_boss_hit(_a : AttackArea) -> void:
-	print(boss.blackboard.health)
 	$BossUI/VBoxContainer/ProgressBar.value = boss.blackboard.health
 	
 func apply_area_settings() -> void:

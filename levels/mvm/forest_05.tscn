@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c268e50qgyisv"]
 
+[ext_resource type="PackedScene" uid="uid://b5jfh3yxpsbu7" path="res://levels/sky_1.tscn" id="1_3om4t"]
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="2_no3qq"]
 [ext_resource type="PackedScene" uid="uid://mr7cyq54kym4" path="res://levels/mvm/props/plant.tscn" id="3_ims40"]
 [ext_resource type="Texture2D" uid="uid://bwuhsmec64oc1" path="res://levels/tilesets/sprites/tree.png" id="4_101li"]
@@ -10,15 +11,6 @@
 [ext_resource type="Script" uid="uid://cmetx1xg2tcil" path="res://music/music_auto_trigger.gd" id="8_1loch"]
 [ext_resource type="AudioStream" uid="uid://cot788ddv100l" path="res://music/mvm-32-forest.ogg" id="9_u6wi3"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="10_8sfyn"]
-
-[sub_resource type="Gradient" id="Gradient_hxn5c"]
-colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q7svy"]
-gradient = SubResource("Gradient_hxn5c")
-width = 1440
-height = 810
-fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_hkqdi"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -38,13 +30,8 @@ blend_mode = 1
 [node name="BGParallaxLayers" type="Node2D" parent="." unique_id=1390067620]
 position = Vector2(-430, -520)
 
-[node name="BackgroundSky" type="Parallax2D" parent="BGParallaxLayers" unique_id=656635588]
-z_index = -10
-scroll_scale = Vector2(0.05, 1)
-scroll_offset = Vector2(556, 102)
-
-[node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayers/BackgroundSky" unique_id=1681709818]
-texture = SubResource("GradientTexture2D_q7svy")
+[node name="Sky1" parent="BGParallaxLayers" unique_id=1310749737 instance=ExtResource("1_3om4t")]
+position = Vector2(788, 624)
 
 [node name="BackgroundTree" type="Parallax2D" parent="BGParallaxLayers" unique_id=1154159550]
 z_index = -10

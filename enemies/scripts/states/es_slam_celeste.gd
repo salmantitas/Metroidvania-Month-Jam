@@ -48,8 +48,6 @@ func move_above_player() -> void:
 	
 	if pos == Vector2.ZERO:
 		pos = blackboard.target.global_position + Vector2(0, -32*4)
-	
-	#print(pos)
 
 	#var tween2 : Tween = get_tree().create_tween()
 	

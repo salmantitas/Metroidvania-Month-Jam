@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bonphniwprq0u" path="res://general/audio/death.wav" id="10_l71io"]
 [ext_resource type="Script" uid="uid://cdfhl3v322bhi" path="res://enemies/scripts/states/es_attack.gd" id="11_hqmrk"]
 [ext_resource type="Script" uid="uid://b7p15g1owg13o" path="res://enemies/scripts/sensors/edge_sensor.gd" id="13_1d71d"]
-[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_tallwolf.gd" id="13_wpes8"]
+[ext_resource type="Script" uid="uid://dhppd5r3b1o7s" path="res://enemies/scripts/states/es_chase_to_attack.gd" id="13_wpes8"]
 [ext_resource type="Script" uid="uid://dbypeu8au6hwx" path="res://enemies/scripts/sensors/player_sensor.gd" id="14_5aiod"]
 [ext_resource type="Script" uid="uid://c6qdcxjim2hca" path="res://enemies/scripts/states/es_shoot.gd" id="14_wpes8"]
 [ext_resource type="Script" uid="uid://b8aavctqxkj24" path="res://general/scripts/attack_area.gd" id="21_tu7se"]
@@ -211,7 +211,7 @@ collision_mask = 3
 script = ExtResource("1_acqti")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605519301]
-position = Vector2(0, -24.000002)
+position = Vector2(-3, -24)
 scale = Vector2(3, 3)
 texture = ExtResource("2_c0xf5")
 hframes = 4
@@ -222,12 +222,12 @@ libraries/ = SubResource("AnimationLibrary_ylgn2")
 autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670243455]
-visible = false
-position = Vector2(3, -23)
+position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_8see4")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=345645251]
 visible = false
+position = Vector2(0, -24)
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("3_istk2")
@@ -235,18 +235,17 @@ audio = ExtResource("4_xwphx")
 metadata/_custom_type_script = "uid://cd7vc2bhcxfl4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=862960719]
-position = Vector2(2.5, -24.5)
 shape = SubResource("RectangleShape2D_r2nuq")
 
 [node name="HazardArea" type="Area2D" parent="." unique_id=995065788]
 visible = false
+position = Vector2(0, -24)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_4hp15")
 metadata/_custom_type_script = "uid://c20iho8lxary4"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=135911165]
-position = Vector2(2.5, -24.5)
 shape = SubResource("RectangleShape2D_5ljtw")
 debug_color = Color(0.9495829, 3.85046e-06, 0.57516646, 0.41960785)
 
@@ -308,7 +307,7 @@ animation_name = "attack"
 metadata/_custom_type_script = "uid://c6qdcxjim2hca"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=329773588]
-position = Vector2(10, -5)
+position = Vector2(7, -3)
 target_position = Vector2(0, 12)
 collision_mask = 3
 hit_from_inside = true

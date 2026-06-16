@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://crje8l7x6y5wq"]
 
+[ext_resource type="PackedScene" uid="uid://b5jfh3yxpsbu7" path="res://levels/sky_1.tscn" id="1_ciyfq"]
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_oyb1y"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="2_jix4f"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="3_2rbur"]
@@ -11,15 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cvtg13yeuylj5" path="res://general/door_and_switch/door.tscn" id="10_bk8he"]
 [ext_resource type="PackedScene" uid="uid://btueac2kks71c" path="res://enemies/wolf_short/wolf_short.tscn" id="11_bk8he"]
 [ext_resource type="PackedScene" uid="uid://b6ril5g4ltbta" path="res://general/door_and_switch/switch.tscn" id="11_usox2"]
-
-[sub_resource type="Gradient" id="Gradient_hxn5c"]
-colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bk8he"]
-gradient = SubResource("Gradient_hxn5c")
-width = 1440
-height = 810
-fill_to = Vector2(0, 1)
+[ext_resource type="Script" uid="uid://dusbyka28t73" path="res://enemies/scripts/patrol_limit.gd" id="12_usox2"]
 
 [sub_resource type="Gradient" id="Gradient_hkqdi"]
 colors = PackedColorArray(0.37764862, 0.6552621, 0.7051553, 1, 1, 1, 1, 0)
@@ -48,14 +41,8 @@ blend_mode = 1
 
 [node name="BGParallaxLayers" type="Node2D" parent="." unique_id=1295820051]
 
-[node name="BackgroundSky" type="Parallax2D" parent="BGParallaxLayers" unique_id=715708814]
-z_index = -10
-scroll_scale = Vector2(0.05, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="BGParallaxLayers/BackgroundSky" unique_id=25451157]
-position = Vector2(450, -116)
-scale = Vector2(1.625, 1.2864197)
-texture = SubResource("GradientTexture2D_bk8he")
+[node name="Sky1" parent="BGParallaxLayers" unique_id=1310749737 instance=ExtResource("1_ciyfq")]
+position = Vector2(590, -677)
 
 [node name="BackgroundTree" type="Parallax2D" parent="BGParallaxLayers" unique_id=1045626940]
 z_index = -10
@@ -287,7 +274,7 @@ tile_set = ExtResource("1_oyb1y")
 collision_enabled = false
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="Foreground" unique_id=416823440]
-position = Vector2(143.63635, -250.9091)
+position = Vector2(143.63637, -241.81816)
 scale = Vector2(16.363636, 16.363636)
 tile_map_data = PackedByteArray("AAABAAIAAAAOAAYAAAAAAAIAAAAOAAYAAAD//wIAAAAOAAYAAAD+/wIAAAAOAAYAAAACAAIAAAAOAAYAAAADAAIAAAAOAAYAAAA=")
 tile_set = ExtResource("1_oyb1y")
@@ -349,6 +336,12 @@ position = Vector2(-44, -11)
 
 [node name="ShortWolf3" parent="Enemy" unique_id=470098497 instance=ExtResource("11_bk8he")]
 position = Vector2(602, 56)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemy/ShortWolf3" unique_id=1512832832]
+position = Vector2(307, 23)
+script = ExtResource("12_usox2")
+side = 2
+metadata/_custom_type_script = "uid://dusbyka28t73"
 
 [node name="ShortWolf4" parent="Enemy" unique_id=2054949588 instance=ExtResource("11_bk8he")]
 position = Vector2(368, 139)

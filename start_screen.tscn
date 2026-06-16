@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://di08nmr3pvih2"]
+
+[ext_resource type="StyleBox" uid="uid://4rqe72urw57u" path="res://button_focus_hover_stylebox.tres" id="1_ncxyx"]
+
+[sub_resource type="Gradient" id="Gradient_3iaq5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_my301"]
+gradient = SubResource("Gradient_3iaq5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pevhg"]
+
+[sub_resource type="GDScript" id="GDScript_afy8x"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$\".\".grab_focus()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	SaveManager.create_new_game_save( SaveManager.current_slot )
+"
+
+[node name="StartScreen" type="CanvasLayer" unique_id=111044996]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2097660808]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_my301")
+
+[node name="Control" type="Control" parent="." unique_id=1995125756]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1934284124]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -51.0
+offset_right = 124.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1854304569]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "The tree appeared without warning, and changed everything around it. Wherever its roots rotted and birthed the Forsaken Woods, where ferocious creatures of abnormal sizes reside."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1787143401]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "You have been sent to climb the tree, slay the demon that resides above and free the land from its corruption."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer" unique_id=657420979]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Will you succeed? Or will you be vanquished like the ones before you?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=361344437]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="Control/VBoxContainer/Control" unique_id=1124879622]
+layout_mode = 0
+offset_left = 162.0
+offset_top = -7.5
+offset_right = 238.0
+offset_bottom = 5.5
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.15686275, 0.6509804, 0.5137255, 1)
+theme_override_colors/font_focus_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0.9490196, 0.9843137)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pevhg")
+theme_override_styles/focus = ExtResource("1_ncxyx")
+text = "begin"
+script = SubResource("GDScript_afy8x")
+
+[connection signal="pressed" from="Control/VBoxContainer/Control/NewGameButton" to="Control/VBoxContainer/Control/NewGameButton" method="_on_pressed"]

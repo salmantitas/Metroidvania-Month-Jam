@@ -20,3 +20,6 @@ signal back_to_title_screen()
 
 @warning_ignore("unused_signal")
 signal powerup_acquired( powerup : String)
+
+@warning_ignore("unused_signal")
+signal display_dialog(text_key)

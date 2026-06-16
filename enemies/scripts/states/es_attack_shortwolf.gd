@@ -3,14 +3,6 @@ extends ESAttack
 
 @export var jump_velocity = 10
 
-#func enter() -> void:
-	#super()
-	#enemy.velocity.y = -jump_velocity
-
-#func exit() -> void:
-	#super()
-	#enemy.velocity.y = 0
-
 func physics_update( delta : float ) -> void:
 	timer += delta
 	if timer >= duration:
@@ -23,3 +15,8 @@ func physics_update( delta : float ) -> void:
 	
 func do_jump() -> void:
 	enemy.velocity.y = -jump_velocity
+
+func can_attack() -> bool:
+	if blackboard.distance_to_x(enemy.global_position) <= attack_range and not on_cooldown:
+		return true
+	return false

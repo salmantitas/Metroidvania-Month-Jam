@@ -3,8 +3,11 @@ extends Boss
 
 func _ready() -> void:
 	super()
-	$CanvasLayer2.visible = false
 	was_killed.connect(_on_boss_killed)
 
 func _on_boss_killed() -> void:
-	$CanvasLayer2.visible = true
+	SceneManager.transition_scene("res://end_screen.tscn", "", Vector2.ZERO, "top")
+	await SceneManager.scene_entered
+	var player = get_tree().get_first_node_in_group("Player")
+	player.queue_free()
+	PlayerHud.hide_hud()

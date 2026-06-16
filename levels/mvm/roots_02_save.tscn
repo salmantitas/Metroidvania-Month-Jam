@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_1bjub"]
 [ext_resource type="PackedScene" uid="uid://bkjbair0atc65" path="res://levels/props/glow_plant.tscn" id="2_1e3t5"]
+[ext_resource type="Texture2D" uid="uid://dvrma5fmuuma2" path="res://levels/tilesets/mvm-2026-light.png" id="3_jhpdd"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="5_b1yla"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="6_q0sjw"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="7_b253b"]
@@ -16,6 +17,13 @@ gradient = SubResource("Gradient_ekba3")
 width = 1440
 height = 810
 fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xrrl0"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="02" type="Node2D" unique_id=1411465302]
 
@@ -94,8 +102,147 @@ energy = 0.5
 
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="Level" unique_id=377518019]
 scale = Vector2(3, 3)
-color = Color(0.07822811, 0.038058646, 0.004874908, 1)
+color = Color(0.19138998, 0.11899888, 0.017103227, 1)
 blend_mode = 2
+
+[node name="Lighting" type="Node2D" parent="Level" unique_id=1011457871]
+show_behind_parent = true
+position = Vector2(39, 1.9999995)
+scale = Vector2(0.5276617, 1.0428725)
+
+[node name="Sprite" type="Sprite2D" parent="Level/Lighting" unique_id=913100282]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(12.46752, 223.14714)
+scale = Vector2(1.056774, 29.931032)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite2" type="Sprite2D" parent="Level/Lighting" unique_id=1271914072]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(8.0330715, 244.4596)
+scale = Vector2(1.714817, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite3" type="Sprite2D" parent="Level/Lighting" unique_id=1482131618]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(22.236868, 223.86923)
+scale = Vector2(2.1, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite4" type="Sprite2D" parent="Level/Lighting" unique_id=373187020]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(44.467583, 223.14714)
+scale = Vector2(1.056774, 29.931032)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite5" type="Sprite2D" parent="Level/Lighting" unique_id=1301798484]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(33.23681, 223.86914)
+scale = Vector2(1.714817, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite6" type="Sprite2D" parent="Level/Lighting" unique_id=1711184972]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(54.23693, 223.86923)
+scale = Vector2(2.1, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite7" type="Sprite2D" parent="Level/Lighting" unique_id=2120597470]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(72.692375, 223.14714)
+scale = Vector2(1.056774, 29.931032)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite8" type="Sprite2D" parent="Level/Lighting" unique_id=2031932189]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(61.461605, 223.86914)
+scale = Vector2(1.714817, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite9" type="Sprite2D" parent="Level/Lighting" unique_id=1398433969]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(82.46172, 223.86923)
+scale = Vector2(2.1, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite10" type="Sprite2D" parent="Level/Lighting" unique_id=266952614]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(101.692375, 223.14714)
+scale = Vector2(1.056774, 29.931032)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite11" type="Sprite2D" parent="Level/Lighting" unique_id=1067117270]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(90.4616, 223.86914)
+scale = Vector2(1.714817, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite12" type="Sprite2D" parent="Level/Lighting" unique_id=1642100375]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(111.46172, 223.86923)
+scale = Vector2(2.1, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite13" type="Sprite2D" parent="Level/Lighting" unique_id=1673981847]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(120.692314, 223.14714)
+scale = Vector2(1.056774, 29.931032)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite14" type="Sprite2D" parent="Level/Lighting" unique_id=247780132]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(109.4616, 223.86914)
+scale = Vector2(1.714817, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Sprite15" type="Sprite2D" parent="Level/Lighting" unique_id=94351499]
+modulate = Color(1.1638972, 0.6825001, 0, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_xrrl0")
+position = Vector2(130.46173, 223.86923)
+scale = Vector2(2.1, 29.931)
+texture = ExtResource("3_jhpdd")
+
+[node name="Foreground2" type="Parallax2D" parent="." unique_id=192045373]
+modulate = Color(0.19607843, 0.19607843, 0.19607843, 1)
+z_index = 10
+scale = Vector2(1.05, 1.05)
+scroll_scale = Vector2(1.05, 1)
+scroll_offset = Vector2(544, -43)
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="Foreground2" unique_id=2104396542]
+position = Vector2(-600, -85.7143)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAEAAQAAAAGAAMAAAAFAAQAAAAHAAMAAAAGAAQAAAAIAAMAAAAHAAQAAAAJAAMAAAAIAAQAAAAKAAMAAAAEAAUAAAAGAAQAAAAFAAUAAAAHAAQAAAAGAAUAAAAIAAQAAAAHAAUAAAAJAAQAAAAIAAUAAAAKAAQAAAAEAAIAAAAGAAMAAAAFAAIAAAAIAAMAAAAGAAIAAAAJAAMAAAAEAAMAAAAGAAMAAAAFAAMAAAAIAAMAAAAGAAMAAAAJAAMAAAAHAAIAAAAHAAMAAAAIAAIAAAAKAAMAAAAHAAMAAAAHAAMAAAAIAAMAAAAKAAMAAAACAAUAAAAKAAQAAAACAAQAAAAKAAMAAAACAAMAAAAKAAMAAAACAAIAAAAKAAMAAAAOAAkAAAAOAA0AAAALAAkAAAAOAA0AAAAGAAkAAAAOAA0AAAA=")
+tile_set = ExtResource("1_1bjub")
+collision_enabled = false
 
 [node name="Foreground" type="Parallax2D" parent="." unique_id=698517105]
 modulate = Color(0.19607843, 0.19607843, 0.19607843, 1)
@@ -107,8 +254,9 @@ scroll_offset = Vector2(544, -43)
 [node name="TileMapLayer3" type="TileMapLayer" parent="Foreground" unique_id=1781426360]
 position = Vector2(-600, -96.36363)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAANAAkAAAARAAkAAAANAAoAAAANAAoAAAAOAAkAAAARAAkAAAAOAAoAAAANAAoAAAAPAAkAAAASAAkAAAAPAAoAAAANAAoAAAAQAAkAAAAOAAkAAAAQAAoAAAANAAoAAAAEAAQAAAAGAAMAAAAFAAQAAAAHAAMAAAAGAAQAAAAIAAMAAAAHAAQAAAAJAAMAAAAIAAQAAAAKAAMAAAAEAAUAAAAGAAQAAAAFAAUAAAAHAAQAAAAGAAUAAAAIAAQAAAAHAAUAAAAJAAQAAAAIAAUAAAAKAAQAAAAEAAIAAAAGAAMAAAAFAAIAAAAIAAMAAAAGAAIAAAAJAAMAAAAEAAMAAAAGAAMAAAAFAAMAAAAIAAMAAAAGAAMAAAAJAAMAAAAHAAIAAAAHAAMAAAAIAAIAAAAKAAMAAAAHAAMAAAAHAAMAAAAIAAMAAAAKAAMAAAACAAUAAAAKAAQAAAACAAQAAAAKAAMAAAACAAMAAAAKAAMAAAACAAIAAAAKAAMAAAAIAAgAAAAQAAsAAAAIAAkAAAAQAAwAAAAJAAgAAAARAAsAAAAJAAkAAAARAAwAAAAHAAoAAAANAAoAAAAIAAoAAAANAAoAAAAJAAoAAAANAAoAAAAKAAoAAAANAAoAAAAGAAkAAAAOAAsAAAAGAAoAAAANAAoAAAAFAAoAAAANAAsAAAALAAkAAAAQAAkAAAAMAAkAAAARAAkAAAALAAoAAAANAAoAAAAMAAoAAAANAAoAAAAHAAkAAAASAAkAAAAFAAkAAAARAAkAAAAEAAkAAAARAAkAAAADAAkAAAAQAAkAAAADAAoAAAANAAoAAAAEAAoAAAAMAAsAAAA=")
+tile_map_data = PackedByteArray("AAANAAkAAAARAAkAAAANAAoAAAANAAoAAAAOAAkAAAARAAkAAAAOAAoAAAANAAoAAAAPAAkAAAASAAkAAAAPAAoAAAANAAoAAAAQAAkAAAAOAAkAAAAQAAoAAAANAAoAAAAEAAQAAAAGAAMAAAAFAAQAAAAHAAMAAAAGAAQAAAAIAAMAAAAHAAQAAAAJAAMAAAAIAAQAAAAKAAMAAAAEAAUAAAAGAAQAAAAFAAUAAAAHAAQAAAAGAAUAAAAIAAQAAAAHAAUAAAAJAAQAAAAIAAUAAAAKAAQAAAAEAAIAAAAGAAMAAAAFAAIAAAAIAAMAAAAGAAIAAAAJAAMAAAAEAAMAAAAGAAMAAAAFAAMAAAAIAAMAAAAGAAMAAAAJAAMAAAAHAAIAAAAHAAMAAAAIAAIAAAAKAAMAAAAHAAMAAAAHAAMAAAAIAAMAAAAKAAMAAAACAAUAAAAKAAQAAAACAAQAAAAKAAMAAAACAAMAAAAKAAMAAAACAAIAAAAKAAMAAAAIAAgAAAAQAAsAAAAIAAkAAAAQAAwAAAAJAAgAAAARAAsAAAAJAAkAAAARAAwAAAAHAAoAAAANAAoAAAAIAAoAAAANAAoAAAAJAAoAAAANAAoAAAAKAAoAAAANAAoAAAAGAAkAAAAOAAsAAAAGAAoAAAANAAoAAAAFAAoAAAANAAsAAAALAAkAAAAQAAkAAAAMAAkAAAARAAkAAAALAAoAAAANAAoAAAAMAAoAAAANAAoAAAAHAAkAAAASAAkAAAAFAAkAAAARAAkAAAAEAAkAAAARAAkAAAADAAkAAAAQAAkAAAADAAoAAAANAAoAAAAEAAoAAAAMAAsAAAAKAAkAAAAOAA0AAAA=")
 tile_set = ExtResource("1_1bjub")
+collision_enabled = false
 
 [node name="PlayerSpawn" parent="." unique_id=65854303 instance=ExtResource("5_b1yla")]
 position = Vector2(30, 340)
@@ -125,13 +273,6 @@ metadata/_custom_type_script = "uid://bs17osqaujnog"
 position = Vector2(0, 348)
 size = 3
 target_level = "uid://bw53l057627td"
-
-[node name="LevelTransition2" parent="." unique_id=2062890910 instance=ExtResource("7_b253b")]
-position = Vector2(702, 300)
-size = 4
-location = 1
-target_level = "uid://fgk6d8keq1qo"
-target_area_name = "LevelTransition2"
 
 [node name="LevelTransition3" parent="." unique_id=401733774 instance=ExtResource("7_b253b")]
 position = Vector2(40, -1)

@@ -70,6 +70,7 @@ func _on_back_to_title_pressed():
 	get_tree().paused = false
 	Messages.back_to_title_screen.emit()
 	queue_free()
+	PlayerHud.visible = false
 	
 func _on_controls_menu_pressed():
 	controls_screen.visible = true

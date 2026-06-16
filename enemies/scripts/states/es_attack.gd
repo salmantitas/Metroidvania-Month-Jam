@@ -12,16 +12,7 @@ var duration : float = 0
 var on_cooldown : bool = false
 
 func enter() -> void:
-	var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
-	enemy.change_direction(dir)
-	enemy.play_animation(animation_name if animation_name else "attack")
-	duration = enemy.animation.current_animation_length
-	timer = 0
-	blackboard.can_decide = false
-	on_cooldown = true
-	enemy.velocity.x = move_speed * blackboard.dir
-	if attack_area:
-		attack_area.flip(blackboard.dir)
+	start()
 
 func re_enter() -> void:
 	pass
@@ -38,9 +29,22 @@ func physics_update( delta : float ) -> void:
 	if move_speed_curve:
 		var sample : float = move_speed_curve.sample(timer / duration)
 		enemy.velocity.x = move_speed * sample * blackboard.dir
-		
+
+func start() -> void:
+	var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
+	enemy.change_direction(dir)
+	enemy.play_animation(animation_name if animation_name else "attack")
+	duration = enemy.animation.current_animation_length
+	timer = 0
+	blackboard.can_decide = false
+	on_cooldown = true
+	enemy.velocity.x = move_speed * blackboard.dir
+	if attack_area:
+		attack_area.flip(blackboard.dir)
+
+
 func can_attack() -> bool:
-	if blackboard.distance_to_target <= attack_range and not on_cooldown:
+	if not on_cooldown:
 		return true
 	return false
 

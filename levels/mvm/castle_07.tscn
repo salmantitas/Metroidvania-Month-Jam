@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://vts3m3l0j3pd" path="res://levels/tilesets/mvm_32_tileset.tres" id="1_5ig2n"]
 [ext_resource type="PackedScene" uid="uid://dddf53a8cccg" path="res://levels/mvm/backgrounds/background_clouds.tscn" id="1_pwyks"]
 [ext_resource type="PackedScene" uid="uid://5kgoo405hca8" path="res://general/player_spawn/player_spawn.tscn" id="2_pwyks"]
+[ext_resource type="PackedScene" uid="uid://bph4x8o1cyo2s" path="res://levels/sky_2.tscn" id="3_pwyks"]
 [ext_resource type="Script" uid="uid://bs17osqaujnog" path="res://general/scripts/level_bounds.gd" id="3_tt62e"]
 [ext_resource type="PackedScene" uid="uid://cxfhbpp2f6r0n" path="res://general/level_transition/level_transition.tscn" id="4_2ws7f"]
 [ext_resource type="PackedScene" uid="uid://ud437nkys518" path="res://enemies/boss/boss_trigger.tscn" id="6_3q6pq"]
@@ -10,28 +11,12 @@
 [ext_resource type="AudioStream" uid="uid://ujfn3vssqnj2" path="res://music/mvm-32-castle-boss.ogg" id="7_3q6pq"]
 [ext_resource type="PackedScene" uid="uid://cr1mfgny41ksj" path="res://enemies/fallen_knight/fallen_knight.tscn" id="9_5ig2n"]
 
-[sub_resource type="Gradient" id="Gradient_nkhgq"]
-colors = PackedColorArray(0.24313726, 0.4627451, 0.53333336, 1, 0.37254903, 0.6156863, 0.8117647, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvumv"]
-gradient = SubResource("Gradient_nkhgq")
-width = 1440
-height = 810
-fill_to = Vector2(0, 1)
-
 [node name="02" type="Node2D" unique_id=1411465302]
 
 [node name="BackgroundLayers" type="Node2D" parent="." unique_id=1941466270]
 
-[node name="BackgroundSky" type="Parallax2D" parent="BackgroundLayers" unique_id=529277843]
-z_index = -10
-scroll_scale = Vector2(0.1, 1)
-scroll_offset = Vector2(198, 117)
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayers/BackgroundSky" unique_id=482671085]
-position = Vector2(366, 263.00003)
-scale = Vector2(1.1638865, 1.0493828)
-texture = SubResource("GradientTexture2D_vvumv")
+[node name="Sky1" parent="BackgroundLayers" unique_id=1310749737 instance=ExtResource("3_pwyks")]
+position = Vector2(169, -438)
 
 [node name="BackgroundClouds" parent="BackgroundLayers" unique_id=2050595117 instance=ExtResource("1_pwyks")]
 

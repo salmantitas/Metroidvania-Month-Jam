@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 
 @onready var ability_dash: TextureRect = %AbilityDash
 @onready var ability_morph: TextureRect = %AbilityMorph
